@@ -1,0 +1,7 @@
+schema: http://34.64.161.16/team04
+generates:
+  ./src/commons/types/generated/types.d.ts:
+    plugins:
+      - typescript
+    config:
+      typesPrefix: I
