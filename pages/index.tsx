@@ -1,7 +1,7 @@
 export default function LandingPage() { 
   return (
     <>
-      <div>POSH</div>
+      <div>POSH페이지</div>
     </>
   )
 }
