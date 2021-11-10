@@ -1,7 +1,7 @@
-export default function LandingPage() { 
+export default function LandingPage() {
   return (
     <>
-      <div>POSH</div>
+      <div>POSH-develop</div>
     </>
-  )
+  );
 }
