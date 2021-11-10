@@ -14,6 +14,9 @@ import { Global } from "@emotion/react";
 function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
     uri: "http://34.64.161.16/team04",
+    headers: {
+      authorization: `Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiNDliZDMzMGVkMDAwMjk1NWVjMzEiLCJwZXJtaXNzaW9uIjowLCJpYXQiOjE2MzY1MTgzNTIsImV4cCI6MTYzNjUyMTk1Miwic3ViIjoiYWNjZXNzVG9rZW4ifQ.5NGBHuPSTc3HZNe-lEdOvLLOTC5acFI4WXxslotyvbKcjQRPWVcBwcqqB7w_jl5fcuDZC8rFgrmzenPSw4BMCg`,
+    },
   });
 
   const client = new ApolloClient({
