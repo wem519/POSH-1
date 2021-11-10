@@ -10,12 +10,26 @@ import { createUploadLink } from "apollo-upload-client";
 import { AppProps } from "next/app";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { Global } from "@emotion/react";
+import { createContext, useState, useEffect } from "react";
 
+export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {
+  const [accessToken, setAccessToken] = useState("");
+
+  const value = {
+    accessToken: accessToken,
+    setAccessToken: setAccessToken,
+  };
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken") || "";
+    setAccessToken(accessToken);
+  });
+
   const uploadLink = createUploadLink({
     uri: "http://34.64.161.16/team04",
     headers: {
-      authorization: `Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MThiNDliZDMzMGVkMDAwMjk1NWVjMzEiLCJwZXJtaXNzaW9uIjowLCJpYXQiOjE2MzY1MTgzNTIsImV4cCI6MTYzNjUyMTk1Miwic3ViIjoiYWNjZXNzVG9rZW4ifQ.5NGBHuPSTc3HZNe-lEdOvLLOTC5acFI4WXxslotyvbKcjQRPWVcBwcqqB7w_jl5fcuDZC8rFgrmzenPSw4BMCg`,
+      authorization: `Bearer ${accessToken}`,
     },
   });
 
@@ -26,10 +40,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Global styles={globalStyles} />
-      <ApolloProvider client={client}>
-        <Component {...pageProps} />
-      </ApolloProvider>
+      <GlobalContext.Provider value={value}>
+        <Global styles={globalStyles} />
+        <ApolloProvider client={client}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </GlobalContext.Provider>
     </>
   );
 }
