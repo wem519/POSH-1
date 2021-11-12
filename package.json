@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"@graphql-codegen/cli": "^2.2.0",
 		"@graphql-codegen/typescript": "^2.2.2",
+		"@hookform/resolvers": "^2.8.3",
 		"@types/apollo-upload-client": "^14.1.0",
 		"@types/lodash": "^4.14.175",
 		"@types/react": "^17.0.34",
@@ -49,6 +50,8 @@
 		"eslint-plugin-promise": "^5.1.0",
 		"eslint-plugin-react": "^7.25.1",
 		"prettier": "2.4.0",
-		"typescript": "^4.4.3"
+		"react-hook-form": "^7.19.5",
+		"typescript": "^4.4.3",
+		"yup": "^0.32.11"
 	}
 }
