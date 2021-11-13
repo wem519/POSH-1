@@ -41,7 +41,10 @@ export const AccountInfo = styled.input`
   cursor: pointer;
 `;
 export const Error = styled.div`
-  color: red;
+  color: #ffffff;
+  font-size: 10px;
+  padding-left: 7px;
+  margin-top: 8px;
 `;
 export const ButtonWrapper = styled.div`
   margin-top: 81px;
