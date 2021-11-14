@@ -44,7 +44,9 @@ export default function Address01(props: any) {
       <Label>거래장소*</Label>
       <ZipcodeWrapper>
         <Zipcode type="text" value="02810" readOnly />
-        <ZipcodeBtn onClick={props.onClickZipcodeBtn}>우편번호검색</ZipcodeBtn>
+        <ZipcodeBtn type="button" onClick={props.onClickZipcodeBtn}>
+          우편번호검색
+        </ZipcodeBtn>
       </ZipcodeWrapper>
       <InputBox type="text" />
       <InputBox type="text" {...props.register} />

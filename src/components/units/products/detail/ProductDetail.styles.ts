@@ -21,7 +21,7 @@ export const SellerProfile = styled.img`
   object-fit: cover;
 `;
 export const SellerInfo = styled.div`
-  width: 100%;
+  width: 86%;
   display: flex;
   flex-direction: column;
   padding-left: 12px;
@@ -49,9 +49,20 @@ export const ProductImage = styled.img`
   height: 390px;
   object-fit: cover;
 `;
-export const Buttons = styled.div`
+export const ProductMiddle = styled.div`
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const SaleStatus = styled.div`
+  margin-top: 3px;
+  margin-left: 17px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background-color: #8915a6;
+  color: #fff;
+`;
+export const Buttons = styled.div`
   padding: 11px 17px;
 `;
 export const ButtonsBuyer = styled.div`
