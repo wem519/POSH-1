@@ -9,14 +9,6 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const UploadBtn = styled.button`
-  width: 68px;
-  height: 68px;
-  border-style: none;
-  margin: 2px;
-  background-color: #b69acb;
-`;
-
 export const Label = styled.div`
   color: #8915a6;
 `;
@@ -30,6 +22,8 @@ export const InputBox = styled.input`
 
 export const UploadBox = styled.div`
   flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
 `;
 
 export const WriteWrapper = styled.div`
@@ -79,6 +73,7 @@ export const Select = styled.select`
   border: 1px solid #b69acb;
   border-radius: 4px;
   margin-top: 8px;
+  height: 45px;
 `;
 
 export const InputFile = styled.input`

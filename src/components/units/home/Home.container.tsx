@@ -4,7 +4,7 @@ import {
   IQuery,
   IQueryFetchUseditemsArgs,
 } from "../../../commons/types/generated/types";
-import HomeUI from "./Home.pregenter";
+import HomeUI from "./Home.presenter";
 import { FETCH_USED_ITEMS } from "./Home.queries";
 import _ from "lodash";
 

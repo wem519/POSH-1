@@ -1,6 +1,5 @@
 import {
   Wrapper,
-  UploadBtn,
   UploadBox,
   WriteWrapper,
   SubmitBtn,
@@ -9,13 +8,12 @@ import {
   Select,
 } from "./ProductWrite.styles";
 import LayoutFooterM from "../../../commons/layout/footer_mobile/LayoutFooterMobile";
-import LayoutHeader from "../../../commons/layout/header/LayoutHeader";
 import Input01 from "../../../commons/inputs/input01";
 import Input02 from "../../../commons/inputs/input02";
 import Address01 from "../../../commons/address/address01";
-import { v4 as uuidv4 } from "uuid";
 import DaumPostcode from "react-daum-postcode";
 import { Modal } from "antd";
+import Upload01 from "../../../commons/uploads/upload01";
 
 export default function ProductWriteUI(props: any) {
   return (
@@ -25,17 +23,22 @@ export default function ProductWriteUI(props: any) {
           <DaumPostcode onComplete={props.handleComplete} />
         </Modal>
       )}
-      <LayoutHeader />
       <Wrapper>
         <UploadBox>
-          {new Array(5).fill(1).map((el) => (
-            <UploadBtn key={uuidv4()}>+</UploadBtn>
+          {new Array(10).fill(1).map((el, index) => (
+            <Upload01
+              key={el + "_" + index}
+              index={index}
+              onChangeFiles={props.onChangeFiles}
+            />
           ))}
-        </UploadBox>
-        <UploadBox>
-          {new Array(5).fill(1).map((el) => (
-            <UploadBtn key={uuidv4()}>+</UploadBtn>
-          ))}
+          {/* {props.fileIds.map((el, index) => (
+            <Upload01
+              key={el}
+              index={index}
+              onChangeFiles={props.onChangeFiles}
+            />
+          ))} */}
         </UploadBox>
         <WriteWrapper>
           <Input01

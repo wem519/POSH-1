@@ -11,6 +11,7 @@ import { AppProps } from "next/app";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { Global } from "@emotion/react";
 import { createContext, useState, useEffect } from "react";
+import Layout from "../src/components/commons/layout";
 
 export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {
@@ -43,7 +44,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalContext.Provider value={value}>
         <Global styles={globalStyles} />
         <ApolloProvider client={client}>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ApolloProvider>
       </GlobalContext.Provider>
     </>

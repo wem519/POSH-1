@@ -1,6 +1,4 @@
 import {
-  Logo,
-  TopWrapper,
   Wrapper,
   Search,
   BodyWrpper,
@@ -13,9 +11,6 @@ import {
 export default function HomeUI(props: any) {
   return (
     <Wrapper>
-      <TopWrapper>
-        <Logo src="/images/logo.png" />
-      </TopWrapper>
       <SearchWrapper>
         <Search
           onChange={props.onChangeSearch}
@@ -26,7 +21,9 @@ export default function HomeUI(props: any) {
       <BodyWrpper>
         {props.data?.fetchUseditems.map((el: any, index: any) => (
           <BodyBox key={index}>
-            <ProductImg src={el.images[0]} />
+            <ProductImg
+              src={`https://storage.googleapis.com/${el.images[0]}`}
+            />
           </BodyBox>
         ))}
       </BodyWrpper>
