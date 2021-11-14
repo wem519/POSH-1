@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
+import DoneIcon from "@mui/icons-material/Done";
 
 export const Wrapper = styled.div`
   width: 390px;
-  height: 844px;
+  /* height: 844px; */
+  padding-bottom: 67px;
   background-color: #8915a6;
   font-family: "NotoSansKRregular";
 `;
@@ -39,6 +41,13 @@ export const AccountWrapper = styled.div`
 export const AccountInfo = styled.div`
   /* padding-top: 17px; */
   margin-top: 30px;
+`;
+export const Done = styled(DoneIcon)`
+  font-size: 30px;
+  color: #8915a6;
+  position: absolute;
+  right: 40px;
+  top: 17px;
 `;
 export const Error = styled.div`
   color: #ffffff;

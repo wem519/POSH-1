@@ -57,6 +57,7 @@ export default function Signup() {
     console.log("crateUser", data);
     alert("Welcome To Posh");
     router.push("./login");
+    console.log("data", data);
   }
   return (
     <SignupUI
