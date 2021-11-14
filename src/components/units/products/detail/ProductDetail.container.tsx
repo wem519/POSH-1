@@ -23,7 +23,16 @@ export default function ProductDetail() {
 
   const { data: userInfo } = useQuery(FETCH_USER_LOGGED_IN);
 
+  function onClickToCommentPage() {
+    router.push(`/posh/products/${router.query.poshId}/comment`);
+  }
+
   return (
-    <ProductDetailUI data={data} questions={questions} userInfo={userInfo} />
+    <ProductDetailUI
+      data={data}
+      questions={questions}
+      userInfo={userInfo}
+      onClickToCommentPage={onClickToCommentPage}
+    />
   );
 }
