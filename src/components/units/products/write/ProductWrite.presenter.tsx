@@ -17,7 +17,13 @@ import Upload01 from "../../../commons/uploads/upload01";
 
 export default function ProductWriteUI(props: any) {
   return (
-    <form onSubmit={props.handleSubmit(props.onClickSubmit)}>
+    <form
+      onSubmit={
+        props.isEdit
+          ? props.handleSubmit(props.onClickEdit)
+          : props.handleSubmit(props.onClickSubmit)
+      }
+    >
       {props.isOpen && (
         <Modal visible={true}>
           <DaumPostcode onComplete={props.handleComplete} />
@@ -72,7 +78,9 @@ export default function ProductWriteUI(props: any) {
             <option value="직거래+택배">직거래+택배</option>
           </Select>
           {props.isEdit ? (
-            <EditBtn>수정하기</EditBtn>
+            <EditBtn type="submit" isValid={props.formState.isValid}>
+              수정하기
+            </EditBtn>
           ) : (
             <SubmitBtn type="submit" isValid={props.formState.isValid}>
               등록하기

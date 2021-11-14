@@ -1,9 +1,14 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_USEDITEM, UPLOAD_FILE } from "./ProductWrite.queries";
+import {
+  CREATE_USEDITEM,
+  UPLOAD_FILE,
+  UPDATE_USEDITEM,
+} from "./ProductWrite.queries";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import { schema } from "./ProductWrite.validation";
+import { schema2 } from "./ProductWrite.validation2";
 import ProductWriteUI from "./ProductWrite.presenter";
 import { useState } from "react";
 // import { v4 as uuidv4 } from "uuid";
@@ -19,13 +24,23 @@ export default function ProductWrite(props: any) {
   //   new Array(10).fill(1).map((_) => uuidv4())
   // );
   const [createUseditem] = useMutation(CREATE_USEDITEM);
+  const [updateUseditem] = useMutation(UPDATE_USEDITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
-    resolver: yupResolver(schema),
+    resolver: yupResolver(props.isEdit ? schema2 : schema),
   });
+  // props.isEdit ? console.log("수정") : console.log("등록");
   const router = useRouter();
 
+  // 파일 전달받는 함수 => newFiles state에 저장
+  function onChangeFiles(file: File, index: number) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
+  }
+
+  // 상품등록 ///////////////////////////////////////////////////////////////////
   async function onClickSubmit(data: any) {
     // onChangeFiles 함수로 전달받은 files를 [uploadFile]하고, 추출된 url을 변수 myImage에 저장
     const uploadFiles = files
@@ -54,6 +69,25 @@ export default function ProductWrite(props: any) {
     console.log("useFome data", data);
     router.push(`/posh/products/${result.data?.createUseditem._id}`);
   }
+  // 상품수정 ///////////////////////////////////////////////////////////////////
+  const myUpdateUseditemInput = {};
+
+  async function onClickEdit(data: any) {
+    if (data.name) myUpdateUseditemInput.name = data.name;
+    if (data.price) myUpdateUseditemInput.price = data.price;
+    if (data.remarks) myUpdateUseditemInput.remarks = data.remarks;
+    if (data.contents) myUpdateUseditemInput.contents = data.contents;
+    if (data.tags) myUpdateUseditemInput.tags = data.tags;
+
+    await updateUseditem({
+      variables: {
+        useditemId: router.query.poshId,
+        updateUseditemInput: myUpdateUseditemInput,
+      },
+    });
+    console.log("useFome updatedata", data);
+    router.push(`/posh/products/${router.query.poshId}`);
+  }
 
   function handleComplete(data: any) {
     setZipcode(data.zonecode);
@@ -64,14 +98,6 @@ export default function ProductWrite(props: any) {
 
   function onClickZipcodeBtn() {
     setIsOpen(true);
-  }
-
-  // 파일 전달받는 함수 => newFiles state에 저장
-  function onChangeFiles(file: File, index: number) {
-    const newFiles = [...files];
-    newFiles[index] = file;
-    setFiles(newFiles);
-    console.log("함수실행", files);
   }
 
   return (
@@ -85,6 +111,8 @@ export default function ProductWrite(props: any) {
       onClickZipcodeBtn={onClickZipcodeBtn}
       onChangeFiles={onChangeFiles}
       // fileIds={fileIds}
+      isEdit={props.isEdit}
+      onClickEdit={onClickEdit}
     />
   );
 }
