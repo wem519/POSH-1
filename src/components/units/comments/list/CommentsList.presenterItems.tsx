@@ -24,7 +24,7 @@ import CommentsAnswer from "../../commentsAnswer/write/CommentsAnswer";
 import CommentsAnswerTest from '../../commentsAnswer/list/CommentsAnswerList'
 
 export default function CommentsListUIItems(props) {
-  console.log("fetchUsedItemQuestion",props.el)
+
   const router = useRouter();
   const [deleteUseditemQuestion] = useMutation(DELETE_USEDITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USEDITEM_QUESTION);

@@ -33,7 +33,6 @@ export default function CommentsAnswerTest(props) {
   const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTION_ANSWERS, {
     variables: { useditemQuestionId: props.id },
   });
-  console.log("대댓글", data);
   const { data:userInfo } = useQuery(FETCH_USER_LOGGDIN);
 
   if (!data?.fetchUseditemQuestionAnswers.length) {
