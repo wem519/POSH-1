@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import PersonIcon from "@mui/icons-material/Person";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
+import { useRouter } from "next/router";
 
 const Wrapper = styled.div`
   display: flex;
@@ -52,33 +53,39 @@ const ButtonLabel = styled.div`
 `;
 
 export default function LayoutFooterM() {
+  const router = useRouter();
+
+  function onClickMove(event: any) {
+    router.push(event.currentTarget.id);
+  }
+
   return (
     <Wrapper>
-      <Button>
+      <Button onClick={onClickMove} id="/posh/home">
         <IconWrapper>
           <HomeBtn />
         </IconWrapper>
         <ButtonLabel>홈</ButtonLabel>
       </Button>
-      <Button>
+      <Button onClick={onClickMove} id="/posh/search">
         <IconWrapper>
           <SearchBtn />
         </IconWrapper>
         <ButtonLabel>검색</ButtonLabel>
       </Button>
-      <Button>
+      <Button onClick={onClickMove} id="/posh/products/write">
         <IconWrapper>
           <WriteBtn />
         </IconWrapper>
         <ButtonLabel>등록</ButtonLabel>
       </Button>
-      <Button>
+      <Button onClick={onClickMove} id="/posh/user/chat">
         <IconWrapper>
           <ChatBtn />
         </IconWrapper>
         <ButtonLabel>채팅</ButtonLabel>
       </Button>
-      <Button>
+      <Button onClick={onClickMove} id="/posh/user/mypage">
         <IconWrapper>
           <MyPageBtn />
         </IconWrapper>
