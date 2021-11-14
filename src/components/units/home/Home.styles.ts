@@ -42,10 +42,11 @@ export const SearchBnt = styled.div`
 // map으로 불러오는 images css
 export const BodyWrpper = styled.div`
   width: 358px;
+  overflow: auto;
   margin-top: 13px;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
+  margin-bottom: 70px;
 `;
 export const BodyBox = styled.div`
   width: 117px;
@@ -53,6 +54,7 @@ export const BodyBox = styled.div`
   background-color: #eee;
   border: none;
   margin: 1px 1px;
+  cursor: pointer;
 `;
 export const ProductImg = styled.img`
   object-fit: cover;
