@@ -15,16 +15,22 @@ const Body = styled.div`
   align-items: center;
 `;
 
-const Hidden = ["/posh/accounts/login", "/posh/accounts/signup"];
+const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup"];
+const HiddenFooter = [
+  "/posh/accounts/login",
+  "/posh/accounts/signup",
+  "/posh/products/[poshId]/comment",
+];
 
 export default function Layout(props: any) {
   const router = useRouter();
-  const isHidden = Hidden.includes(router.pathname);
+  const isHiddenHeader = HiddenHeader.includes(router.pathname);
+  const isHiddenFooter = HiddenFooter.includes(router.pathname);
 
   return (
     <Wrapper>
-      {!isHidden && <LayoutHeader />}
-      {!isHidden && <LayoutFooterM />}
+      {!isHiddenHeader && <LayoutHeader />}
+      {!isHiddenFooter && <LayoutFooterM />}
       <Body>{props.children}</Body>
     </Wrapper>
   );

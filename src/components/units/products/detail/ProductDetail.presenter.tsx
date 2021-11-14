@@ -82,7 +82,7 @@ export default function ProductDetailUI(props: any) {
           </ProductInfoCreatedAt>
         </ProductInfo>
         <Comments>
-          <CommentsCount>
+          <CommentsCount onClick={props.onClickToCommentPage}>
             댓글 {props.questions?.fetchUseditemQuestions.length}개
           </CommentsCount>
           {props.questions?.fetchUseditemQuestions[0] && (
