@@ -11,6 +11,8 @@ export const CommnetsWriteInput = styled.textarea`
   padding: 12px 12px 0px 12px;
   border: #D3D3D3 1px solid;
   font-family: "NotoSansKRregular";
+  resize: none;
+  display:block;
   ::placeholder{
     color: #D3D3D3;
     position: absolute;
@@ -52,5 +54,6 @@ export const CommentsBnt = styled.div`
   color: #fff;
   text-align: center;
   line-height: 42px;
+  cursor: pointer;
 `
 

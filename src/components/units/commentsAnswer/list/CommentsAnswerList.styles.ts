@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,7 +7,6 @@ export const Wrapper = styled.div`
   align-items: center;
   /* height: 600px; */
 `
-
 export const CommentsBox = styled.div`
   width: 358px;
   display: flex;
@@ -18,6 +18,7 @@ export const CommentsProfile = styled.img`
   height: 36px;
   border-radius: 100%;
   margin-right: 10px;
+  margin-left: 10px;
   object-fit: cover;
   background-color: #8915a6;
 `;
@@ -31,7 +32,7 @@ export const CommnetsNiname = styled.div`
   margin-right: 5px;
 `;
 export const Comments = styled.div`
-  width: 287px;
+  width: 222px;
   font-size: 14px;
   font-family: "NotoSansKRregular";
 `;
@@ -55,7 +56,6 @@ export const CommnetsEdit = styled.div`
     cursor: pointer;
   }
 `
-
 export const CommnetsWriteInput = styled.textarea`
   width: 358px;
   height: 150px;
@@ -63,6 +63,7 @@ export const CommnetsWriteInput = styled.textarea`
   border: #D3D3D3 1px solid;
   font-family: "NotoSansKRregular";
   resize: none;
+  display:block;
   ::placeholder{
     color: #D3D3D3;
     position: absolute;
@@ -86,4 +87,9 @@ export const CommentsBnt = styled.div`
   text-align: center;
   line-height: 42px;
   cursor: pointer;
+`
+export const CommentsAnswerIcon = styled(SubdirectoryArrowRightIcon)`
+  font-size: 15px;
+  color: #8915A6;
+  margin-left: 40px;
 `
