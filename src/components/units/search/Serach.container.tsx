@@ -1,3 +1,5 @@
-export default function Home() {
-  return <></>;
+import SearchUI from "./Search.presenter";
+
+export default function Search() {
+  return <SearchUI />;
 }
