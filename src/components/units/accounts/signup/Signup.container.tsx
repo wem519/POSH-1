@@ -24,6 +24,9 @@ const schema = yup.object().shape({
     .required("필수 입력사항입니다."),
   checkPassword: yup
     .string()
+    .min(4, "비밀번호는 최소 4자리 이상입니다.")
+    .max(15, "비밀번호는 최대 15자리까지 입니다.")
+    .required("필수 입력사항입니다.")
     .oneOf([yup.ref("password"), null], "비밀번호가 일치하지 않습니다."),
 
   name: yup
@@ -52,7 +55,7 @@ export default function Signup() {
     });
 
     console.log("crateUser", data);
-    alert("Welcome Posh");
+    alert("Welcome To Posh");
     router.push("./login");
   }
   return (

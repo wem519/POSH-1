@@ -24,7 +24,7 @@ export default function LoginUI(props: any) {
               type="text"
               onChange={props.onChangeEmail}
             />
-            <Error></Error>
+            <Error>{props.emailError}</Error>
           </Account>
           <Account>
             <AccountInfo
@@ -32,7 +32,7 @@ export default function LoginUI(props: any) {
               type="password"
               onChange={props.onChangePassword}
             />
-            <Error></Error>
+            <Error>{props.passwordError}</Error>
           </Account>
           <ButtonWrapper>
             <Login onClick={props.onClickLogin}>로그인</Login>
