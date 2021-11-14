@@ -4,6 +4,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // import FavoriteIcon from "@mui/icons-material/Favorite";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Slider from "@ant-design/react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Wrapper = styled.div`
   width: 390px;
@@ -49,6 +52,9 @@ export const ProductImage = styled.img`
   height: 390px;
   object-fit: cover;
 `;
+export const SliderDiv = styled(Slider)`
+  width: 390px;
+`;
 export const ProductMiddle = styled.div`
   display: flex;
   justify-content: space-between;
@@ -68,7 +74,11 @@ export const Buttons = styled.div`
 export const ButtonsBuyer = styled.div`
   display: flex;
 `;
+interface IProps {
+  picked: boolean;
+}
 export const PickBtn = styled(FavoriteBorderIcon)`
+  /* color: ${(props: IProps) => (props.picked ? "#8915a6" : "#b69acb")}; */
   color: #b69acb;
 `;
 export const SendBtn = styled(SendIcon)`
@@ -84,6 +94,7 @@ export const EditBtn = styled(EditIcon)`
 export const DeleteBtn = styled(DeleteIcon)`
   color: #b69acb;
   margin-left: 12px;
+  cursor: pointer;
 `;
 export const ProductInfo = styled.div``;
 export const ProductInfoName = styled.div`

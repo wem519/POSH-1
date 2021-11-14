@@ -19,6 +19,7 @@ export const FETCH_USEDITEM = gql`
       useditemAddress {
         address
       }
+      pickedCount
     }
   }
 `;
@@ -41,5 +42,17 @@ export const FETCH_USER_LOGGED_IN = gql`
       _id
       name
     }
+  }
+`;
+
+export const DELETE_USEDITEM = gql`
+  mutation deleteUseditem($useditemId: ID!) {
+    deleteUseditem(useditemId: $useditemId)
+  }
+`;
+
+export const TOGGLE_USEDITEM_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
   }
 `;
