@@ -1,22 +1,21 @@
+import SearchUI from "./Search.presenter";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
 } from "../../../commons/types/generated/types";
-import HomeUI from "./Home.presenter";
-import { FETCH_USED_ITEMS } from "./Home.queries";
+import { FETCH_USED_ITEMS } from "./Search.queries";
+
 import _ from "lodash";
 
-
-export default function Home() {
-
+export default function Search() {
   const [search, setSearch] = useState("");
   const { data, refetch, fetchMore } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
-  
+
   const getDebunce = _.debounce((data) => {
     setSearch(data);
   }, 1000);
@@ -28,7 +27,6 @@ export default function Home() {
   const onClickSearch = () => {
     refetch({ search: search });
   };
-
   const lodeMore = () => {
     fetchMore({
       variables: {
@@ -41,12 +39,11 @@ export default function Home() {
             ...fetchMoreResult.fetchUseditems,
           ],
         };
-      }
+      },
     });
-  }
-
+  };
   return (
-    <HomeUI
+    <SearchUI
       data={data}
       onChangeSearch={onChangeSearch}
       onClickSearch={onClickSearch}

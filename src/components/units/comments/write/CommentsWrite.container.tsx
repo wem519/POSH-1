@@ -47,7 +47,7 @@ export default function CommentsWrite() {
             variables: { useditemId: String(router.query.poshId) },
           },
         ],
-      }); console.log("댓글등록!", result.data?.createUseditemQuestion._id);
+      }); 
       setContents("")
       setIsOpen(false)
     } catch (error) { console.log(error.message)}
