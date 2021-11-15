@@ -20,7 +20,6 @@ const InputFileHidden = styled.input`
 function Upload01(props: any) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [preImg, setPreImg] = useState(""); // 임시미리보기
-  console.log("미리보기", preImg);
 
   function onClickUpload() {
     fileRef.current?.click();
@@ -28,7 +27,6 @@ function Upload01(props: any) {
 
   function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target?.files?.[0];
-    console.log("file", file);
     if (!file) return;
 
     const fileReader = new FileReader();

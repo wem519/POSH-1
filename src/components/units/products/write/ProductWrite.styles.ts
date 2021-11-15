@@ -50,7 +50,7 @@ export const SubmitBtn = styled.button`
 `;
 
 export const EditBtn = styled.button`
-  background-color: #8915a6;
+  background-color: ${(props: IProps) => (props.isValid ? "#8915a6" : "gray")};
   color: #fff;
   width: 358px;
   height: 54px;

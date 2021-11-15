@@ -27,9 +27,18 @@ import {
   Comments,
   CommentsCount,
   Comment,
+  SliderDiv,
 } from "./ProductDetail.styles";
 
 export default function ProductDetailUI(props: any) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <Wrapper>
       <TransactionInfo>
@@ -45,9 +54,16 @@ export default function ProductDetailUI(props: any) {
         </SellerInfo>
       </TransactionInfo>
       <ProductImages>
-        <ProductImage
-          src={`https://storage.googleapis.com/${props.data?.fetchUseditem.images[0]}`}
-        />
+        <SliderDiv {...settings}>
+          {props.data?.fetchUseditem.images
+            .filter((el) => el)
+            .map((el) => (
+              <ProductImage
+                key={el}
+                src={`https://storage.googleapis.com/${el}`}
+              />
+            ))}
+        </SliderDiv>
       </ProductImages>
       <ProductMiddle>
         <SaleStatus>
@@ -57,12 +73,16 @@ export default function ProductDetailUI(props: any) {
           {props.userInfo?.fetchUserLoggedIn._id ===
           props.data?.fetchUseditem.seller._id ? (
             <ButtonsSeller>
-              <EditBtn></EditBtn>
-              <DeleteBtn></DeleteBtn>
+              <EditBtn onClick={props.onClickToEdit}></EditBtn>
+              <DeleteBtn onClick={props.onClickDelete}></DeleteBtn>
             </ButtonsSeller>
           ) : (
             <ButtonsBuyer>
-              <PickBtn></PickBtn>
+              <PickBtn
+                onClick={props.onClickPick}
+                picked={props.picked}
+              ></PickBtn>
+              {props.data?.fetchUseditem.pickedCount}
               <SendBtn></SendBtn>
             </ButtonsBuyer>
           )}
