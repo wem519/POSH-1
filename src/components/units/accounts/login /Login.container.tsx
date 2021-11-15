@@ -36,8 +36,7 @@ export default function Login() {
       setPasswordError("필수입력사항입니다.");
     }
     if (
-      /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/.test(email) ===
-        false &&
+      /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/.test(email) === false &&
       email !== ""
     ) {
       setEmailError("이메일 형식이 적합하지 않습니다.");
@@ -55,7 +54,7 @@ export default function Login() {
 
       router.push("../home/");
       console.log(result.data?.loginUser.accessToken);
-      localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
       setAccessToken(result.data?.loginUser.accessToken);
       alert("Posh Posh");
     }

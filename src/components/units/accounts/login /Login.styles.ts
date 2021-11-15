@@ -2,9 +2,15 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 390px;
-  height: 844px;
+  /* height: 100vh; */
+
   background-color: #8915a6;
   font-family: "NotoSansKRregular";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 206px;
 `;
 
 export const TitleWrapper = styled.div`
@@ -60,4 +66,5 @@ export const Login = styled.button`
   border-radius: 4px;
   background-color: #ffffff;
   border: 0ps solid #ffffff;
+  /* margin-bottom: 300px; */
 `;

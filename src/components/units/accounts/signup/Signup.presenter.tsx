@@ -4,6 +4,7 @@ import {
   Profile,
   AccountWrapper,
   AccountInfo,
+  Done,
   Error,
   Label,
   AccountInput,
@@ -22,39 +23,105 @@ export default function SignupUI(props: any) {
           <AccountWrapper>
             <AccountInfo>
               <Label>이메일*</Label>
-              <AccountInput
-                type="text"
-                placeholder="이메일을 입력해주세요"
-                {...props.register("email")}
-              ></AccountInput>
-              <Error>{props.formState.errors.email?.message}</Error>
+              {props.formState.errors.email?.message ? (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="text"
+                    placeholder="이메일을 입력해주세요"
+                    {...props.register("email")}
+                  ></AccountInput>
+                  <Error>{props.formState.errors.email?.message}</Error>
+                </div>
+              ) : (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="text"
+                    placeholder="이메일을 입력해주세요"
+                    {...props.register("email")}
+                  ></AccountInput>
+                  <Done />
+                  <Error>{props.formState.errors.email?.message}</Error>
+                </div>
+              )}
             </AccountInfo>
             <AccountInfo>
               <Label>아이디*</Label>
-              <AccountInput
-                type="text"
-                placeholder="아이디를 입력해주세요"
-                {...props.register("name")}
-              ></AccountInput>
-              <Error>{props.formState.errors.name?.message}</Error>
+              {props.formState.errors.name?.message ? (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="text"
+                    placeholder="아이디를 입력해주세요"
+                    {...props.register("name")}
+                  ></AccountInput>
+                  <Error>{props.formState.errors.name?.message}</Error>
+                </div>
+              ) : (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="text"
+                    placeholder="아이디를 입력해주세요"
+                    {...props.register("name")}
+                  ></AccountInput>
+                  <Done />
+                  <Error>{props.formState.errors.name?.message}</Error>
+                </div>
+              )}
             </AccountInfo>
             <AccountInfo>
               <Label>비밀번호*</Label>
-              <AccountInput
-                type="password"
-                placeholder="비밀번호를 입력해주세요"
-                {...props.register("password")}
-              ></AccountInput>
-              <Error>{props.formState.errors.password?.message}</Error>
+              {!props.register && (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...props.register("password")}
+                  ></AccountInput>
+                  <Error>{props.formState.errors.password?.message}</Error>
+                </div>
+              )}
+              {props.formState.errors.password?.message ? (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...props.register("password")}
+                  ></AccountInput>
+                  <Error>{props.formState.errors.password?.message}</Error>
+                </div>
+              ) : (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...props.register("password")}
+                  ></AccountInput>
+                  <Done />
+                  <Error>{props.formState.errors.password?.message}</Error>
+                </div>
+              )}
             </AccountInfo>
             <AccountInfo>
               <Label>비밀번호 확인*</Label>
-              <AccountInput
-                type="password"
-                placeholder="비밀번호를 입력해주세요"
-                {...props.register("checkPassword")}
-              ></AccountInput>
-              <Error>{props.formState.errors.checkPassword?.message}</Error>
+              {props.formState.errors.checkPassword?.message ? (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...props.register("checkPassword")}
+                  ></AccountInput>
+                  <Error>{props.formState.errors.checkPassword?.message}</Error>
+                </div>
+              ) : (
+                <div style={{ position: "relative" }}>
+                  <AccountInput
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    {...props.register("checkPassword")}
+                  ></AccountInput>
+                  <Done />
+                  <Error>{props.formState.errors.checkPassword?.message}</Error>
+                </div>
+              )}
             </AccountInfo>
           </AccountWrapper>
           <SubmitWrapper>
