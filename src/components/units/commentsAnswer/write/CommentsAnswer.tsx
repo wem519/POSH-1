@@ -13,7 +13,7 @@ import {
 } from "./CommentsAnswer.queries";
 
 const CommnetsWriteInput = styled.textarea`
-  width: 358px;
+  width: 390px;
   height: 150px;
   padding: 12px 12px 0px 12px;
   border: #d3d3d3 1px solid;
@@ -28,7 +28,7 @@ const CommnetsWriteInput = styled.textarea`
   }
 `;
 const CommnetsInput = styled.input`
-  width: 200px;
+  width: 232px;
   height: 42px;
   background-color: #f3f3f3;
   border: none;
@@ -47,17 +47,16 @@ const CommentsBnt = styled.div`
 `;
 
 export default function CommentsAnswer(props) {
-
   const [createUseditemQuestionAnswer] = useMutation<
     Pick<IMutation, "createUseditemQuestionAnswer">,
     IMutationCreateUseditemQuestionAnswerArgs
   >(CREATE_USEDITEM_QUESTION_ANSWER);
-  
+
   const [updateUseditemQuestionAnswer] = useMutation<
     Pick<IMutation, "updateUseditemQuestionAnswer">,
     IMutationUpdateUseditemQuestionAnswerArgs
-    >(UPDATE_USEDITEM_QUESTION_ANSWER);
-  
+  >(UPDATE_USEDITEM_QUESTION_ANSWER);
+
   // 대댓글 contents state
   const [contents, setContents] = useState("");
   // 대댓글 취소 함수
@@ -91,11 +90,11 @@ export default function CommentsAnswer(props) {
   };
   // 대댓글 수정 함수
   const onClickEditAnswer = async () => {
-    if (contents === "") { 
-      alert("수정된 내용이 없습니다")
-      return
+    if (contents === "") {
+      alert("수정된 내용이 없습니다");
+      return;
     }
-    try { 
+    try {
       const result = await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: { contents },
@@ -107,9 +106,11 @@ export default function CommentsAnswer(props) {
             variables: { useditemQuestionId: props.Comments?._id },
           },
         ],
-      }); props.setIsEdit(false)
-    } catch (error) {console.log(error.message) }
-    
+      });
+      props.setIsEdit(false);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <div>
@@ -119,10 +120,7 @@ export default function CommentsAnswer(props) {
         defaultValue={props.isEdit ? props.el?.contents : ""}
       />
       <div style={{ display: "flex" }}>
-        <CommnetsInput
-          readOnly
-          placeholder={contents.length + "/100"}
-        />
+        <CommnetsInput readOnly placeholder={contents.length + "/100"} />
         {props.isEdit ? (
           <CommentsBnt
             style={{ backgroundColor: "#B69ACB" }}

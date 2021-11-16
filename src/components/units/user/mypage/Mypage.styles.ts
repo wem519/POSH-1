@@ -44,7 +44,7 @@ export const MenuWrapper = styled.div`
   padding-top: 25px;
 `;
 export const Menu = styled.span`
-  width: 117px;
+  width: 128px;
   height: 42px;
   background-color: #b69acb;
   /* border: 1px solid #ffffff; */
@@ -56,19 +56,19 @@ export const Menu = styled.span`
   font-size: 18px;
 `;
 export const ProductsWrapper = styled.div`
-  width: 358px;
+  width: 390px;
   overflow: auto;
   display: flex;
   flex-direction: row;
 
   flex-wrap: wrap;
   justify-content: row;
-  margin-left: 16px;
+  /* margin-left: 16px; */
   /* margin-right: 12px; */
 `;
 export const ProductsList = styled.div`
-  width: 117px;
-  height: 117px;
+  width: 128px;
+  height: 128px;
   border: none;
   background-color: #f1f1f1f1;
   margin: 1px 1px;

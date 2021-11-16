@@ -1,6 +1,7 @@
-import { gql, useQuery } from "@apollo/client"
-import styled from '@emotion/styled'
+import { gql, useQuery } from "@apollo/client";
+import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,18 +30,18 @@ const Picture = styled.img`
   height: 90%;
   border-radius: 50%;
   /* background-color: gray; */
-`
+`;
 const ProfileWrpper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 const FETCH_USEDITEMS_OF_BEST = gql`
   query fetchUseditemsOfTheBest {
-    fetchUseditemsOfTheBest{
+    fetchUseditemsOfTheBest {
       _id
       pickedCount
-      seller{
+      seller {
         picture
         name
         _id
@@ -50,14 +51,13 @@ const FETCH_USEDITEMS_OF_BEST = gql`
 `;
 
 export default function BestItem() {
-  const router = useRouter()
+  const router = useRouter();
 
   const { data } = useQuery(FETCH_USEDITEMS_OF_BEST);
-  console.log(data?.fetchUseditemsOfTheBest._id);
 
   const onClickMoveSeller = (e) =>
     router.push(`/posh/products/${e.currentTarget.id}/seller`);
-  
+
   // console.log(new Set(data?.fetchUseditemsOfTheBest.map((el)=>(el?.seller.name))))
 
   // const Seller = [...new Set(
@@ -67,7 +67,7 @@ export default function BestItem() {
   return (
     <Wrapper>
       {data?.fetchUseditemsOfTheBest.map((el) => (
-        <ProfileWrpper>
+        <ProfileWrpper key={uuidv4()}>
           <PictureBox onClick={onClickMoveSeller} id={el._id}>
             <Picture src={el.seller.picture} />
           </PictureBox>
