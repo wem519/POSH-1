@@ -43,8 +43,8 @@ export default function Signup() {
     resolver: yupResolver(schema),
   });
 
-  function onClickSignup(data: any) {
-    createUser({
+  async function onClickSignup(data: any) {
+    await createUser({
       variables: {
         createUserInput: {
           email: data.email,

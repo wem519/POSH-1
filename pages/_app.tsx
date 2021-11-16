@@ -18,10 +18,12 @@ import Layout from "../src/components/commons/layout";
 export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState("");
-
+  const [userInfo, setUserInfo] = useState({});
   const value = {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo,
   };
   // ---------------accessToken 등록-------------------
 
@@ -35,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // ---------------refreshToken -------------------
   useEffect(() => {
     if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
-  });
+  }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     if (graphQLErrors) {
@@ -56,10 +58,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   // ---------------refreshToken -------------------
 
   const uploadLink = createUploadLink({
-    uri: "http://34.64.161.16/team04",
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-    },
+    uri: " https://backend03-team.codebootcamp.co.kr/team04",
+    headers: { authorization: `Bearer ${accessToken}` },
+    credentials: "include",
   });
 
   const client = new ApolloClient({

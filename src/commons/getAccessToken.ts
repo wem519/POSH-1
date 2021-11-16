@@ -16,15 +16,18 @@ export async function getAccessToken(
   setAccessToken: Dispatch<SetStateAction<string>>
 ) {
   try {
-    const graphQLClient = new GraphQLClient("http://34.64.161.16/team04", {
-      credentials: "include",
-    });
+    const graphQLClient = new GraphQLClient(
+      " https://backend03-team.codebootcamp.co.kr/team04",
+      {
+        credentials: "include",
+      }
+    );
     const result = await graphQLClient.request(RESTORE_ACCESS_TOKEN);
 
     const newAccessToken = result.restoreAccessToken.accessToken;
     setAccessToken(newAccessToken);
     return newAccessToken;
-  } catch (errors: any) {
-    console.log(errors.message);
+  } catch (error: any) {
+    console.log(error.message);
   }
 }
