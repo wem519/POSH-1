@@ -1,5 +1,8 @@
 import Mypage from "../../../../src/components/units/user/mypage/Mypage.container";
+import { WithAuth } from "../../../../src/components/commons/hocs/WithAuth";
 
-export default function MypageScreen() {
+const MypageScreen = () => {
   return <Mypage />;
-}
+};
+
+export default WithAuth(MypageScreen);
