@@ -41,8 +41,16 @@ export default function CommentsList() {
       },
     });
   };
+  const onClickMoveBack = () =>
+    router.push(`/posh/products/${router.query.poshId}`);
 
 
-
-  return <CommentsListUI data={data} lodeMore={lodeMore} userInfo={userInfo} />;
+  return (
+    <CommentsListUI
+      data={data}
+      lodeMore={lodeMore}
+      userInfo={userInfo}
+      onClickMoveBack={onClickMoveBack}
+    />
+  );
 }
