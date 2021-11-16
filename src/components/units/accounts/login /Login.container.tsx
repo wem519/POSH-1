@@ -1,20 +1,15 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { LOGIN_USER, UPDATE_USER, FETCH_USER_LOGGED_IN } from "./Login.queries";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import LoginUI from "./Login.presenter";
 
-const LOGIN_USER = gql`
-  mutation loginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
-      accessToken
-    }
-  }
-`;
-
 export default function Login() {
   const router = useRouter();
   const [loginUser] = useMutation(LOGIN_USER);
+  const [updateUser] = useMutation(UPDATE_USER);
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const { setAccessToken } = useContext(GlobalContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,10 +47,22 @@ export default function Login() {
         },
       });
 
+      setAccessToken(result.data?.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
+
+      if (!data.fetchUserLoggedIn.picture) {
+        await updateUser({
+          variables: {
+            updateUserInput: {
+              picture:
+                "https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png",
+            },
+          },
+        });
+      }
       router.push("../home/");
       console.log(result.data?.loginUser.accessToken);
-      localStorage.setItem("refreshToken", "true");
-      setAccessToken(result.data?.loginUser.accessToken);
+
       alert("Posh Posh");
     }
   }
