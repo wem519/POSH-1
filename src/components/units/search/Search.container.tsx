@@ -28,6 +28,7 @@ export default function Search() {
     refetch({ search: search });
   };
   const lodeMore = () => {
+    if (!data) return;
     fetchMore({
       variables: {
         page: Math.ceil(data?.fetchUseditems.length / 10) + 1,

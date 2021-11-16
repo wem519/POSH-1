@@ -8,15 +8,13 @@ import HomeUI from "./Home.presenter";
 import { FETCH_USED_ITEMS } from "./Home.queries";
 import _ from "lodash";
 
-
 export default function Home() {
-
   const [search, setSearch] = useState("");
   const { data, refetch, fetchMore } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
-  
+
   const getDebunce = _.debounce((data) => {
     setSearch(data);
   }, 1000);
@@ -30,6 +28,7 @@ export default function Home() {
   };
 
   const lodeMore = () => {
+    if (!data) return;
     fetchMore({
       variables: {
         page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
@@ -41,9 +40,9 @@ export default function Home() {
             ...fetchMoreResult.fetchUseditems,
           ],
         };
-      }
+      },
     });
-  }
+  };
 
   return (
     <HomeUI
