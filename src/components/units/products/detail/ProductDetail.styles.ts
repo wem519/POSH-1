@@ -60,6 +60,17 @@ export const ProductMiddle = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+export const ChangeStatus = styled.select`
+  margin-left: 17px;
+  padding: 3px 5px 3px 2px;
+  background-color: #b69acb;
+  color: #fff;
+  border-style: none;
+  border-radius: 4px;
+  :focus {
+    outline: none;
+  }
+`;
 export const SaleStatus = styled.div`
   margin-top: 3px;
   margin-left: 17px;

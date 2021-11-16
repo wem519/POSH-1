@@ -28,6 +28,7 @@ import {
   CommentsCount,
   Comment,
   SliderDiv,
+  ChangeStatus,
 } from "./ProductDetail.styles";
 
 export default function ProductDetailUI(props: any) {
@@ -37,12 +38,16 @@ export default function ProductDetailUI(props: any) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: false, // 이거 true(default)하면 화살표영역때문에 왼쪽으로 밀림
   };
 
   return (
     <Wrapper>
       <TransactionInfo>
-        <SellerProfile src={props.data?.fetchUseditem.seller.picture} />
+        <SellerProfile
+          onClick={props.onClickProfile}
+          src={props.data?.fetchUseditem.seller.picture}
+        />
         <SellerInfo>
           <SellerName>{props.data?.fetchUseditem.seller.name}</SellerName>
           <Transaction>
@@ -66,9 +71,30 @@ export default function ProductDetailUI(props: any) {
         </SliderDiv>
       </ProductImages>
       <ProductMiddle>
-        <SaleStatus>
-          <div>{props.data?.fetchUseditem.tags}</div>
-        </SaleStatus>
+        {props.userInfo?.fetchUserLoggedIn._id ===
+          props.data?.fetchUseditem.seller._id &&
+          props.data?.fetchUseditem.tags[0] === "판매중" && (
+            <ChangeStatus onChange={props.onChangeStatus}>
+              <option value="판매중" selected>
+                판매중
+              </option>
+              <option value="판매완료">판매완료</option>
+            </ChangeStatus>
+          )}
+        {props.userInfo?.fetchUserLoggedIn._id ===
+          props.data?.fetchUseditem.seller._id &&
+          props.data?.fetchUseditem.tags[0] === "판매완료" && ( // prettier-ignore
+            <ChangeStatus onChange={props.onChangeStatus}>
+              <option value="판매중">판매중</option>
+              <option value="판매완료" selected>
+                판매완료
+              </option>
+            </ChangeStatus>
+          )}
+        {props.userInfo?.fetchUserLoggedIn._id !==
+          props.data?.fetchUseditem.seller._id && (
+          <SaleStatus>{props.data?.fetchUseditem.tags}</SaleStatus>
+        )}
         <Buttons>
           {props.userInfo?.fetchUserLoggedIn._id ===
           props.data?.fetchUseditem.seller._id ? (

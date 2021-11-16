@@ -17,7 +17,9 @@ export const FETCH_USEDITEM = gql`
       }
       createdAt
       useditemAddress {
+        zipcode
         address
+        addressDetail
       }
       pickedCount
     }

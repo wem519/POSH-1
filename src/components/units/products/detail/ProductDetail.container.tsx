@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+// import { useState } from "react";
 import ProductDetailUI from "./ProductDetail.presenter";
 import {
   FETCH_USEDITEM,
@@ -9,11 +9,13 @@ import {
   DELETE_USEDITEM,
   TOGGLE_USEDITEM_PICK,
 } from "./ProductDetail.queries";
+import { UPDATE_USEDITEM } from "../write/ProductWrite.queries";
 
 export default function ProductDetail() {
-  const [picked, setPicked] = useState(false);
+  // const [picked, setPicked] = useState(false);
   const [deleteUseditem] = useMutation(DELETE_USEDITEM);
   const [toggleUseditemPick] = useMutation(TOGGLE_USEDITEM_PICK);
+  const [updateUseditem] = useMutation(UPDATE_USEDITEM);
   const router = useRouter();
   const { data } = useQuery(FETCH_USEDITEM, {
     variables: {
@@ -57,6 +59,21 @@ export default function ProductDetail() {
     });
   }
 
+  function onChangeStatus(event: any) {
+    updateUseditem({
+      variables: {
+        useditemId: router.query.poshId,
+        updateUseditemInput: {
+          tags: [event.target.value],
+        },
+      },
+    });
+  }
+
+  function onClickProfile() {
+    router.push(`/posh/products/${router.query.poshId}/seller`);
+  }
+
   return (
     <ProductDetailUI
       data={data}
@@ -66,7 +83,9 @@ export default function ProductDetail() {
       onClickToEdit={onClickToEdit}
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
-      picked={picked}
+      // picked={picked}
+      onChangeStatus={onChangeStatus}
+      onClickProfile={onClickProfile}
     />
   );
 }
