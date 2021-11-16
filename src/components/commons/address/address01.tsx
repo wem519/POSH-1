@@ -29,13 +29,15 @@ const ZipcodeBtn = styled.button`
   height: 52px;
   margin-left: 6px;
 `;
-const InputBox = styled.input`
+const InputBox = styled.textarea`
   border: 1px solid #b69acb;
   border-radius: 4px;
   width: 358px;
   height: 52px;
   margin-top: 8px;
   padding-left: 17px;
+  resize: none;
+  padding-top: 14px; // 임시로 가운데정렬
 `;
 
 export default function Address01(props: any) {
@@ -43,13 +45,20 @@ export default function Address01(props: any) {
     <Wrapper>
       <Label>거래장소*</Label>
       <ZipcodeWrapper>
-        <Zipcode type="text" value="02810" readOnly />
+        <Zipcode
+          type="text"
+          value={props.zipcodeUpdate || props.zipcode}
+          readOnly
+        />
         <ZipcodeBtn type="button" onClick={props.onClickZipcodeBtn}>
           우편번호검색
         </ZipcodeBtn>
       </ZipcodeWrapper>
-      <InputBox type="text" />
-      <InputBox type="text" {...props.register} />
+      <InputBox value={props.addressUpdate || props.address} />
+      <InputBox
+        defaultValue={props.addressDetailUpdate || props.addressDetail}
+        {...props.register}
+      />
     </Wrapper>
   );
 }

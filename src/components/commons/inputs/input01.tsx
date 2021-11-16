@@ -8,13 +8,15 @@ const Wrapper = styled.div`
 const Label = styled.div`
   color: #8915a6;
 `;
-const InputBox = styled.input`
+const InputBox = styled.textarea`
   border: 1px solid #b69acb;
   border-radius: 4px;
   width: 358px;
   height: 52px;
   padding-left: 17px;
   margin-top: 3px;
+  resize: none;
+  padding-top: 14px; // 임시로 가운데정렬
 `;
 
 export default function Input01(props: any) {
@@ -25,7 +27,6 @@ export default function Input01(props: any) {
         type={props.type}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
-        value={props.value}
         {...props.register}
       />
     </Wrapper>
