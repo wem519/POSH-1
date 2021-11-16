@@ -5,7 +5,6 @@ import {
   SubmitBtn,
   EditBtn,
   ErrMsg,
-  Select,
 } from "./ProductWrite.styles";
 import LayoutFooterM from "../../../commons/layout/footer_mobile/LayoutFooterMobile";
 import Input01 from "../../../commons/inputs/input01";
@@ -14,6 +13,7 @@ import Address01 from "../../../commons/address/address01";
 import DaumPostcode from "react-daum-postcode";
 import { Modal } from "antd";
 import Upload01 from "../../../commons/uploads/upload01";
+import Select01 from "../../../commons/selects/select01";
 
 export default function ProductWriteUI(props: any) {
   return (
@@ -36,6 +36,7 @@ export default function ProductWriteUI(props: any) {
               key={el + "_" + index}
               index={index}
               onChangeFiles={props.onChangeFiles}
+              defaultValue={props.data?.fetchUseditem.images?.[index]}
             />
           ))}
           {/* {props.fileIds.map((el, index) => (
@@ -52,6 +53,7 @@ export default function ProductWriteUI(props: any) {
             label="상품명*"
             placeholder="상품명을 입력해주세요"
             register={props.register("name")}
+            defaultValue={props.data?.fetchUseditem.name}
           />
           <ErrMsg>{props.formState.errors.name?.message}</ErrMsg>
           <Input01
@@ -59,6 +61,7 @@ export default function ProductWriteUI(props: any) {
             label="가격*"
             placeholder="가격을 입력해주세요"
             register={props.register("price")}
+            defaultValue={props.data?.fetchUseditem.price}
           />
           <ErrMsg>{props.formState.errors.price?.message}</ErrMsg>
           <Input02
@@ -66,17 +69,23 @@ export default function ProductWriteUI(props: any) {
             placeholder="상품 상세 설명을 입력해주세요&#13;&#10;
         ex. 사이즈, 색상 등"
             register={props.register("contents")}
+            defaultValue={props.data?.fetchUseditem.contents}
           />
           <ErrMsg>{props.formState.errors.contents?.message}</ErrMsg>
           <Address01
             register={props.register("addressDetail")}
             onClickZipcodeBtn={props.onClickZipcodeBtn}
+            address={props.data?.fetchUseditem.useditemAddress.address}
+            zipcode={props.data?.fetchUseditem.useditemAddress.zipcode}
+            addressDetail={
+              props.data?.fetchUseditem.useditemAddress.addressDetail
+            }
+            addressUpdate={props.address}
+            zipcodeUpdate={props.zipcode}
+            addressDetailUpdate={props.addressDetail}
           />
-          <Select {...props.register("remarks")}>
-            <option value="직거래">직거래</option>
-            <option value="택배">택배</option>
-            <option value="직거래+택배">직거래+택배</option>
-          </Select>
+          <ErrMsg>{props.formState.errors.addressDetail?.message}</ErrMsg>
+          <Select01 label="거래방식*" register={props.register("remarks")} />
           {props.isEdit ? (
             <EditBtn type="submit" isValid={props.formState.isValid}>
               수정하기

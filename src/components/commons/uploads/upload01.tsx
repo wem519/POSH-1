@@ -27,6 +27,7 @@ function Upload01(props: any) {
 
   function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target?.files?.[0];
+    console.log("파일정보", file);
     if (!file) return;
 
     const fileReader = new FileReader();
@@ -39,8 +40,11 @@ function Upload01(props: any) {
 
   return (
     <>
-      {preImg ? (
-        <UploadImage onClick={onClickUpload} src={preImg} />
+      {preImg || props.defaultValue ? (
+        <UploadImage
+          onClick={onClickUpload}
+          src={preImg || `https://storage.googleapis.com/${props.defaultValue}`}
+        />
       ) : (
         <UploadBtn type="button" onClick={onClickUpload}>
           +
