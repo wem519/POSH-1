@@ -1,5 +1,8 @@
+import { WithAuth } from "../../../../src/components/commons/hocs/WithAuth";
 import ProductDetail from "../../../../src/components/units/products/detail/ProductDetail.container";
 
-export default function ProductDetailPage() {
+const ProductDetailPage = () => {
   return <ProductDetail />;
-}
+};
+
+export default WithAuth(ProductDetailPage);
