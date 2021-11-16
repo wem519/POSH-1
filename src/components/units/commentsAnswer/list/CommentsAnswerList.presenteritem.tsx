@@ -15,21 +15,20 @@ import {
 } from "./CommentsAnswerList.queries";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
-import CommentsAnswer from '../write/CommentsAnswer'
-import CommentsAnswer2 from '../write/CommentsAnswer2'
+import CommentsAnswer from "../write/CommentsAnswer";
+import CommentsAnswer2 from "../write/CommentsAnswer2";
 
 export default function CommentsAnswerListUIItem(props) {
-
   const [deleteUseditemQuestionAnswer] = useMutation(
     DELET_USEDITEM_QUESTION_ANSWER
   );
   const [isEdit, setIsEdit] = useState(false);
-  const [isOpenAnswer,setIsOpenAnswer] = useState(false)
-  
-  const onClickIsEdit = () => setIsEdit(true)
+  const [isOpenAnswer, setIsOpenAnswer] = useState(false);
 
-  const onClickOpenAnswer = () => setIsOpenAnswer(true)
-  
+  const onClickIsEdit = () => setIsEdit(true);
+
+  const onClickOpenAnswer = () => setIsOpenAnswer(true);
+
   const onClickDeleteCommnetsAnsewer = async () => {
     try {
       await deleteUseditemQuestionAnswer({
@@ -40,7 +39,8 @@ export default function CommentsAnswerListUIItem(props) {
             variables: { useditemQuestionId: String(props.id) },
           },
         ],
-      }); alert("삭제 완료")
+      });
+      alert("삭제 완료");
     } catch (error) {
       console.log(error.message);
     }

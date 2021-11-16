@@ -41,7 +41,7 @@ export const SearchBnt = styled.div`
 `;
 // map으로 불러오는 images css
 export const BodyWrpper = styled.div`
-  width: 358px;
+  width: 390px;
   overflow: auto;
   margin-top: 13px;
   display: flex;
@@ -49,8 +49,8 @@ export const BodyWrpper = styled.div`
   margin-bottom: 70px;
 `;
 export const BodyBox = styled.div`
-  width: 117px;
-  height: 117px;
+  width: 128px;
+  height: 128px;
   background-color: #eee;
   border: none;
   margin: 1px 1px;

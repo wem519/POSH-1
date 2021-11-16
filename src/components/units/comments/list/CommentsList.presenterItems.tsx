@@ -21,10 +21,9 @@ import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import CommentsAnswer from "../../commentsAnswer/write/CommentsAnswer";
-import CommentsAnswerTest from '../../commentsAnswer/list/CommentsAnswerList'
+import CommentsAnswerTest from "../../commentsAnswer/list/CommentsAnswerList";
 
 export default function CommentsListUIItems(props) {
-
   const router = useRouter();
   const [deleteUseditemQuestion] = useMutation(DELETE_USEDITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USEDITEM_QUESTION);
@@ -52,7 +51,7 @@ export default function CommentsListUIItems(props) {
       console.log(error.message);
     }
   };
-  // 댓글 수정 
+  // 댓글 수정
   const onChangeCommentsEdit = (e) => {
     setContents(e.target.value);
   };
@@ -62,9 +61,9 @@ export default function CommentsListUIItems(props) {
   const onClickIsOpenAnswer = () => setIsOpenCommnetsAnswer(true);
   // 댓글 수정 함수
   const onClickCommentsEdit = async () => {
-    if (contents === "") { 
-      alert("답글을 입력해주세요")
-      return
+    if (contents === "") {
+      alert("답글을 입력해주세요");
+      return;
     }
     try {
       await updateUseditemQuestion({
@@ -112,7 +111,10 @@ export default function CommentsListUIItems(props) {
           </CommentsBox>
           {/* 대댓글 Component */}
           {IsOpenCommnetsAnswer && (
-            <CommentsAnswer IsOpen={setIsOpenCommnetsAnswer} Comments={props.el} />
+            <CommentsAnswer
+              IsOpen={setIsOpenCommnetsAnswer}
+              Comments={props.el}
+            />
           )}
           <CommentsAnswerTest id={props.el?._id} />
         </>

@@ -20,19 +20,23 @@ const HomeBtn = styled(HomeIcon)`
 `;
 const SearchBtn = styled(SearchIcon)`
   font-size: 28px;
-  color: purple;
+  /* color: purple; */
+  color: gray;
 `;
 const WriteBtn = styled(LocalParkingIcon)`
   font-size: 28px;
-  color: purple;
+  /* color: purple; */
+  color: gray;
 `;
 const ChatBtn = styled(ForumIcon)`
   font-size: 26px;
-  color: purple;
+  /* color: purple; */
+  color: gray;
 `;
 const MyPageBtn = styled(PersonIcon)`
   font-size: 32px;
-  color: purple;
+  /* color: purple; */
+  color: gray;
 `;
 const Button = styled.div`
   display: flex;
@@ -50,6 +54,7 @@ const IconWrapper = styled.div`
 `;
 const ButtonLabel = styled.div`
   font-size: 12px;
+  color: gray;
 `;
 
 export default function LayoutFooterM() {

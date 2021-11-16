@@ -11,7 +11,7 @@ import {
 } from "./CommentsAnswer.queries";
 
 const CommnetsWriteInput = styled.textarea`
-  width: 358px;
+  width: 390px;
   height: 150px;
   padding: 12px 12px 0px 12px;
   border: #d3d3d3 1px solid;
@@ -26,7 +26,7 @@ const CommnetsWriteInput = styled.textarea`
   }
 `;
 const CommnetsInput = styled.input`
-  width: 200px;
+  width: 232px;
   height: 42px;
   background-color: #f3f3f3;
   border: none;
@@ -52,7 +52,7 @@ export default function CommentsAnswer2(props) {
 
   // 대댓글 contents state
   const [contents, setContents] = useState("");
-  
+
   const onClickIsOpen = () => props.setIsOpenAnswer(false);
   const onChnageContents = (e) => setContents(e.target.value);
   // 대댓글 등록 함수
@@ -66,10 +66,11 @@ export default function CommentsAnswer2(props) {
         refetchQueries: [
           {
             query: FETCH_USEDITEM_QUESTION_ANSWERS,
-            variables: { useditemQuestionId: props.id},
+            variables: { useditemQuestionId: props.id },
           },
         ],
-      }); props.setIsOpenAnswer(false);
+      });
+      props.setIsOpenAnswer(false);
     } catch (error) {
       console.log(error.message);
     }
