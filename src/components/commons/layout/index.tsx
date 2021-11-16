@@ -7,12 +7,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 const Body = styled.div`
-  height: 770px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup"];
