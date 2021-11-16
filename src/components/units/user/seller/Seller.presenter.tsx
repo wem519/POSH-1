@@ -9,11 +9,11 @@ import {
   BodyBox,
   ProductImg,
 } from "./Seller.styles";
-import InfiniteScroll from 'react-infinite-scroller'
+import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
 
 export default function SellerUI(props) {
-  const router = useRouter()
+  const router = useRouter();
   const onClickDetail = (e) => {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
@@ -27,8 +27,8 @@ export default function SellerUI(props) {
         </ProfileNicname>
       </ProfileWrapper>
       <MenuWrapper>
-        <Menu>Selling</Menu>
-        <Menu>Sould out</Menu>
+        <Menu onClick={props.onClickIsSelling}>Selling</Menu>
+        <Menu onClick={props.onClickIsSoldOut}>Sould out</Menu>
       </MenuWrapper>
       <InfiniteScroll
         pageStart={0}
@@ -36,18 +36,37 @@ export default function SellerUI(props) {
         hasMore={true}
         useWindow={true}
       >
-        <BodyWrpper>
-          {props.items?.fetchUseditems.map(
-            (el: any, index: any) =>
-              el.seller._id === props.data?.fetchUseditem?.seller._id && (
-                <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-                  <ProductImg
-                    src={`https://storage.googleapis.com/${el.images[0]}`}
-                  />
-                </BodyBox>
-              )
-          )}
-        </BodyWrpper>
+        {props.isSoldOut ? (
+          <BodyWrpper>
+            {props.items?.fetchUseditems
+              .filter((el) => el.tags[0] === "판매완료")
+              .map(
+                (el: any, index: any) =>
+                  el.seller._id === props.data?.fetchUseditem?.seller._id && (
+                    <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+                      <ProductImg
+                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                      />
+                    </BodyBox>
+                  )
+              )}
+          </BodyWrpper>
+        ) : (
+          <BodyWrpper>
+            {props.items?.fetchUseditems
+              .filter((el) => el.tags[0] === "판매중")
+              .map(
+                (el: any, index: any) =>
+                  el.seller._id === props.data?.fetchUseditem?.seller._id && (
+                    <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+                      <ProductImg
+                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                      />
+                    </BodyBox>
+                  )
+              )}
+          </BodyWrpper>
+        )}
       </InfiniteScroll>
     </Wrapper>
   );

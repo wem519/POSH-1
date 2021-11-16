@@ -47,7 +47,6 @@ const CommentsBnt = styled.div`
 `;
 
 export default function CommentsAnswer(props) {
-  console.log("Comments", props.Comments);
 
   const [createUseditemQuestionAnswer] = useMutation<
     Pick<IMutation, "createUseditemQuestionAnswer">,
@@ -65,7 +64,6 @@ export default function CommentsAnswer(props) {
   const onClickIsOpen = () => {
     props.IsOpen(false);
   };
-
   // 대댓글 입력 저장 함수
   const onChangeAnswer = (e) => setContents(e.target.value);
 

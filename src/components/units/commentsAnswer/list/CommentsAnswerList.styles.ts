@@ -16,7 +16,7 @@ export const CommentsBox = styled.div`
 export const CommentsProfile = styled.img`
   width: 36px;
   height: 36px;
-  border-radius: 100%;
+  border-radius: 50%;
   margin-right: 10px;
   margin-left: 10px;
   object-fit: cover;

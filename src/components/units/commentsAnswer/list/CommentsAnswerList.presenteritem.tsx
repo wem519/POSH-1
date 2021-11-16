@@ -16,19 +16,24 @@ import {
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import CommentsAnswer from '../write/CommentsAnswer'
+import CommentsAnswer2 from '../write/CommentsAnswer2'
 
 export default function CommentsAnswerListUIItem(props) {
+
   const [deleteUseditemQuestionAnswer] = useMutation(
     DELET_USEDITEM_QUESTION_ANSWER
   );
   const [isEdit, setIsEdit] = useState(false);
+  const [isOpenAnswer,setIsOpenAnswer] = useState(false)
   
   const onClickIsEdit = () => setIsEdit(true)
+
+  const onClickOpenAnswer = () => setIsOpenAnswer(true)
   
   const onClickDeleteCommnetsAnsewer = async () => {
     try {
       await deleteUseditemQuestionAnswer({
-        variables: { useditemQuestionAnswerId: String(props.el._id) },
+        variables: { useditemQuestionAnswerId: String(props.id) },
         refetchQueries: [
           {
             query: FETCH_USEDITEM_QUESTION_ANSWERS,
@@ -60,11 +65,20 @@ export default function CommentsAnswerListUIItem(props) {
               </CommentsEditWrapper>
             ) : (
               <CommentsEditWrapper>
-                {/* <CommnetsEdit>답글</CommnetsEdit> */}
+                <CommnetsEdit onClick={onClickOpenAnswer}>답글</CommnetsEdit>
               </CommentsEditWrapper>
             )}
           </CommentsProfileBox>
         </CommentsBox>
+      )}
+      {isOpenAnswer && (
+        <>
+          <CommentsAnswer2
+            isOpenAnswer={isOpenAnswer}
+            setIsOpenAnswer={setIsOpenAnswer}
+            id={props.id}
+          />
+        </>
       )}
       {isEdit && (
         <CommentsAnswer isEdit={isEdit} setIsEdit={setIsEdit} el={props.el} />
