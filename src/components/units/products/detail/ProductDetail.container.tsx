@@ -10,9 +10,11 @@ import {
   TOGGLE_USEDITEM_PICK,
 } from "./ProductDetail.queries";
 import { UPDATE_USEDITEM } from "../write/ProductWrite.queries";
+import { useState } from "react";
 
 export default function ProductDetail() {
   // const [picked, setPicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [deleteUseditem] = useMutation(DELETE_USEDITEM);
   const [toggleUseditemPick] = useMutation(TOGGLE_USEDITEM_PICK);
   const [updateUseditem] = useMutation(UPDATE_USEDITEM);
@@ -43,6 +45,14 @@ export default function ProductDetail() {
   function onClickDelete() {
     deleteUseditem({ variables: { useditemId: router.query.poshId } });
     router.push(`/posh/home`);
+  }
+
+  function onClickClose() {
+    setIsOpen(false);
+  }
+
+  function onClickToDelete() {
+    setIsOpen(true);
   }
 
   function onClickPick() {
@@ -86,6 +96,10 @@ export default function ProductDetail() {
       // picked={picked}
       onChangeStatus={onChangeStatus}
       onClickProfile={onClickProfile}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      onClickClose={onClickClose}
+      onClickToDelete={onClickToDelete}
     />
   );
 }
