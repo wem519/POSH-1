@@ -23,8 +23,9 @@ export const ProfileImage = styled.img`
   width: 72px;
   height: 72px;
   background-color: #8915A6;
-  border-radius: 100%;
+  border-radius: 50%;
   margin-top: 7px;
+  object-fit: cover;
 `
 export const MenuWrapper = styled.div`
   display: flex;
@@ -45,7 +46,7 @@ export const Menu = styled.div`
 export const BodyWrpper = styled.div`
   width: 358px;
   overflow: auto;
-  margin-top: 13px;
+  /* margin-top: 13px; */
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 70px;
@@ -55,6 +56,8 @@ export const BodyBox = styled.div`
   height: 117px;
   background-color: #F3F3F3;
   border: #fff solid 1px;
+  border: none;
+  margin: 1px 1px;
   cursor: pointer;
 `
 export const ProductImg = styled.img`
