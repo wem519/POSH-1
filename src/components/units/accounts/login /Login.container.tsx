@@ -8,8 +8,6 @@ import LoginUI from "./Login.presenter";
 export default function Login() {
   const router = useRouter();
   const [loginUser] = useMutation(LOGIN_USER);
-  const [updateUser] = useMutation(UPDATE_USER);
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const { setAccessToken } = useContext(GlobalContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +21,7 @@ export default function Login() {
   function onChangePassword(event: any) {
     setPassword(event.target.value);
   }
+
   async function onClickLogin() {
     if (email === "") {
       setEmailError("필수입력사항입니다.");
@@ -50,22 +49,13 @@ export default function Login() {
       setAccessToken(result.data?.loginUser.accessToken);
       localStorage.setItem("refreshToken", "true");
 
-      if (!data.fetchUserLoggedIn.picture) {
-        await updateUser({
-          variables: {
-            updateUserInput: {
-              picture:
-                "https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png",
-            },
-          },
-        });
-      }
       router.push("../home/");
       console.log(result.data?.loginUser.accessToken);
 
       alert("Posh Posh");
     }
   }
+
   return (
     <LoginUI
       onChangeEmail={onChangeEmail}
