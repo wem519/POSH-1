@@ -14,6 +14,7 @@ import {
   Buttons,
   ButtonsBuyer,
   PickBtn,
+  PickBtn2,
   SendBtn,
   ButtonsSeller,
   EditBtn,
@@ -115,10 +116,11 @@ export default function ProductDetailUI(props: any) {
             </ButtonsSeller>
           ) : (
             <ButtonsBuyer>
-              <PickBtn
-                onClick={props.onClickPick}
-                picked={props.picked}
-              ></PickBtn>
+              {props.picked ? (
+                <PickBtn2 onClick={props.onClickPick}></PickBtn2>
+              ) : (
+                <PickBtn onClick={props.onClickPick}></PickBtn>
+              )}
               {props.data?.fetchUseditem.pickedCount}
               <SendBtn></SendBtn>
             </ButtonsBuyer>
