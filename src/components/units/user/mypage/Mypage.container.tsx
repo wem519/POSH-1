@@ -89,7 +89,6 @@ export default function Mypage() {
     setMySelling(false);
     setMySoldOut(false);
   }
-  console.log("pick", myPick, "selling", mySelling, "soldout", mySoldOut);
 
   function onClickSelling() {
     setMySelling(true);
@@ -114,6 +113,7 @@ export default function Mypage() {
         file: url,
       },
     });
+    alert("프로필 사진을 수정하시겠습니까?");
 
     await updateUser({
       variables: {
