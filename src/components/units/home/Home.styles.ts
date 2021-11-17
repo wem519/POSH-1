@@ -41,21 +41,31 @@ export const SearchBnt = styled.div`
 `;
 // map으로 불러오는 images css
 export const BodyWrpper = styled.div`
-  width: 390px;
+  width: 1400px;
   overflow: auto;
   margin-top: 13px;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 70px;
-  
+  @media screen and (max-width: 1400px) {
+    width: 1050px;
+  }
+  @media screen and (max-width: 700px) {
+    width: 390px;
+  }
+
 `;
 export const BodyBox = styled.div`
-  width: 128px;
-  height: 128px;
+  width: 348px;
+  height: 348px;
   background-color: #eee;
   border: none;
   margin: 1px 1px;
   cursor: pointer;
+  @media screen and (max-width: 700px) {
+    width: 128px;
+    height: 128px;
+  }
 `;
 export const ProductImg = styled.img`
   object-fit: cover;

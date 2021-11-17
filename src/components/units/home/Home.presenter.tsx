@@ -28,7 +28,6 @@ export default function HomeUI(props: any) {
         ></Search>
         <SearchBnt onClick={props.onClickSearch}></SearchBnt>
       </SearchWrapper> */}
-
         <InfiniteScroll
           pageStart={0}
           loadMore={props.lodeMore}
