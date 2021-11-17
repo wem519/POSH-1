@@ -24,9 +24,13 @@ export default function MypageUI(props: any) {
   return (
     <Wrapper>
       <ProfileWrapper>
-        <ProfilePicture
-          src={props.preImage || props.userInfo?.fetchUserLoggedIn.picture}
-        />
+        {props.userInfo?.fetchUserLoggedIn ? (
+          <ProfilePicture
+            src={props.preImage || props.userInfo?.fetchUserLoggedIn.picture}
+          />
+        ) : (
+          <></>
+        )}
 
         {!props.preImage ? (
           <div style={{ position: "relative" }}>
@@ -129,67 +133,6 @@ export default function MypageUI(props: any) {
           )}
         </InfiniteScroll>
       </Body>
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          backgroundColor: "#f1f1f1",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./home.png"></img>
-          <div>홈</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./search.png"></img>
-          <div>검색</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src="./circle.png"
-            style={{ width: "20px", height: "20px" }}
-          ></img>
-          <div>등록</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./chat.png"></img>
-          <div>채팅</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./mypage.png"></img>
-          <div>마이마켓</div>
-        </div>
-      </div> */}
     </Wrapper>
   );
 }
