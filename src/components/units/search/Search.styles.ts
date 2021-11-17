@@ -12,7 +12,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
 `;
 export const Search = styled.input`
-  width: 332px;
+  width: 320px;
   height: 42px;
   background-color: #f3f3f3;
   border-radius: 4px 0px 0px 4px;

@@ -20,7 +20,7 @@ export const CommentsProfile = styled.img`
   margin-right: 10px;
   margin-left: 10px;
   object-fit: cover;
-  background-color: #8915a6;
+  /* background-color: #8915a6; */
 `;
 export const CommentsProfileBox = styled.div`
   display: flex;
@@ -89,7 +89,7 @@ export const CommentsBnt = styled.div`
   cursor: pointer;
 `;
 export const CommentsAnswerIcon = styled(SubdirectoryArrowRightIcon)`
-  font-size: 15px;
+  font-size: 10px;
   color: #8915a6;
   margin-left: 40px;
 `;

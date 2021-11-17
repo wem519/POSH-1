@@ -47,6 +47,7 @@ export const BodyWrpper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 70px;
+  
 `;
 export const BodyBox = styled.div`
   width: 128px;

@@ -4,14 +4,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* height: 600px; */
 `;
 
 export const CommentsBox = styled.div`
   width: 358px;
   display: flex;
   padding: 12px 12px 0px 12px;
-  /* background-color: gray; */
 `;
 export const CommentsProfile = styled.img`
   width: 36px;
@@ -19,7 +17,7 @@ export const CommentsProfile = styled.img`
   border-radius: 100%;
   margin-right: 10px;
   object-fit: cover;
-  background-color: #8915a6;
+  /* background-color: #8915a6; */
 `;
 export const CommentsProfileBox = styled.div`
   display: flex;

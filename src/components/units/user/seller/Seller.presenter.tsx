@@ -8,6 +8,7 @@ import {
   BodyWrpper,
   BodyBox,
   ProductImg,
+  Menu2,
 } from "./Seller.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
@@ -27,8 +28,12 @@ export default function SellerUI(props) {
         </ProfileNicname>
       </ProfileWrapper>
       <MenuWrapper>
-        <Menu onClick={props.onClickIsSelling}>Selling</Menu>
-        <Menu onClick={props.onClickIsSoldOut}>Sould out</Menu>
+        <Menu onClick={props.onClickIsSelling} isSoldOut={props.isSoldOut}>
+          Selling
+        </Menu>
+        <Menu2 onClick={props.onClickIsSoldOut} isSoldOut={props.isSoldOut}>
+          Sould out
+        </Menu2>
       </MenuWrapper>
       <InfiniteScroll
         pageStart={0}
