@@ -2,13 +2,13 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useContext } from "react";
 import { GlobalContext } from "../../../../pages/_app";
-import { FETCH_USER_LOGGED_IN } from "../../units/accounts/login /Login.queries";
+// import { FETCH_USER_LOGGED_IN } from "../../units/accounts/login /Login.queries";
 
 export const WithAuth = (Component) => (props) => {
   const router = useRouter();
   const { accessToken } = useContext(GlobalContext);
 
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  // const { data } = useQuery(FETCH_USER_LOGGED_IN);
   // refreshToken 만 하면, 로그인안된 유저도 localStorage에 refreshToken: true 가 남아있을 때
   // 접근가능해서 안되고,
   // fetchUserLoggedIn 데이터로 한번 더 거르면, 데이터를 받아오는 속도때문에 항상 실행됨
@@ -18,11 +18,12 @@ export const WithAuth = (Component) => (props) => {
     if (!localStorage.getItem("refreshToken")) {
       alert("Posh에 입장해 주세요");
       router.push("/posh/accounts/login");
-      if (!data) {
-        alert("Posh에 입장해 주세요");
-        router.push("/posh/accounts/login");
-      }
+      // if (!data) {
+      //   alert("Posh에 입장해 주세요");
+      //   router.push("/posh/accounts/login");
+      // }
+      // 의존성배열에 data 추가필요
     }
-  }, [accessToken, data]);
+  }, [accessToken]);
   return <Component {...props} />;
 };
