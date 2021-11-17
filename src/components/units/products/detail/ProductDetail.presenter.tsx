@@ -30,6 +30,7 @@ import {
   SliderDiv,
   ChangeStatus,
 } from "./ProductDetail.styles";
+import { Modal } from "antd";
 
 export default function ProductDetailUI(props: any) {
   const settings = {
@@ -43,6 +44,16 @@ export default function ProductDetailUI(props: any) {
 
   return (
     <Wrapper>
+      {props.isOpen && (
+        <Modal
+          width="300px"
+          visible={true}
+          onOk={props.onClickDelete}
+          onCancel={props.onClickClose}
+        >
+          삭제하시겠습니까?
+        </Modal>
+      )}
       <TransactionInfo>
         <SellerProfile
           onClick={props.onClickProfile}
@@ -100,7 +111,7 @@ export default function ProductDetailUI(props: any) {
           props.data?.fetchUseditem.seller._id ? (
             <ButtonsSeller>
               <EditBtn onClick={props.onClickToEdit}></EditBtn>
-              <DeleteBtn onClick={props.onClickDelete}></DeleteBtn>
+              <DeleteBtn onClick={props.onClickToDelete}></DeleteBtn>
             </ButtonsSeller>
           ) : (
             <ButtonsBuyer>
