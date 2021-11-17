@@ -46,7 +46,7 @@ export default function Login() {
         },
       });
 
-      setAccessToken(result.data?.loginUserExample.accessToken);
+      setAccessToken(result.data?.loginUser.accessToken);
       localStorage.setItem("refreshToken", "true");
 
       router.push("../home/");
