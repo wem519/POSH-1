@@ -1,6 +1,8 @@
 import {
   Body,
-  Menu,
+  Menu1,
+  Menu2,
+  Menu3,
   MenuWrapper,
   ProductImg,
   ProductsList,
@@ -14,6 +16,7 @@ import {
   Arrow,
   EditWrapper,
   ArrowWrapper,
+  LogOut,
 } from "./Mypage.styles";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -21,10 +24,14 @@ export default function MypageUI(props: any) {
   return (
     <Wrapper>
       <ProfileWrapper>
-        <ProfilePicture
-          src={props.preImage || props.userInfo?.fetchUserLoggedIn.picture}
-          onClick={props.onClickUpdatePicture}
-        />
+        {props.userInfo?.fetchUserLoggedIn ? (
+          <ProfilePicture
+            src={props.preImage || props.userInfo?.fetchUserLoggedIn.picture}
+          />
+        ) : (
+          <></>
+        )}
+
         {!props.preImage ? (
           <div style={{ position: "relative" }}>
             <EditWrapper>
@@ -45,26 +52,43 @@ export default function MypageUI(props: any) {
           onChange={props.onChangeFile}
         ></FileInput>
       </ProfileWrapper>
+      {props.userInfo?.fetchUserLoggedIn ? (
+        <div style={{ display: "flex" }}>
+          <LogOut onClick={props.onClickLogOut} />
+        </div>
+      ) : (
+        <></>
+      )}
+
       <Body>
         <MenuWrapper>
-          <Menu onClick={props.onClickPick}>Pick</Menu>
-          <Menu onClick={props.onClickSelling}>Selling</Menu>
-          <Menu onClick={props.onClickSoldout}>Sold out</Menu>
+          <Menu1 onClick={props.onClickPick} myPick={props.myPick}>
+            Pick
+          </Menu1>
+          <Menu2 onClick={props.onClickSelling} mySelling={props.mySelling}>
+            Selling
+          </Menu2>
+          <Menu3 onClick={props.onClickSoldout} mySoldOut={props.mySoldOut}>
+            Sold out
+          </Menu3>
         </MenuWrapper>
         <InfiniteScroll pageStart={0} loadMore={props.loadMore} hasMore={true}>
           {props.myPick && (
             <ProductsWrapper>
-              {props.data?.fetchUseditemsIPicked.map((el: any, index: any) => (
-                <ProductsList
-                  key={index}
-                  id={el._id}
-                  onClick={props.onClickDetail}
-                >
-                  <ProductImg
-                    src={`https://storage.googleapis.com/${el.images[0]}`}
-                  />
-                </ProductsList>
-              ))}
+              {props.data?.fetchUseditemsIPicked.map(
+                (el: any, index: any) =>
+                  !el.deletedAt && (
+                    <ProductsList
+                      key={index}
+                      id={el._id}
+                      onClick={props.onClickDetail}
+                    >
+                      <ProductImg
+                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                      />
+                    </ProductsList>
+                  )
+              )}
             </ProductsWrapper>
           )}
           {props.mySelling && (
@@ -109,67 +133,6 @@ export default function MypageUI(props: any) {
           )}
         </InfiniteScroll>
       </Body>
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          backgroundColor: "#f1f1f1",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./home.png"></img>
-          <div>홈</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./search.png"></img>
-          <div>검색</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src="./circle.png"
-            style={{ width: "20px", height: "20px" }}
-          ></img>
-          <div>등록</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./chat.png"></img>
-          <div>채팅</div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img src="./mypage.png"></img>
-          <div>마이마켓</div>
-        </div>
-      </div> */}
     </Wrapper>
   );
 }

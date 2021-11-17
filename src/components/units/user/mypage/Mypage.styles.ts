@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import EditIcon from "@mui/icons-material/Edit";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import UploadIcon from "@mui/icons-material/Upload";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 export const Wrapper = styled.div`
   width: 390px;
@@ -43,11 +43,12 @@ export const MenuWrapper = styled.div`
   text-align: center;
   padding-top: 25px;
 `;
-export const Menu = styled.span`
+export const Menu1 = styled.span`
   width: 128px;
   height: 42px;
-  background-color: #b69acb;
+  background-color: ${(props: any) => (props.myPick ? "#8915a6" : "#b69acb")};
   /* border: 1px solid #ffffff; */
+  border-radius: 4px 4px 0px 0px;
   margin: 1px 1px;
   display: center;
   align-items: center;
@@ -55,6 +56,35 @@ export const Menu = styled.span`
   color: #ffffff;
   font-size: 18px;
 `;
+export const Menu2 = styled.span`
+  width: 128px;
+  height: 42px;
+  background-color: ${(props: any) =>
+    props.mySelling ? "#8915a6" : "#b69acb"};
+  /* border: 1px solid #ffffff; */
+  border-radius: 4px 4px 0px 0px;
+  margin: 1px 1px;
+  display: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+`;
+export const Menu3 = styled.span`
+  width: 128px;
+  height: 42px;
+  background-color: ${(props: any) =>
+    props.mySoldOut ? "#8915a6" : "#b69acb"};
+  /* border: 1px solid #ffffff; */
+  border-radius: 4px 4px 0px 0px;
+  margin: 1px 1px;
+  display: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+`;
+
 export const ProductsWrapper = styled.div`
   width: 390px;
   overflow: auto;
@@ -115,4 +145,8 @@ export const ArrowWrapper = styled.div`
   position: absolute;
   bottom: 1px;
   left: 15px;
+`;
+export const LogOut = styled(LogoutRoundedIcon)`
+  font-size: 15px;
+  margin-left: auto;
 `;

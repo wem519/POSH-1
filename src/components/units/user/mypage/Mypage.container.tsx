@@ -12,6 +12,7 @@ const FETCH_USEDITEMS_I_PICKED = gql`
       contents
       price
       images
+      deletedAt
     }
   }
 `;
@@ -56,11 +57,18 @@ const UPLOAD_FILE = gql`
   }
 `;
 
+const LOGOUT_USER = gql`
+  mutation logoutUser {
+    logoutUser
+  }
+`;
+
 export default function Mypage() {
   const fileRef = useRef();
   const router = useRouter();
   const [updateUser] = useMutation(UPDATE_USER);
   const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [logoutUser] = useMutation(LOGOUT_USER);
   const [myPick, setMyPick] = useState(true);
   const [mySelling, setMySelling] = useState(false);
   const [mySoldOut, setMySoldOut] = useState(false);
@@ -105,6 +113,7 @@ export default function Mypage() {
         file: url,
       },
     });
+    alert("프로필 사진을 수정하시겠습니까?");
 
     await updateUser({
       variables: {
@@ -124,7 +133,6 @@ export default function Mypage() {
     setMySoldOut(true);
     setMyPick(false);
     setMySelling(false);
-    console.log("soldout");
   }
   const loadMore = () => {
     if (!Items) return;
@@ -142,15 +150,19 @@ export default function Mypage() {
       },
     });
   };
-
-  async function onClickUpdatePicture() {}
+  function onClickLogOut() {
+    logoutUser();
+    localStorage.clear(); // 로컬 스토리지 내용 삭제
+    // location.reload(); // 페이지 강제 새로고침
+    router.push("/posh/home/");
+    alert("로그아웃 완료");
+  }
 
   return (
     <MypageUI
       data={data}
       userInfo={UserInfo}
       Items={Items}
-      onClickUpdatePicture={onClickUpdatePicture}
       onClickDetail={onClickDetail}
       onClickPick={onClickPick}
       onClickSelling={onClickSelling}
@@ -167,6 +179,7 @@ export default function Mypage() {
       onClickFile={onClickFile}
       onClickUploadFile={onClickUploadFile}
       preImage={preImage}
+      onClickLogOut={onClickLogOut}
     />
   );
 }
