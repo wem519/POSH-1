@@ -46,11 +46,11 @@ export default function Login() {
         },
       });
 
-      setAccessToken(result.data?.loginUser.accessToken);
+      setAccessToken(result.data?.loginUserExample.accessToken);
       localStorage.setItem("refreshToken", "true");
 
       router.push("../home/");
-      console.log(result.data?.loginUser.accessToken);
+      // console.log(result.data?.loginUser.accessToken);
 
       alert("Posh Posh");
     }
