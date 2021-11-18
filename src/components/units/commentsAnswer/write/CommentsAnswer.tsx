@@ -71,7 +71,7 @@ export default function CommentsAnswer(props: any) {
   // 대댓글 등록 함수
   const onClickSubmitAnswer = async () => {
     try {
-      const result = await createUseditemQuestionAnswer({
+      await createUseditemQuestionAnswer({
         variables: {
           createUseditemQuestionAnswerInput: { contents },
           useditemQuestionId: String(props.Comments?._id),
@@ -84,7 +84,7 @@ export default function CommentsAnswer(props: any) {
         ],
       });
       props.IsOpen(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };
@@ -95,7 +95,7 @@ export default function CommentsAnswer(props: any) {
       return;
     }
     try {
-      const result = await updateUseditemQuestionAnswer({
+      await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: { contents },
           useditemQuestionAnswerId: props.el._id,
@@ -108,7 +108,7 @@ export default function CommentsAnswer(props: any) {
         ],
       });
       props.setIsEdit(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };

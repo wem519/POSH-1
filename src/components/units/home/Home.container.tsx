@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
@@ -11,7 +11,6 @@ import {
   FETCH_USER_LOGGED_IN,
   UPDATE_USER,
 } from "../accounts/login /Login.queries";
-import { useEffect } from "react";
 
 export default function Home() {
   const { data: userInfo } = useQuery(FETCH_USER_LOGGED_IN);

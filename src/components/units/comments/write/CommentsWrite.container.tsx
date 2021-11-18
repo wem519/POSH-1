@@ -39,7 +39,7 @@ export default function CommentsWrite() {
       return;
     }
     try {
-      const result = await createUseditemQuestion({
+      await createUseditemQuestion({
         variables: {
           createUseditemQuestionInput: { contents },
           useditemId: String(router.query.poshId),
@@ -53,7 +53,7 @@ export default function CommentsWrite() {
       });
       setContents("");
       setIsOpen(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };
