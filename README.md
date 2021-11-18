@@ -1,17 +1,17 @@
 # POSH 
 React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 ---
-[![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH/POSH)](https://github.com/TeamPOSH/POSH)
+[![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/TeamPOSH/POSH)
 [![LastCommit](https://img.shields.io/github/last-commit/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
-[![Commit](https://img.shields.io/github/commit-activity/w/Project-POSH/POSH)](https://github.com/Project-POSH/POSH/POSH)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/Project-POSH/POSH/POSH)
+[![Commit](https://img.shields.io/github/commit-activity/w/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/Project-POSH/POSH)
 
 <br/>
 
 
 ### ⚽️ Project Goal
 
-- 내용 작성 필요
+- 
 - 내용 작성 필요
 - 내용 작성 필요
 - 내용 작성 필요
