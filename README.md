@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# POSH 
+React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
+---
+[![Contributors](https://img.shields.io/github/contributors-anon/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
+[![LastCommit](https://img.shields.io/github/last-commit/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
+[![Commit](https://img.shields.io/github/commit-activity/w/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/TeamPOSH/POSH)
 
-## Getting Started
+<br/>
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### ⚽️ Project Goal
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 내용 작성 필요
+- 내용 작성 필요
+- 내용 작성 필요
+- 내용 작성 필요
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<br/>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 프로젝트 진행방향
 
-## Learn More
+### 프로젝트 기술 스택 
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/></a>&nbsp  
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white"/></a>&nbsp  
+  <img src="https://img.shields.io/badge/Javascript-ffb13b?style=flat-square&logo=javascript&logoColor=white"/></a>&nbsp 
+  <img src="https://img.shields.io/badge/Typescript-3178c6?style=flat-square&logo=Typescript&logoColor=white"/></a>&nbsp 
+  <img src="https://img.shields.io/badge/React-61dafb?style=flat-square&logo=React&logoColor=white"/></a>&nbsp  
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=black"/></a>&nbsp
+  <img src="https://img.shields.io/badge/ReactNative-61DAFB?style=flat-square&logo=React&logoColor=black"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>&nbsp
+</p>
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+### 프로젝트 팀 구성원 및 역할
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 우의명 : 내용 작성 필요
+- 윤주연 : 내용 작성 필요
+- 이지원 : 내용 작성 필요
+- 
+- 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 프로젝트 규칙
 
-## Deploy on Vercel
+- 내용 작성 필요
+- 내용 작성 필요
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Commit 규칙
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 내용 작성 필요
+- 내용 작성 필요
+- 내용 작성 필요
+
+### PR 규칙
+
+- 본인이 작업한 Feature(기능) Branch에 작업한 최소단위 커밋으로 PR 요청합니다.
+- 팀원들이 모여 해당 PR의 유효성 검토 후 Develop Branch에 담당자를 통한 Merge가 이뤄집니다.
+
+### 피드백 규칙
+
+- 프로젝트 작업 관련 질문, 의견 표출, 지식 공유를 지향합니다.
+
+### 기타사항
+- 
+
+---
+![TeamPoshMembers]()
