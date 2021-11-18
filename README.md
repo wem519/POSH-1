@@ -1,7 +1,7 @@
 # POSH 
 <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7d66ebcf-9a1d-4498-a425-85cb4cc4f79c%2FGroup_3.svg?table=block&id=1b86f2ca-6341-4ac3-b604-40e77f347ea9&spaceId=904e7e31-d462-4174-b82a-8639b329f672&userId=e071d0ba-423f-4711-80b4-de53a796a7c0&cache=v2" width="300" height="300">
 
-React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [a link] (https://www.notion.so/1b86f2ca63414ac3b60440e77f347ea9)
+React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [here](https://www.notion.so/1b86f2ca63414ac3b60440e77f347ea9)
 ---
 
 [![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
