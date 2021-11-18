@@ -7,7 +7,7 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/Project-POSH/POSH)
 
 <br/>
-<img src="https://boatneck-soda-941.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7d66ebcf-9a1d-4498-a425-85cb4cc4f79c%2FGroup_3.svg?table=block&id=1b86f2ca-6341-4ac3-b604-40e77f347ea9&spaceId=904e7e31-d462-4174-b82a-8639b329f672&userId=&cache=v2">
+<img src="https://boatneck-soda-941.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7d66ebcf-9a1d-4498-a425-85cb4cc4f79c%2FGroup_3.svg?table=block&id=1b86f2ca-6341-4ac3-b604-40e77f347ea9&spaceId=904e7e31-d462-4174-b82a-8639b329f672&userId=&cache=v2" {width="300" height:"300">
 
 ### ⚽️ Project Goal
 
