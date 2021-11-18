@@ -4,6 +4,7 @@ import { useMutation, gql } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { Modal } from "antd";
 
 const CREATE_USER = gql`
   mutation createUser($createUserInput: CreateUserInput!) {
@@ -44,20 +45,24 @@ export default function Signup() {
   });
 
   async function onClickSignup(data: any) {
-    await createUser({
-      variables: {
-        createUserInput: {
-          email: data.email,
-          password: data.password,
-          name: data.name,
+    try {
+      await createUser({
+        variables: {
+          createUserInput: {
+            email: data.email,
+            password: data.password,
+            name: data.name,
+          },
         },
-      },
-    });
+      });
 
-    console.log("crateUser", data);
-    alert("Welcome To Posh");
-    router.push("./login");
-    console.log("data", data);
+      console.log("crateUser", data);
+      alert("Welcome To Posh");
+      router.push("./login");
+      console.log("data", data);
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
   }
   return (
     <SignupUI
