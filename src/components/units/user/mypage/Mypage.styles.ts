@@ -147,6 +147,11 @@ export const ArrowWrapper = styled.div`
   left: 15px;
 `;
 export const LogOut = styled(LogoutRoundedIcon)`
-  font-size: 15px;
+  font-size: 20px;
   margin-left: auto;
+  cursor: pointer;
+  color: #b69acb;
+  :hover {
+    color: #8915a6;
+  }
 `;
