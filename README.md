@@ -1,10 +1,10 @@
 # POSH 
 React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 ---
-[![Contributors](https://img.shields.io/github/contributors-anon/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
-[![LastCommit](https://img.shields.io/github/last-commit/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
-[![Commit](https://img.shields.io/github/commit-activity/w/TeamPOSH/POSH)](https://github.com/TeamPOSH/POSH)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/TeamPOSH/POSH)
+[![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH/POSH)](https://github.com/TeamPOSH/POSH)
+[![LastCommit](https://img.shields.io/github/last-commit/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
+[![Commit](https://img.shields.io/github/commit-activity/w/Project-POSH/POSH)](https://github.com/Project-POSH/POSH/POSH)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/Project-POSH/POSH/POSH)
 
 <br/>
 
@@ -30,7 +30,6 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
   <img src="https://img.shields.io/badge/Typescript-3178c6?style=flat-square&logo=Typescript&logoColor=white"/></a>&nbsp 
   <img src="https://img.shields.io/badge/React-61dafb?style=flat-square&logo=React&logoColor=white"/></a>&nbsp  
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=black"/></a>&nbsp
-  <img src="https://img.shields.io/badge/ReactNative-61DAFB?style=flat-square&logo=React&logoColor=black"/></a>&nbsp
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>&nbsp
 </p>
 <br />
