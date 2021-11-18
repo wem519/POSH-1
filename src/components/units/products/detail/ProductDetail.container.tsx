@@ -39,14 +39,12 @@ export default function ProductDetail() {
   });
 
   useEffect(() => {
-    if (pickData?.fetchUseditemsIPicked.filter((el) => el._id === router.query.poshId).length === 0) {
+    if (pickData?.fetchUseditemsIPicked.filter((el: any) => el._id === router.query.poshId).length === 0){
       setPicked(false); // prettier-ignore
-    } else if(pickData?.fetchUseditemsIPicked.filter((el) => el._id === router.query.poshId).length !== 0){setPicked(true); // prettier-ignore
-    console.log("찜함")} // prettier-ignore
+    } else if(pickData?.fetchUseditemsIPicked.filter((el: any) => el._id === router.query.poshId).length !== 0){
+      setPicked(true)
+    } // prettier-ignore
   }, [pickData]);
-
-  console.log("picked", picked);
-  console.log('같음?',pickData?.fetchUseditemsIPicked.filter((el) => el._id === router.query.poshId)); // prettier-ignore
 
   function onClickToCommentPage() {
     router.push(`/posh/products/${router.query.poshId}/comment`);
@@ -71,6 +69,7 @@ export default function ProductDetail() {
   }
 
   function onClickPick() {
+    setPicked((prev) => !prev);
     toggleUseditemPick({
       variables: { useditemId: router.query.poshId },
       refetchQueries: [

@@ -45,7 +45,7 @@ export const ProductImages = styled.div`
   height: 390px;
   display: flex;
   align-items: center;
-  background-color: lightgray;
+  background-image: url("/images/noImage.png");
 `;
 export const ProductImage = styled.img`
   width: 390px;
@@ -86,7 +86,7 @@ export const ButtonsBuyer = styled.div`
   display: flex;
 `;
 export const PickBtn = styled(FavoriteBorderIcon)`
-  color: "#b69acb";
+  color: #b69acb;
 `;
 export const PickBtn2 = styled(FavoriteIcon)`
   color: #8915a6;

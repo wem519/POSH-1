@@ -73,8 +73,8 @@ export default function ProductDetailUI(props: any) {
       <ProductImages>
         <SliderDiv {...settings}>
           {props.data?.fetchUseditem.images
-            .filter((el) => el)
-            .map((el) => (
+            .filter((el: any) => el)
+            .map((el: any) => (
               <ProductImage
                 key={el}
                 src={`https://storage.googleapis.com/${el}`}
