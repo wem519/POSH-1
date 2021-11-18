@@ -52,10 +52,12 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 
 ### Commit 규칙
 
-- commit -m type subject(한글)<br/>
-- type 지정 <br/>
+- commit -m type subject(한글)
+<br/>
+- type 지정
+<br/> 
   ex) Add : 로그인페이지 UI추가
-  ![type] 1. Fix: 버그수정
+          1. Fix: 버그수정
           2. Add: 코드추가
           3. Remove: 코드삭제
           4. Chore: 패키지 수정/삭제
