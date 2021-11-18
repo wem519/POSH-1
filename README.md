@@ -1,7 +1,7 @@
 # POSH 
 <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7d66ebcf-9a1d-4498-a425-85cb4cc4f79c%2FGroup_3.svg?table=block&id=1b86f2ca-6341-4ac3-b604-40e77f347ea9&spaceId=904e7e31-d462-4174-b82a-8639b329f672&userId=e071d0ba-423f-4711-80b4-de53a796a7c0&cache=v2" width="300" height="300">
 
-React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
+React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [a link] (https://www.notion.so/1b86f2ca63414ac3b60440e77f347ea9)
 ---
 
 [![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
@@ -40,15 +40,15 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 
 ### 프로젝트 팀 구성원 및 역할
 
-- 우의명 : 내용 작성 필요
-- 윤주연 : 내용 작성 필요
-- 이지원 : 내용 작성 필요
+- 우의명 : 회원가입, 로그인, 마이페이지, git관리 
+- 윤주연 : 상품 등록, 수정, 삭제, 상세페이지, Layout 등 공통 컴포넌트, 채팅, git관리
+- 이지원 : 댓글(대댓글), 검색, 프로필, 홈화면, figma, UI/UX, git관리
 
 
 ### 프로젝트 규칙
 
-- 내용 작성 필요
-- 내용 작성 필요
+- 10:00-19:00 정규시간
+- 
 
 ### Commit 규칙
 
@@ -68,10 +68,10 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 
 ### 피드백 규칙
 
-- 프로젝트 작업 관련 질문, 의견 표출, 지식 공유를 지향합니다.
+- 자유로운 프로젝트 작업 관련 질문, 학습 공유, 의견 제출을 지향.
 
 ### 기타사항
-- 
+- Basic/Advanced/Nightmare 단계별 완성도를 구분하여 궁극적으로 
 
 ### 🏆 팀원
 <img src="https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg" width="300" height="300"> 
