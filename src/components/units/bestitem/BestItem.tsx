@@ -55,18 +55,12 @@ export default function BestItem() {
 
   const { data } = useQuery(FETCH_USEDITEMS_OF_BEST);
 
-  const onClickMoveSeller = (e) =>
+  const onClickMoveSeller = (e: any) =>
     router.push(`/posh/products/${e.currentTarget.id}/seller`);
 
-  // console.log(new Set(data?.fetchUseditemsOfTheBest.map((el)=>(el?.seller.name))))
-
-  // const Seller = [...new Set(
-  //   data?.fetchUseditemsOfTheBest.map((el) => el.seller)
-  // )]
-  //   console.log(Seller)
   return (
     <Wrapper>
-      {data?.fetchUseditemsOfTheBest.map((el) => (
+      {data?.fetchUseditemsOfTheBest.map((el: any) => (
         <ProfileWrpper key={uuidv4()}>
           <PictureBox onClick={onClickMoveSeller} id={el._id}>
             <Picture src={el.seller.picture} />

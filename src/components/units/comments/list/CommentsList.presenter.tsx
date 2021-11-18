@@ -16,7 +16,7 @@ const BackButtonDiv = styled.div`
   cursor: pointer;
 `;
 
-export default function CommentsListUI(props) {
+export default function CommentsListUI(props: any) {
   if (!props.data?.fetchUseditemQuestions.length)
     return (
       <Wrpper>
@@ -39,7 +39,7 @@ export default function CommentsListUI(props) {
         }}
       >
         <InfiniteScroll pageStart={0} loadMore={props.lodeMore} hasMore={true}>
-          {props.data?.fetchUseditemQuestions.map((el: any, index) => (
+          {props.data?.fetchUseditemQuestions.map((el: any) => (
             <CommentsListUIItems
               key={el._id}
               el={el}

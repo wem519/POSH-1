@@ -64,7 +64,7 @@ const LOGOUT_USER = gql`
 `;
 
 export default function Mypage() {
-  const fileRef = useRef();
+  const fileRef = useRef<any>();
   const router = useRouter();
   const [updateUser] = useMutation(UPDATE_USER);
   const [uploadFile] = useMutation(UPLOAD_FILE);
@@ -96,7 +96,7 @@ export default function Mypage() {
     setMySoldOut(false);
   }
 
-  function onChangeFile(event) {
+  function onChangeFile(event: any) {
     const file = event.target.files[0];
     if (!file) return;
     const fileReader = new FileReader();

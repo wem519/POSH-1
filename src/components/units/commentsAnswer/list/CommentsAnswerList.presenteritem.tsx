@@ -18,7 +18,7 @@ import { useState } from "react";
 import CommentsAnswer from "../write/CommentsAnswer";
 import CommentsAnswer2 from "../write/CommentsAnswer2";
 
-export default function CommentsAnswerListUIItem(props) {
+export default function CommentsAnswerListUIItem(props: any) {
   const [deleteUseditemQuestionAnswer] = useMutation(
     DELET_USEDITEM_QUESTION_ANSWER
   );

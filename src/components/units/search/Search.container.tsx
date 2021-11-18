@@ -33,7 +33,7 @@ export default function Search() {
       variables: {
         page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
+      updateQuery: (prev, { fetchMoreResult }:any) => {
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,

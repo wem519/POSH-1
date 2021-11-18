@@ -84,7 +84,13 @@ export default function MypageUI(props: any) {
                       onClick={props.onClickDetail}
                     >
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </ProductsList>
                   )
@@ -94,7 +100,7 @@ export default function MypageUI(props: any) {
           {props.mySelling && (
             <ProductsWrapper>
               {props.Items?.fetchUseditems
-                .filter((el) => el.tags[0] === "판매중")
+                .filter((el: any) => el.tags[0] === "판매중")
                 .map(
                   (el: any, index: any) =>
                     el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
@@ -104,7 +110,13 @@ export default function MypageUI(props: any) {
                         onClick={props.onClickDetail}
                       >
                         <ProductImg
-                          src={`https://storage.googleapis.com/${el.images[0]}`}
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
                         />
                       </ProductsList>
                     )
@@ -114,7 +126,7 @@ export default function MypageUI(props: any) {
           {props.mySoldOut && (
             <ProductsWrapper>
               {props.Items?.fetchUseditems
-                .filter((el) => el.tags[0] === "판매완료")
+                .filter((el: any) => el.tags[0] === "판매완료")
                 .map(
                   (el: any, index: any) =>
                     el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
@@ -124,7 +136,13 @@ export default function MypageUI(props: any) {
                         onClick={props.onClickDetail}
                       >
                         <ProductImg
-                          src={`https://storage.googleapis.com/${el.images[0]}`}
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
                         />
                       </ProductsList>
                     )

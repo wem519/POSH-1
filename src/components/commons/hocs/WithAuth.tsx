@@ -4,9 +4,9 @@ import { useEffect, useContext } from "react";
 import { GlobalContext } from "../../../../pages/_app";
 // import { FETCH_USER_LOGGED_IN } from "../../units/accounts/login /Login.queries";
 
-export const WithAuth = (Component) => (props) => {
+export const WithAuth = (Component: any) => (props: any) => {
   const router = useRouter();
-  const { accessToken } = useContext(GlobalContext);
+  const { accessToken }: any = useContext(GlobalContext);
 
   // const { data } = useQuery(FETCH_USER_LOGGED_IN);
   // refreshToken 만 하면, 로그인안된 유저도 localStorage에 refreshToken: true 가 남아있을 때

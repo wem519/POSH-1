@@ -31,11 +31,11 @@ export const MenuWrapper = styled.div`
   display: flex;
   margin-top: 19px;
 `
-export const Menu = styled.div`
+export const Menu = styled.div<{ isSoldOut: boolean }>`
   width: 195px;
   height: 42px;
   border-radius: 4px 4px 0px 0px;
-  background-color: ${(props) => (props.isSoldOut ? "#B69ACB" :"#8915A6")};
+  background-color: ${(props: any) => (props.isSoldOut ? "#B69ACB" : "#8915A6")};
   color: #fff;
   font-family: "NotoSansKRregular";
   font-size: 18px;
@@ -44,11 +44,11 @@ export const Menu = styled.div`
   border: 1px solid #fff;
   
 `
-export const Menu2 = styled.div`
+export const Menu2 = styled.div<{ isSoldOut: boolean }>`
   width: 195px;
   height: 42px;
   border-radius: 4px 4px 0px 0px;
-  background-color: ${(props) => (props.isSoldOut ? "#8915A6" : "#B69ACB")};
+  background-color: ${(props: any) => (props.isSoldOut ? "#8915A6" : "#B69ACB")};
   color: #fff;
   font-family: "NotoSansKRregular";
   font-size: 18px;

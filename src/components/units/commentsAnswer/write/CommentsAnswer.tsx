@@ -46,7 +46,7 @@ const CommentsBnt = styled.div`
   cursor: pointer;
 `;
 
-export default function CommentsAnswer(props) {
+export default function CommentsAnswer(props: any) {
   const [createUseditemQuestionAnswer] = useMutation<
     Pick<IMutation, "createUseditemQuestionAnswer">,
     IMutationCreateUseditemQuestionAnswerArgs
@@ -64,9 +64,9 @@ export default function CommentsAnswer(props) {
     props.IsOpen(false);
   };
   // 대댓글 입력 저장 함수
-  const onChangeAnswer = (e) => setContents(e.target.value);
+  const onChangeAnswer = (e: any) => setContents(e.target.value);
 
-  const onClickIsEdit = (e) => props.setIsEdit(false);
+  const onClickIsEdit = (e: any) => props.setIsEdit(false);
 
   // 대댓글 등록 함수
   const onClickSubmitAnswer = async () => {

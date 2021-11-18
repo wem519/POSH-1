@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   font-family: "NotoSansKRregular";
   position: fixed;
   bottom: 0;
+  /* width: 100vw; */
+  @media all and (min-width: 600px) {
+    display: none;
+  }
 `;
 interface IProps {
   pagenow: string;

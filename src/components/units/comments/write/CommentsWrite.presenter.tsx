@@ -24,7 +24,7 @@ export default function CommentsWriteUI(props: any) {
       <CommentsWrapper>
         {props.isOpen ? (
           <>
-            <CommnetsInput placeholder={props.contents.length+"/100"} />
+            <CommnetsInput placeholder={props.contents.length + "/100"} />
             <CommentsBnt
               onClick={props.onClickClose}
               style={{ backgroundColor: "#B69ACB" }}

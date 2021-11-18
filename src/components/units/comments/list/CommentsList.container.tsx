@@ -6,7 +6,7 @@ import { FETCH_USEDITEM_QUESTIONS } from "./CommentsList.queries";
 // userInfo 대신 임시
 const FETCH_USER_LOGGDIN = gql`
   query fetchUserLoggedIn {
-    fetchUserLoggedIn{
+    fetchUserLoggedIn {
       _id
     }
   }
@@ -21,17 +21,16 @@ export default function CommentsList() {
   });
 
   // userInfo 대신 임시
-  const { data:userInfo } = useQuery(FETCH_USER_LOGGDIN)
+  const { data: userInfo } = useQuery(FETCH_USER_LOGGDIN);
 
-
-// variables page: 총 댓글수 /10 -> 현재 페이지 계산 ex) 56개 댓글이 있으면 Math.ceil로 올림해서 6페이지로 계산됨.
+  // variables page: 총 댓글수 /10 -> 현재 페이지 계산 ex) 56개 댓글이 있으면 Math.ceil로 올림해서 6페이지로 계산됨.
   //      6페이지를 불러오고 추가로 페이지를 불러온다.
   const lodeMore = () => {
     fetchMore({
       variables: {
         page: Math.ceil(data?.fetchUseditemQuestions.length / 10) + 1,
       },
-      updateQuery: (preve, { fetchMoreResult }) => {
+      updateQuery: (preve: any, { fetchMoreResult }) => {
         return {
           fetchUseditemQuestions: [
             ...preve.fetchUseditemQuestions,
@@ -43,7 +42,6 @@ export default function CommentsList() {
   };
   const onClickMoveBack = () =>
     router.push(`/posh/products/${router.query.poshId}`);
-
 
   return (
     <CommentsListUI

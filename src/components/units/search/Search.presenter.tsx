@@ -9,10 +9,10 @@ import {
 } from "./Search.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
-export default function SearchUI(props) {
+export default function SearchUI(props: any) {
   const router = useRouter();
 
-  const onClickDetail = (e) => {
+  const onClickDetail = (e: any) => {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
 
@@ -35,7 +35,13 @@ export default function SearchUI(props) {
           {props.data?.fetchUseditems.map((el: any, index: any) => (
             <BodyBox key={index} id={el._id} onClick={onClickDetail}>
               <ProductImg
-                src={`https://storage.googleapis.com/${el.images[0]}`}
+                src={
+                  el.images.filter((el: any) => el)[0]
+                    ? `https://storage.googleapis.com/${
+                        el.images.filter((el: any) => el)[0]
+                      }`
+                    : "/images/noImage.png"
+                }
               />
             </BodyBox>
           ))}

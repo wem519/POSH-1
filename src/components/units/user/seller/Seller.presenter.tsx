@@ -13,9 +13,9 @@ import {
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
 
-export default function SellerUI(props) {
+export default function SellerUI(props: any) {
   const router = useRouter();
-  const onClickDetail = (e) => {
+  const onClickDetail = (e: any) => {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
 
@@ -44,13 +44,19 @@ export default function SellerUI(props) {
         {props.isSoldOut ? (
           <BodyWrpper>
             {props.items?.fetchUseditems
-              .filter((el) => el.tags[0] === "판매완료")
+              .filter((el: any) => el.tags[0] === "판매완료")
               .map(
                 (el: any, index: any) =>
                   el.seller._id === props.data?.fetchUseditem?.seller._id && (
                     <BodyBox key={index} id={el._id} onClick={onClickDetail}>
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </BodyBox>
                   )
@@ -59,13 +65,19 @@ export default function SellerUI(props) {
         ) : (
           <BodyWrpper>
             {props.items?.fetchUseditems
-              .filter((el) => el.tags[0] === "판매중")
+              .filter((el: any) => el.tags[0] === "판매중")
               .map(
                 (el: any, index: any) =>
                   el.seller._id === props.data?.fetchUseditem?.seller._id && (
                     <BodyBox key={index} id={el._id} onClick={onClickDetail}>
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </BodyBox>
                   )
