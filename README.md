@@ -7,7 +7,7 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 
   - 팀명: 여의명
   - 프로젝트 명: Posh
-  - 프로젝트 형태: 수강생 프로젝
+  - 프로젝트 형태: 수강생 프로젝트
 
 [![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![LastCommit](https://img.shields.io/github/last-commit/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
@@ -77,7 +77,7 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 - 자유로운 프로젝트 질문, 스탯 학습 공유, 의견 제출을 지향.
 
 ### 기타사항
-- Basic/Advanced/Nightmare 단계별로 완성도를 구분하여 가능한 완성형 페이지 구현을 목표로  
+- Basic/Advanced/Nightmare 단계별로 완성도를 구분하여 최종 완성형 단계 구현을 목표로  
 
 ### 🏆 팀원
 <img src="https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg" width="300" height="300"> 
