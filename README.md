@@ -67,4 +67,4 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 - 
 
 
-[![TeamPoshMembers](https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg){: width = "300" height= "300"}
+![TeamPoshMembers](https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg) {: width="100" height="100"}
