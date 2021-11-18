@@ -18,7 +18,7 @@ export default function SellerUI(props: any) {
   const onClickDetail = (e: any) => {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
-  
+
   return (
     <Wrapper>
       <ProfileWrapper>
@@ -50,7 +50,13 @@ export default function SellerUI(props: any) {
                   el.seller._id === props.data?.fetchUseditem?.seller._id && (
                     <BodyBox key={index} id={el._id} onClick={onClickDetail}>
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </BodyBox>
                   )
@@ -65,7 +71,13 @@ export default function SellerUI(props: any) {
                   el.seller._id === props.data?.fetchUseditem?.seller._id && (
                     <BodyBox key={index} id={el._id} onClick={onClickDetail}>
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </BodyBox>
                   )

@@ -35,7 +35,13 @@ export default function SearchUI(props: any) {
           {props.data?.fetchUseditems.map((el: any, index: any) => (
             <BodyBox key={index} id={el._id} onClick={onClickDetail}>
               <ProductImg
-                src={`https://storage.googleapis.com/${el.images[0]}`}
+                src={
+                  el.images.filter((el: any) => el)[0]
+                    ? `https://storage.googleapis.com/${
+                        el.images.filter((el: any) => el)[0]
+                      }`
+                    : "/images/noImage.png"
+                }
               />
             </BodyBox>
           ))}

@@ -84,7 +84,13 @@ export default function MypageUI(props: any) {
                       onClick={props.onClickDetail}
                     >
                       <ProductImg
-                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                        src={
+                          el.images.filter((el: any) => el)[0]
+                            ? `https://storage.googleapis.com/${
+                                el.images.filter((el: any) => el)[0]
+                              }`
+                            : "/images/noImage.png"
+                        }
                       />
                     </ProductsList>
                   )
@@ -104,7 +110,13 @@ export default function MypageUI(props: any) {
                         onClick={props.onClickDetail}
                       >
                         <ProductImg
-                          src={`https://storage.googleapis.com/${el.images[0]}`}
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
                         />
                       </ProductsList>
                     )
@@ -124,7 +136,13 @@ export default function MypageUI(props: any) {
                         onClick={props.onClickDetail}
                       >
                         <ProductImg
-                          src={`https://storage.googleapis.com/${el.images[0]}`}
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
                         />
                       </ProductsList>
                     )
