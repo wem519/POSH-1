@@ -6,10 +6,13 @@ import {
   IMutationCreateUseditemQuestionArgs,
 } from "../../../../commons/types/generated/types";
 import CommnetsWriteUI from "./CommentsWrite.presenter";
-import { CREATE_USEDITEM_QUESTION,FETCH_USEDITEM_QUESTIONS } from "./CommentsWrite.queries";
+import {
+  CREATE_USEDITEM_QUESTION,
+  FETCH_USEDITEM_QUESTIONS,
+} from "./CommentsWrite.queries";
 
 export default function CommentsWrite() {
-  const router = useRouter()
+  const router = useRouter();
   // 댓글 등록창 오픈 state
   const [isOpen, setIsOpen] = useState(false);
   // 댓글 내용 저장 state
@@ -18,8 +21,8 @@ export default function CommentsWrite() {
   const [createUseditemQuestion] = useMutation<
     Pick<IMutation, "createUseditemQuestion">,
     IMutationCreateUseditemQuestionArgs
-    >(CREATE_USEDITEM_QUESTION);
-  
+  >(CREATE_USEDITEM_QUESTION);
+
   const onClickOpen = () => {
     setIsOpen(true);
   };
@@ -27,15 +30,15 @@ export default function CommentsWrite() {
     setIsOpen(false);
   };
 
-  const onChangeComments = (e:any) => {
-    setContents(e.target.value)
-  }
+  const onChangeComments = (e: any) => {
+    setContents(e.target.value);
+  };
   const onClickSubmitCommnets = async () => {
-    if (contents === "") { 
-      alert("댓글을 입력해주세요")
-      return
+    if (contents === "") {
+      alert("댓글을 입력해주세요");
+      return;
     }
-    try { 
+    try {
       const result = await createUseditemQuestion({
         variables: {
           createUseditemQuestionInput: { contents },
@@ -47,10 +50,12 @@ export default function CommentsWrite() {
             variables: { useditemId: String(router.query.poshId) },
           },
         ],
-      }); 
-      setContents("")
-      setIsOpen(false)
-    } catch (error) { console.log(error.message)}
+      });
+      setContents("");
+      setIsOpen(false);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <CommnetsWriteUI

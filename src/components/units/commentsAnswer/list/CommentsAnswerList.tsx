@@ -23,18 +23,17 @@ const FETCH_USEDITEM_QUESTION_ANSWERS = gql`
 // userInfo 대신 임시
 const FETCH_USER_LOGGDIN = gql`
   query fetchUserLoggedIn {
-    fetchUserLoggedIn{
+    fetchUserLoggedIn {
       _id
     }
   }
 `;
 
-export default function CommentsAnswerTest(props) {
-
+export default function CommentsAnswerTest(props: any) {
   const { data, fetchMore } = useQuery(FETCH_USEDITEM_QUESTION_ANSWERS, {
     variables: { useditemQuestionId: props.id },
   });
-  const { data:userInfo } = useQuery(FETCH_USER_LOGGDIN);
+  const { data: userInfo } = useQuery(FETCH_USER_LOGGDIN);
 
   if (!data?.fetchUseditemQuestionAnswers.length) {
     return <></>;
@@ -44,10 +43,10 @@ export default function CommentsAnswerTest(props) {
       variables: {
         page: Math.ceil(data?.fetchUseditemQuestionAnswers.length / 10) + 1,
       },
-      updateQuery: (preve, { fetchMoreResult }) => {
+      updateQuery: (prev: any, { fetchMoreResult }) => {
         return {
           fetchUseditemQuestionAnswers: [
-            ...preve.fetchUseditemQuestionAnswers,
+            ...prev.fetchUseditemQuestionAnswers,
             ...fetchMoreResult?.fetchUseditemQuestionAnswers,
           ],
         };
@@ -57,8 +56,13 @@ export default function CommentsAnswerTest(props) {
   return (
     <>
       <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={true}>
-        {data?.fetchUseditemQuestionAnswers.map((el) => (
-          <CommentsAnswerListUIItem key={el._id} el={el} id={props.id} userInfo={userInfo}/>
+        {data?.fetchUseditemQuestionAnswers.map((el: any) => (
+          <CommentsAnswerListUIItem
+            key={el._id}
+            el={el}
+            id={props.id}
+            userInfo={userInfo}
+          />
         ))}
       </InfiniteScroll>
     </>

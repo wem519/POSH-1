@@ -40,7 +40,7 @@ export default function Home() {
       variables: {
         page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
+      updateQuery: (prev: any, { fetchMoreResult }:any) => {
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,

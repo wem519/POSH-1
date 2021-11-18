@@ -8,7 +8,7 @@ import LoginUI from "./Login.presenter";
 export default function Login() {
   const router = useRouter();
   const [loginUser] = useMutation(LOGIN_USER);
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken }: any = useContext(GlobalContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

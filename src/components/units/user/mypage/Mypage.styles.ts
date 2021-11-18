@@ -43,7 +43,7 @@ export const MenuWrapper = styled.div`
   text-align: center;
   padding-top: 25px;
 `;
-export const Menu1 = styled.span`
+export const Menu1 = styled.span<{ myPick: boolean }>`
   width: 128px;
   height: 42px;
   background-color: ${(props: any) => (props.myPick ? "#8915a6" : "#b69acb")};
@@ -56,7 +56,7 @@ export const Menu1 = styled.span`
   color: #ffffff;
   font-size: 18px;
 `;
-export const Menu2 = styled.span`
+export const Menu2 = styled.span<{ mySelling: boolean }>`
   width: 128px;
   height: 42px;
   background-color: ${(props: any) =>
@@ -70,7 +70,7 @@ export const Menu2 = styled.span`
   color: #ffffff;
   font-size: 18px;
 `;
-export const Menu3 = styled.span`
+export const Menu3 = styled.span<{ mySoldOut: boolean }>`
   width: 128px;
   height: 42px;
   background-color: ${(props: any) =>

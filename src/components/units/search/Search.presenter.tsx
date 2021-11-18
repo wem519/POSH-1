@@ -9,10 +9,10 @@ import {
 } from "./Search.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
-export default function SearchUI(props) {
+export default function SearchUI(props: any) {
   const router = useRouter();
 
-  const onClickDetail = (e) => {
+  const onClickDetail = (e: any) => {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
 

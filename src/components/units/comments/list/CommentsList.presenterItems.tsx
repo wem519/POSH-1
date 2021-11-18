@@ -23,7 +23,7 @@ import { useState } from "react";
 import CommentsAnswer from "../../commentsAnswer/write/CommentsAnswer";
 import CommentsAnswerTest from "../../commentsAnswer/list/CommentsAnswerList";
 
-export default function CommentsListUIItems(props) {
+export default function CommentsListUIItems(props: any) {
   const router = useRouter();
   const [deleteUseditemQuestion] = useMutation(DELETE_USEDITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USEDITEM_QUESTION);
@@ -52,7 +52,7 @@ export default function CommentsListUIItems(props) {
     }
   };
   // 댓글 수정
-  const onChangeCommentsEdit = (e) => {
+  const onChangeCommentsEdit = (e:any) => {
     setContents(e.target.value);
   };
 

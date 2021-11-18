@@ -118,7 +118,7 @@ const IconWrapper = styled.div`
 export default function LayoutHeader() {
   return (
     <Wrapper>
-        <HeaderLogo2>POSH</HeaderLogo2>
+      <HeaderLogo2>POSH</HeaderLogo2>
       <ContnesWrpper>
         <HeaderLogo>POSH</HeaderLogo>
         <SearchWrapper>
