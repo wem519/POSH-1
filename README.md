@@ -32,7 +32,7 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
   <img src="https://img.shields.io/badge/Javascript-ffb13b?style=flat-square&logo=javascript&logoColor=white"/></a>&nbsp 
   <img src="https://img.shields.io/badge/Typescript-3178c6?style=flat-square&logo=Typescript&logoColor=white"/></a>&nbsp 
   <img src="https://img.shields.io/badge/React-61dafb?style=flat-square&logo=React&logoColor=white"/></a>&nbsp 
-  <img src="http://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=Next&logoColor=white"/></a>&nbsp 
+  <img src="http://img.shields.io/badge/-Next-000000?style=flat-square&logo=Next.js&logoColor=white"/></a>&nbsp 
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=Firebase&logoColor=black"/></a>&nbsp
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>&nbsp
 </p>
