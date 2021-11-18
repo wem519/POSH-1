@@ -8,12 +8,13 @@ import {
   FETCH_USER_LOGGED_IN,
   DELETE_USEDITEM,
   TOGGLE_USEDITEM_PICK,
+  FETCH_USEDITEMS_I_PICKED,
 } from "./ProductDetail.queries";
 import { UPDATE_USEDITEM } from "../write/ProductWrite.queries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProductDetail() {
-  // const [picked, setPicked] = useState(false);
+  const [picked, setPicked] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [deleteUseditem] = useMutation(DELETE_USEDITEM);
   const [toggleUseditemPick] = useMutation(TOGGLE_USEDITEM_PICK);
@@ -32,6 +33,18 @@ export default function ProductDetail() {
   });
 
   const { data: userInfo } = useQuery(FETCH_USER_LOGGED_IN);
+
+  const { data: pickData } = useQuery(FETCH_USEDITEMS_I_PICKED, {
+    variables: { search: "" },
+  });
+
+  useEffect(() => {
+    if (pickData?.fetchUseditemsIPicked.filter((el: any) => el._id === router.query.poshId).length === 0){
+      setPicked(false); // prettier-ignore
+    } else if(pickData?.fetchUseditemsIPicked.filter((el: any) => el._id === router.query.poshId).length !== 0){
+      setPicked(true)
+    } // prettier-ignore
+  }, [pickData]);
 
   function onClickToCommentPage() {
     router.push(`/posh/products/${router.query.poshId}/comment`);
@@ -56,6 +69,7 @@ export default function ProductDetail() {
   }
 
   function onClickPick() {
+    setPicked((prev) => !prev);
     toggleUseditemPick({
       variables: { useditemId: router.query.poshId },
       refetchQueries: [
@@ -93,7 +107,7 @@ export default function ProductDetail() {
       onClickToEdit={onClickToEdit}
       onClickDelete={onClickDelete}
       onClickPick={onClickPick}
-      // picked={picked}
+      picked={picked}
       onChangeStatus={onChangeStatus}
       onClickProfile={onClickProfile}
       isOpen={isOpen}

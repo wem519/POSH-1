@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import SendIcon from "@mui/icons-material/Send";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Slider from "@ant-design/react-slick";
@@ -45,7 +45,7 @@ export const ProductImages = styled.div`
   height: 390px;
   display: flex;
   align-items: center;
-  background-color: lightgray;
+  background-image: url("/images/noImage.png");
 `;
 export const ProductImage = styled.img`
   width: 390px;
@@ -85,12 +85,11 @@ export const Buttons = styled.div`
 export const ButtonsBuyer = styled.div`
   display: flex;
 `;
-interface IProps {
-  picked: boolean;
-}
 export const PickBtn = styled(FavoriteBorderIcon)`
-  /* color: ${(props: IProps) => (props.picked ? "#8915a6" : "#b69acb")}; */
   color: #b69acb;
+`;
+export const PickBtn2 = styled(FavoriteIcon)`
+  color: #8915a6;
 `;
 export const SendBtn = styled(SendIcon)`
   color: #b69acb;
