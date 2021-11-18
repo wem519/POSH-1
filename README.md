@@ -1,9 +1,11 @@
 # POSH 
 React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻
 <br/>
+
+
 <img src="https://boatneck-soda-941.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7d66ebcf-9a1d-4498-a425-85cb4cc4f79c%2FGroup_3.svg?table=block&id=1b86f2ca-6341-4ac3-b604-40e77f347ea9&spaceId=904e7e31-d462-4174-b82a-8639b329f672&userId=&cache=v2" width="300" height:"300">
 ---
-<br/>
+
 [![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![LastCommit](https://img.shields.io/github/last-commit/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![Commit](https://img.shields.io/github/commit-activity/w/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
