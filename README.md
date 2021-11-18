@@ -55,11 +55,11 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 - commit -m type subject(한글)
 - type 지정 
     - ex) Add : 로그인페이지 UI추가
-  1 Fix: 버그수정
-  2 Add: 코드추가
-  3 Remove: 코드삭제
-  4 Chore: 패키지 수정/삭제
-  5 Update: 자잘한 수정 
+      1. Fix: 버그수정
+      2. Add: 코드추가
+      3. Remove: 코드삭제
+      4. Chore: 패키지 수정/삭제
+      5. Update: 자잘한 수정 
 
 ### PR 규칙
 
@@ -68,10 +68,10 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 
 ### 피드백 규칙
 
-- 자유로운 프로젝트 작업 관련 질문, 학습 공유, 의견 제출을 지향.
+- 자유로운 프로젝트 질문, 스탯 학습 공유, 의견 제출을 지향.
 
 ### 기타사항
-- Basic/Advanced/Nightmare 단계별 완성도를 구분하여 궁극적으로 
+- Basic/Advanced/Nightmare 단계별로 완성도를 구분하여 가능한 완성형 페이지 구현을 목표로  
 
 ### 🏆 팀원
 <img src="https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg" width="300" height="300"> 
