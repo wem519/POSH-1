@@ -8,12 +8,12 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
   - 팀명: 여의명
   - 프로젝트 명: Posh
   - 프로젝트 형태: 수강생 프로젝
----
 
 [![Contributors](https://img.shields.io/github/contributors-anon/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![LastCommit](https://img.shields.io/github/last-commit/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![Commit](https://img.shields.io/github/commit-activity/w/Project-POSH/POSH)](https://github.com/Project-POSH/POSH)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTeamPOSH/POSH&count_bg=%23FF8500&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/Project-POSH/POSH)
+---
 
 <br/>
 
