@@ -8,6 +8,9 @@ const Wrpper = styled.div`
   width: 390px;
   height: 42px;
   margin-bottom: 10px;
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
 `;
 const BackButtonDiv = styled.div`
   width: 28px;

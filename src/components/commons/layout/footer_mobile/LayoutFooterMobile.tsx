@@ -8,12 +8,18 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
+  width: 100vw;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+`;
+const FooterWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   background-color: #f3f3f3;
   font-family: "NotoSansKRregular";
-  position: fixed;
-  bottom: 0;
   /* width: 100vw; */
   @media all and (min-width: 600px) {
     display: none;
@@ -61,7 +67,6 @@ const ButtonLabel = styled.div`
   font-size: 12px;
   color: gray;
 `;
-
 export default function LayoutFooterM() {
   const router = useRouter();
   const [pageNow, setPageNow] = useState("");
@@ -77,36 +82,38 @@ export default function LayoutFooterM() {
 
   return (
     <Wrapper>
-      <Button onClick={onClickMove} id="/posh/home">
-        <IconWrapper>
-          <HomeBtn id="/posh/home" pagenow={pageNow} />
-        </IconWrapper>
-        <ButtonLabel>홈</ButtonLabel>
-      </Button>
-      <Button onClick={onClickMove} id="/posh/search">
-        <IconWrapper>
-          <SearchBtn id="/posh/search" pagenow={pageNow} />
-        </IconWrapper>
-        <ButtonLabel>검색</ButtonLabel>
-      </Button>
-      <Button onClick={onClickMove} id="/posh/products/write">
-        <IconWrapper>
-          <WriteBtn id="/posh/products/write" pagenow={pageNow} />
-        </IconWrapper>
-        <ButtonLabel>등록</ButtonLabel>
-      </Button>
-      <Button onClick={onClickMove} id="/posh/user/chat">
-        <IconWrapper>
-          <ChatBtn id="/posh/user/chat" pagenow={pageNow} />
-        </IconWrapper>
-        <ButtonLabel>채팅</ButtonLabel>
-      </Button>
-      <Button onClick={onClickMove} id="/posh/user/mypage">
-        <IconWrapper>
-          <MyPageBtn id="/posh/user/mypage" pagenow={pageNow} />
-        </IconWrapper>
-        <ButtonLabel>MY</ButtonLabel>
-      </Button>
+      <FooterWrapper>
+        <Button onClick={onClickMove} id="/posh/home">
+          <IconWrapper>
+            <HomeBtn id="/posh/home" pagenow={pageNow} />
+          </IconWrapper>
+          <ButtonLabel>홈</ButtonLabel>
+        </Button>
+        <Button onClick={onClickMove} id="/posh/search">
+          <IconWrapper>
+            <SearchBtn id="/posh/search" pagenow={pageNow} />
+          </IconWrapper>
+          <ButtonLabel>검색</ButtonLabel>
+        </Button>
+        <Button onClick={onClickMove} id="/posh/products/write">
+          <IconWrapper>
+            <WriteBtn id="/posh/products/write" pagenow={pageNow} />
+          </IconWrapper>
+          <ButtonLabel>등록</ButtonLabel>
+        </Button>
+        <Button onClick={onClickMove} id="/posh/user/chat">
+          <IconWrapper>
+            <ChatBtn id="/posh/user/chat" pagenow={pageNow} />
+          </IconWrapper>
+          <ButtonLabel>채팅</ButtonLabel>
+        </Button>
+        <Button onClick={onClickMove} id="/posh/user/mypage">
+          <IconWrapper>
+            <MyPageBtn id="/posh/user/mypage" pagenow={pageNow} />
+          </IconWrapper>
+          <ButtonLabel>MY</ButtonLabel>
+        </Button>
+      </FooterWrapper>
     </Wrapper>
   );
 }
