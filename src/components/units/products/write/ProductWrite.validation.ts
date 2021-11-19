@@ -11,5 +11,5 @@ export const schema = yup.object({
     .min(0)
     .typeError("숫자만 입력해주세요!"),
   contents: yup.string().required("상세내용을 입력해주세요!"),
-  addressDetail: yup.string().required("상세주소를 입력해주세요!"),
+  address: yup.string().required("주소를 입력해주세요!"),
 });

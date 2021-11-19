@@ -18,7 +18,6 @@ export default function ProductWrite(props: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
   const [files, setFiles] = useState<(File | null)[]>(
     new Array(10).fill(1).map((_) => null)
   );
@@ -59,7 +58,6 @@ export default function ProductWrite(props: any) {
           useditemAddress: {
             zipcode,
             address,
-            addressDetail: data.addressDetail,
           },
           images: [...myImages],
           tags: ["판매중"],
@@ -68,7 +66,6 @@ export default function ProductWrite(props: any) {
     });
     console.log("useFome data", data);
     router.push(`/posh/products/${result.data?.createUseditem._id}`);
-    setAddressDetail(data.addressDetail); // state에도 저장해야 새로 입력한(현재상태의) 상세주소 defaultValue로 보여줄 수 있음
   }
   // 상품수정 ///////////////////////////////////////////////////////////////////
   // 수정시에도 상품명, 가격 유효성검사를 위해 새로 입력해야하는 것 방지 -> 기존 값 setValue로 넣어주고 trigger로 알리기
@@ -89,12 +86,10 @@ export default function ProductWrite(props: any) {
     if (data.remarks) myUpdateUseditemInput.remarks = data.remarks;
     if (data.contents) myUpdateUseditemInput.contents = data.contents;
     if (data.tags) myUpdateUseditemInput.tags = data.tags;
-    if (zipcode || address || addressDetail) {
+    if (zipcode || address) {
       myUpdateUseditemInput.useditemAddress = {};
       if (zipcode) myUpdateUseditemInput.useditemAddress.zipcode = zipcode;
       if (address) myUpdateUseditemInput.useditemAddress.address = address;
-      if (addressDetail)
-        myUpdateUseditemInput.useditemAddress.addressDetail = addressDetail;
     }
 
     // 수정페이지에서 새로 업로드한 이미지들 업로드해서 nextImages에 담기
@@ -126,7 +121,10 @@ export default function ProductWrite(props: any) {
 
   function handleComplete(data: any) {
     setZipcode(data.zonecode);
-    setAddress(data.query);
+    setAddress(`${data.sido} ${data.sigungu} ${data.bname}`);
+    // 주소 입력하면 바로 값넣고 알려주기 (직접 입력하지 않고 다음포스트코드라이브러리 사용하기 때문)
+    setValue("address", data.address);
+    trigger("address");
     setIsOpen(false);
     console.log("postcode data", data);
   }
@@ -151,7 +149,6 @@ export default function ProductWrite(props: any) {
       data={props.data}
       address={address}
       zipcode={zipcode}
-      addressDetail={addressDetail}
     />
   );
 }

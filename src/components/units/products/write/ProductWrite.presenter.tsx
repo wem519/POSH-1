@@ -73,18 +73,14 @@ export default function ProductWriteUI(props: any) {
           />
           <ErrMsg>{props.formState.errors.contents?.message}</ErrMsg>
           <Address01
-            register={props.register("addressDetail")}
+            register2={props.register("address")}
             onClickZipcodeBtn={props.onClickZipcodeBtn}
             address={props.data?.fetchUseditem.useditemAddress.address}
             zipcode={props.data?.fetchUseditem.useditemAddress.zipcode}
-            addressDetail={
-              props.data?.fetchUseditem.useditemAddress.addressDetail
-            }
             addressUpdate={props.address}
             zipcodeUpdate={props.zipcode}
-            addressDetailUpdate={props.addressDetail}
           />
-          <ErrMsg>{props.formState.errors.addressDetail?.message}</ErrMsg>
+          <ErrMsg>{props.formState.errors.address?.message}</ErrMsg>
           <Select01 label="거래방식*" register={props.register("remarks")} />
           {props.isEdit ? (
             <EditBtn type="submit" isValid={props.formState.isValid}>

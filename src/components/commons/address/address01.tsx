@@ -54,10 +54,9 @@ export default function Address01(props: any) {
           우편번호검색
         </ZipcodeBtn>
       </ZipcodeWrapper>
-      <InputBox value={props.addressUpdate || props.address} />
       <InputBox
-        defaultValue={props.addressDetailUpdate || props.addressDetail}
-        {...props.register}
+        value={props.addressUpdate || props.address}
+        {...props.register2}
       />
     </Wrapper>
   );
