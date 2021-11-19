@@ -12,24 +12,29 @@ export const Wrapper = styled.div`
   position: fixed top;
   display: flex;
   justify-content: center;
+  height: 100px;
+  @media screen and (min-width: 600px) {
+    height: 220px;
+  }
 `;
 export const ContnesWrpper = styled.div`
-  width: 800px;
+  width: 900px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: #222; */
-  @media screen and (max-width: 700px) {
+  padding: 60px 0px 0px 0px;
+  @media screen and (max-width: 600px) {
     display: none;
   }
 `;
 export const HeaderLogo = styled.div`
-  padding: 44px 40px 11px 0px;
+  /* padding: 44px 40px 11px 0px; */
   text-align: center;
   font-family: "NotoSansitalic";
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 500;
   color: #fff;
+  cursor: pointer;
 `;
 export const HeaderLogo2 = styled.div`
   padding: 44px 0px 11px 0px;
@@ -38,18 +43,17 @@ export const HeaderLogo2 = styled.div`
   font-size: 30px;
   font-weight: 500;
   color: #fff;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 600px) {
     display: none;
   }
 `;
+
 export const SearchWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 44px;
-  padding-bottom: 11px;
   margin-left: 75px;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
 `;
@@ -72,7 +76,6 @@ export const Search = styled.input`
 export const SearchBnt = styled.div`
   width: 58px;
   height: 30px;
-  /* margin-top: 22px; */
   border-radius: 0px 4px 4px 0px;
   background-color: #f3f3f3;
   background-image: url("/images/icon-search.png");
@@ -81,6 +84,7 @@ export const SearchBnt = styled.div`
   cursor: pointer;
   z-index: 1;
 `;
+
 export const HomeBtn = styled(HomeIcon)`
   font-size: 28px;
   color: #fff;
@@ -107,11 +111,10 @@ export const IconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 44px;
-  padding-bottom: 11px;
   margin: 0 7px;
   cursor: pointer;
 `;
+
 export const IconWrapper = styled.div`
   display: flex;
   @media screen and (max-width: 700px) {
