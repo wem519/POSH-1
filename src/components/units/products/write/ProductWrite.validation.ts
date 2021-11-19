@@ -5,6 +5,7 @@ export const schema = yup.object({
     .string()
     .max(30, "30자 이내로 입력해주세요!")
     .required("제목을 입력해주세요!"),
+  category: yup.string().required("카테고리를 선택해주세요!"),
   price: yup
     .number()
     .required("가격을 입력해주세요!")

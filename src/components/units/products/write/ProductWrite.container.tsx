@@ -60,7 +60,7 @@ export default function ProductWrite(props: any) {
             address,
           },
           images: [...myImages],
-          tags: ["판매중"],
+          tags: ["판매중", data.category],
         },
       },
     });

@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import PersonIcon from "@mui/icons-material/Person";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export const Wrapper = styled.div`
   background-color: #8915a6;
@@ -117,22 +118,51 @@ export const IconWrapper = styled.div`
     display: none;
   }
 `;
-export const ProfileBox = styled.div`
-  width: 28px;
-  height: 28px;
-  padding-top: 44px;
-  padding-bottom: 11px;
-  margin: 0 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #fff;
-`
 export const Profile = styled.img`
   object-fit: cover;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-`
+`;
+// 카테고리 토글버튼 /////////////////////////////////////////////
+export const CategoryBtn = styled(MenuIcon)<{ isOpen: boolean }>`
+  font-size: 35px;
+  color: ${(props) => (props.isOpen ? "#8915a6" : "#fff")};
+  position: absolute;
+  top: 49px;
+  left: 10px;
+  z-index: 1;
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+`;
+export const Category = styled.div<{ isOpen: boolean }>`
+  width: 300px;
+  height: 100vh;
+  background-color: #eee;
+  z-index: 1;
+  transition: all 0.35s;
+  position: fixed;
+  top: 0;
+  left: ${(props) => (props.isOpen ? 0 : "-300px")};
+  opacity: 95%;
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+`;
+export const CategoryList = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 100px;
+  left: ${(props) => (props.isOpen ? "100px" : "-300px")};
+  transition: all 0.35s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: hotpink; */
+`;
+export const CategoryName = styled.div`
+  font-size: 35px;
+  font-style: italic;
+  color: #8915a6;
+  font-weight: 500;
+`;

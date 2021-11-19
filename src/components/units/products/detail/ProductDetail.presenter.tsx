@@ -108,7 +108,7 @@ export default function ProductDetailUI(props: any) {
           )}
         {props.userInfo?.fetchUserLoggedIn._id !==
           props.data?.fetchUseditem.seller._id && (
-          <SaleStatus>{props.data?.fetchUseditem.tags}</SaleStatus>
+          <SaleStatus>{props.data?.fetchUseditem.tags[0]}</SaleStatus>
         )}
         <Buttons>
           {props.userInfo?.fetchUserLoggedIn._id ===

@@ -14,6 +14,7 @@ import DaumPostcode from "react-daum-postcode";
 import { Modal } from "antd";
 import Upload01 from "../../../commons/uploads/upload01";
 import Select01 from "../../../commons/selects/select01";
+import Select02 from "../../../commons/selects/select02";
 
 export default function ProductWriteUI(props: any) {
   return (
@@ -56,6 +57,8 @@ export default function ProductWriteUI(props: any) {
             defaultValue={props.data?.fetchUseditem.name}
           />
           <ErrMsg>{props.formState.errors.name?.message}</ErrMsg>
+          <Select02 label="카테고리*" register={props.register("category")} />
+          <ErrMsg>{props.formState.errors.category?.message}</ErrMsg>
           <Input01
             type="text"
             label="가격*"
