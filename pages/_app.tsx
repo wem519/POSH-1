@@ -14,6 +14,18 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import { Global } from "@emotion/react";
 import { createContext, useState, useEffect } from "react";
 import Layout from "../src/components/commons/layout";
+import { initializeApp } from "firebase/app";
+
+// 파이어베이스 연결
+export const firebaseApp = initializeApp({
+  apiKey: "AIzaSyAfCtd8cABF4GP8_60h67r31QL2xBFK8kc",
+  authDomain: "posh-chatting.firebaseapp.com",
+  projectId: "posh-chatting",
+  storageBucket: "posh-chatting.appspot.com",
+  messagingSenderId: "229258023165",
+  appId: "1:229258023165:web:110779729820ecbc276e94",
+  measurementId: "G-EKJGLHGPYP",
+});
 
 export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {

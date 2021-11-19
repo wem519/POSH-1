@@ -1,7 +1,8 @@
 import { WithAuth } from "../../../../src/components/commons/hocs/WithAuth";
+import ChatList from "../../../../src/components/units/user/chat/Chat.container";
 
 const ChatListPage = () => {
-  return <div>채팅페이지</div>;
+  return <ChatList />;
 };
 
 export default WithAuth(ChatListPage);
