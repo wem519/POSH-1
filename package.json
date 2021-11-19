@@ -18,6 +18,7 @@
 		"@mui/icons-material": "^5.0.5",
 		"@mui/material": "^5.0.6",
 		"@types/react-infinite-scroller": "^1.2.2",
+		"@types/react-slick": "^0.23.7",
 		"antd": "^4.16.13",
 		"apollo-upload-client": "^16.0.0",
 		"axios": "^0.21.1",
