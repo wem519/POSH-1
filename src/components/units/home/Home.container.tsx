@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
@@ -11,28 +11,24 @@ import {
   FETCH_USER_LOGGED_IN,
   UPDATE_USER,
 } from "../accounts/login /Login.queries";
+import { GlobalContext } from "../../../../pages/_app";
 
 export default function Home() {
+  const { search }: any = useContext(GlobalContext);
   const { data: userInfo } = useQuery(FETCH_USER_LOGGED_IN);
   const [updateUser] = useMutation(UPDATE_USER);
-  const [search, setSearch] = useState("");
+
   const { data, refetch, fetchMore } = useQuery<
     Pick<IQuery, "fetchUseditems">,
     IQueryFetchUseditemsArgs
   >(FETCH_USED_ITEMS);
 
-  const getDebunce = _.debounce((data) => {
-    setSearch(data);
-  }, 1000);
-
-  const onChangeSearch = (e: any) => {
-    getDebunce(e.target.value);
-  };
-
-  const onClickSearch = () => {
-    refetch({ search: search });
-  };
-
+  useEffect(() => {
+    refetch({ search: search }); 
+  },[search])
+    
+  console.log("lender")
+  
   const lodeMore = () => {
     if (!data) return;
     fetchMore({
@@ -67,8 +63,6 @@ export default function Home() {
   return (
     <HomeUI
       data={data}
-      onChangeSearch={onChangeSearch}
-      onClickSearch={onClickSearch}
       lodeMore={lodeMore}
     />
   );
