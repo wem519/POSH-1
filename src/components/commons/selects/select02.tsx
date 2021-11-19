@@ -25,11 +25,11 @@ export default function Select02(props: any) {
         <option value="" hidden>
           카테고리를 선택해주세요.
         </option>
-        <option value="상의">top</option>
-        <option value="하의">bottom</option>
-        <option value="신발">shoes</option>
-        <option value="가방">bags</option>
-        <option value="기타">etc</option>
+        <option value="top">top</option>
+        <option value="bottom">bottom</option>
+        <option value="shoes">shoes</option>
+        <option value="bag">bag</option>
+        <option value="etc">etc</option>
       </Select>
     </Wrapper>
   );
