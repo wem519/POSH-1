@@ -19,7 +19,7 @@ export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
-  const value = {
+  const value: any = {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,

@@ -1,12 +1,4 @@
-import {
-  Wrapper,
-  Search,
-  BodyWrpper,
-  BodyBox,
-  ProductImg,
-  SearchBnt,
-  SearchWrapper,
-} from "./Home.styles";
+import { Wrapper, BodyWrpper, BodyBox, ProductImg } from "./Home.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
 

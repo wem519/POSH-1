@@ -47,12 +47,12 @@ export default function CommentsListUIItems(props: any) {
         ],
       });
       alert("댓글이 삭제되었습니다!");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };
   // 댓글 수정
-  const onChangeCommentsEdit = (e:any) => {
+  const onChangeCommentsEdit = (e: any) => {
     setContents(e.target.value);
   };
 
@@ -79,7 +79,7 @@ export default function CommentsListUIItems(props: any) {
         ],
       });
       setIsEdit(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };

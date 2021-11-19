@@ -41,7 +41,7 @@ export default function CommentsAnswerListUIItem(props: any) {
         ],
       });
       alert("삭제 완료");
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };

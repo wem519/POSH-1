@@ -1,5 +1,5 @@
-import { useMutation, useQuery } from "@apollo/client";
-import { LOGIN_USER, UPDATE_USER, FETCH_USER_LOGGED_IN } from "./Login.queries";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "./Login.queries";
 import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";

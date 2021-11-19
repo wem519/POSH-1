@@ -1,4 +1,3 @@
-import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useContext } from "react";
 import { GlobalContext } from "../../../../pages/_app";

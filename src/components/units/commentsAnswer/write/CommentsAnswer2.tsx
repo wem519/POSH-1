@@ -71,7 +71,7 @@ export default function CommentsAnswer2(props: any) {
         ],
       });
       props.setIsOpenAnswer(false);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };
