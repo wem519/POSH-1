@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { FETCH_USER_LOGGED_IN } from "../../../units/products/detail/ProductDetail.queries";
 import {
   Wrapper,
@@ -17,18 +18,52 @@ import {
   IconBox,
   IconWrapper,
   Profile,
-  ProfileBox,
+  CategoryBtn,
+  Category,
+  CategoryList,
+  CategoryName,
 } from "./LayoutHeader.styles";
 
 export default function LayoutHeader() {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   function onClickMove(event: any) {
     router.push(event.currentTarget.id);
   }
+
+  function onClickOpen() {
+    setIsOpen((prev) => !prev);
+  }
+
+  function onClickCategory(event: any) {
+    router.push(`/posh/${event.target.id}`);
+    setIsOpen(false);
+  }
+
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   return (
     <Wrapper>
+      <Category isOpen={isOpen}>
+        <CategoryList isOpen={isOpen}>
+          <CategoryName onClick={onClickCategory} id="top">
+            Top
+          </CategoryName>
+          <CategoryName onClick={onClickCategory} id="bottom">
+            Bottom
+          </CategoryName>
+          <CategoryName onClick={onClickCategory} id="shoes">
+            Shoes
+          </CategoryName>
+          <CategoryName onClick={onClickCategory} id="bags">
+            Bag
+          </CategoryName>
+          <CategoryName onClick={onClickCategory} id="etc">
+            Etc
+          </CategoryName>
+        </CategoryList>
+      </Category>
+      <CategoryBtn onClick={onClickOpen} isOpen={isOpen}></CategoryBtn>
       <HeaderLogo2>POSH</HeaderLogo2>
       <ContnesWrpper>
         <HeaderLogo>POSH</HeaderLogo>
