@@ -51,6 +51,7 @@ export const ProductImage = styled.img`
   width: 390px;
   height: 390px;
   object-fit: cover;
+  cursor: pointer;
 `;
 export const SliderDiv = styled(Slider)`
   width: 390px;

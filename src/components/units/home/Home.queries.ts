@@ -6,6 +6,7 @@ export const FETCH_USED_ITEMS = gql`
       name
       images
       _id
+      price
     }
   }
 `

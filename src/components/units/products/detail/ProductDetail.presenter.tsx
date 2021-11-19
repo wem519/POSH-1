@@ -42,7 +42,9 @@ export default function ProductDetailUI(props: any) {
     slidesToScroll: 1,
     arrows: false, // 이거 true(default)하면 화살표영역때문에 왼쪽으로 밀림
   };
-
+  function onClickImg(e:any) {
+    window.open(e.target.src);
+  }
   return (
     <Wrapper>
       {props.isOpen && (
@@ -78,6 +80,7 @@ export default function ProductDetailUI(props: any) {
               <ProductImage
                 key={el}
                 src={`https://storage.googleapis.com/${el}`}
+                onClick={onClickImg}
               />
             ))}
         </SliderDiv>

@@ -7,6 +7,9 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   margin-top: 13px;
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
 `;
 const PictureBox = styled.div`
   width: 70px;
@@ -36,6 +39,7 @@ const ProfileWrpper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 const FETCH_USEDITEMS_OF_BEST = gql`
   query fetchUseditemsOfTheBest {
     fetchUseditemsOfTheBest {
