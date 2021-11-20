@@ -24,12 +24,11 @@ import {
 } from "./LayoutHeader.styles";
 import { GlobalContext } from "../../../../../pages/_app";
 import { useContext, useState } from "react";
-import _ from "lodash";
 
 export default function LayoutHeader() {
   const { setSearch }: any = useContext(GlobalContext);
   const [mySearch, setMySearch] = useState("");
-  
+
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
