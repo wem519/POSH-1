@@ -1,12 +1,11 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import {
   IQuery,
   IQueryFetchUseditemsArgs,
 } from "../../../commons/types/generated/types";
 import HomeUI from "./Home.presenter";
 import { FETCH_USED_ITEMS } from "./Home.queries";
-import _ from "lodash";
 import {
   FETCH_USER_LOGGED_IN,
   UPDATE_USER,
@@ -24,18 +23,18 @@ export default function Home() {
   >(FETCH_USED_ITEMS);
 
   useEffect(() => {
-    refetch({ search: search }); 
-  },[search])
-    
-  console.log("lender")
-  
+    refetch({ search: search });
+  }, [search]);
+
+  console.log("lender");
+
   const lodeMore = () => {
     if (!data) return;
     fetchMore({
       variables: {
         page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
       },
-      updateQuery: (prev: any, { fetchMoreResult }:any) => {
+      updateQuery: (prev: any, { fetchMoreResult }: any) => {
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,
@@ -60,10 +59,5 @@ export default function Home() {
     }
   }, [userInfo]);
 
-  return (
-    <HomeUI
-      data={data}
-      lodeMore={lodeMore}
-    />
-  );
+  return <HomeUI data={data} lodeMore={lodeMore} />;
 }
