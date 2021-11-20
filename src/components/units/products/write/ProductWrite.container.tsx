@@ -31,7 +31,6 @@ export default function ProductWrite(props: any) {
     mode: "onChange",
     resolver: yupResolver(props.isEdit ? schema2 : schema),
   });
-  // props.isEdit ? console.log("수정") : console.log("등록");
   const router = useRouter();
 
   // 파일 전달받는 함수 => newFiles state에 저장
@@ -64,7 +63,6 @@ export default function ProductWrite(props: any) {
         },
       },
     });
-    console.log("useFome data", data);
     router.push(`/posh/products/${result.data?.createUseditem._id}`);
   }
   // 상품수정 ///////////////////////////////////////////////////////////////////
@@ -85,7 +83,11 @@ export default function ProductWrite(props: any) {
     if (data.price) myUpdateUseditemInput.price = data.price;
     if (data.remarks) myUpdateUseditemInput.remarks = data.remarks;
     if (data.contents) myUpdateUseditemInput.contents = data.contents;
-    if (data.tags) myUpdateUseditemInput.tags = data.tags;
+    if (data.category)
+      myUpdateUseditemInput.tags = [
+        props.data?.fetchUseditem.tags[0],
+        data.category,
+      ];
     if (zipcode || address) {
       myUpdateUseditemInput.useditemAddress = {};
       if (zipcode) myUpdateUseditemInput.useditemAddress.zipcode = zipcode;
@@ -98,7 +100,6 @@ export default function ProductWrite(props: any) {
     const resultFiles = await Promise.all(uploadFiles);
     const nextImages = resultFiles.map((el) => el?.data.uploadFile.url || "");
     myUpdateUseditemInput.images = nextImages;
-    console.log("새이미지", nextImages);
 
     // 기존이미지에 추가된 사진 업데이트하기
     if (props.data?.fetchUseditem.images?.length) {
@@ -114,8 +115,6 @@ export default function ProductWrite(props: any) {
         updateUseditemInput: myUpdateUseditemInput,
       },
     });
-    // console.log("useFome updatedata", data);
-    console.log("수정인풋", myUpdateUseditemInput);
     router.push(`/posh/products/${router.query.poshId}`);
   }
 
@@ -126,7 +125,6 @@ export default function ProductWrite(props: any) {
     setValue("address", data.address);
     trigger("address");
     setIsOpen(false);
-    console.log("postcode data", data);
   }
 
   function onClickZipcodeBtn() {
