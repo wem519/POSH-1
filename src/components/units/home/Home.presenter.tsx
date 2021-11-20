@@ -18,24 +18,38 @@ export default function HomeUI(props: any) {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
 
+  function onClickCategory(event: any) {
+    router.push(`/posh/${event.target.id}`);
+  }
+
   return (
     <>
       <CateWrapper>
         <CateDiv>
           <li>
-            <Category>Top</Category>
+            <Category onClick={onClickCategory} id="top">
+              Top
+            </Category>
           </li>
           <li>
-            <Category>Bottom</Category>
+            <Category onClick={onClickCategory} id="bottom">
+              Bottom
+            </Category>
           </li>
           <li>
-            <Category>Shoes</Category>
+            <Category onClick={onClickCategory} id="shoes">
+              Shoes
+            </Category>
           </li>
           <li>
-            <Category>Bag</Category>
+            <Category onClick={onClickCategory} id="bag">
+              Bag
+            </Category>
           </li>
           <li>
-            <Category>ect</Category>
+            <Category onClick={onClickCategory} id="ect">
+              ect
+            </Category>
           </li>
         </CateDiv>
       </CateWrapper>
@@ -50,14 +64,26 @@ export default function HomeUI(props: any) {
             {props.data?.fetchUseditems.map((el: any, index: any) => (
               <BodyBox key={index} id={el._id} onClick={onClickDetail}>
                 <ProductImg>
-                  <img style={{objectFit:"cover", width:"100%", height:"100%"}} src=
-                  {el.images.filter((el: any) => el)[0]
-                    ? `https://storage.googleapis.com/${
-                        el.images.filter((el: any) => el)[0]
-                      }`
-                    : "/images/noImage.png"} />
+                  <img
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    src={
+                      el.images.filter((el: any) => el)[0]
+                        ? `https://storage.googleapis.com/${
+                            el.images.filter((el: any) => el)[0]
+                          }`
+                        : "/images/noImage.png"
+                    }
+                  />
                 </ProductImg>
-                <ProductPrice>{el.name}<br/>{el.price.toLocaleString()}원</ProductPrice>
+                <ProductPrice>
+                  {el.name}
+                  <br />
+                  {el.price.toLocaleString()}원
+                </ProductPrice>
               </BodyBox>
             ))}
           </BodyWrpper>
