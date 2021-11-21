@@ -75,7 +75,9 @@ export default function LayoutHeader() {
         </CategoryList>
       </Category>
       <CategoryBtn onClick={onClickOpen} isOpen={isOpen}></CategoryBtn>
-      <HeaderLogo2>POSH</HeaderLogo2>
+      <HeaderLogo2 onClick={onClickMove} id="/posh/home">
+        POSH
+      </HeaderLogo2>
       <ContnesWrpper>
         <HeaderLogo onClick={onClickMove} id="/posh/home">
           POSH
