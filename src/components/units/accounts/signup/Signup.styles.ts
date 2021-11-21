@@ -15,8 +15,7 @@ export const Wrapper = styled.div`
 export const ContentsWrapper = styled.div`
   width: 390px;
   /* height: 844px; */
-  padding-bottom: 67px;
-  box-shadow: 1px 1px 1px 1px white;
+  margin-bottom: 90px;
   font-family: "NotoSansKRregular";
 `;
 export const ProfileWrapper = styled.div`
@@ -31,8 +30,8 @@ export const Profile = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: 118px;
-  height: 118px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background-color: #f1f1f1;
   font-family: "NotoSansregular";

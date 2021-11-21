@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background-color: #8915a6;
 `;
 
@@ -19,7 +18,12 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 206px;
+  margin-bottom: 206px;
+  @media screen and (min-width: 600px) {
+    width: 489px;
+    height: 65px;
+    font-size: 20px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -34,10 +38,10 @@ export const Title = styled.div`
   font-family: "NotoSansitalic";
   font-weight: bold;
   line-height: 87px;
-
+  /* 
   @media screen and (min-width: 600px) {
     font-size: 92px;
-  }
+  } */
 `;
 export const AccountWrapper = styled.div`
   display: flex;
