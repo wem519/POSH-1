@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   /* height: 600px; */
 `;
 export const CommentsBox = styled.div`
@@ -12,6 +13,7 @@ export const CommentsBox = styled.div`
   display: flex;
   padding: 12px 12px 0px 12px;
   /* background-color: gray; */
+  
 `;
 export const CommentsProfile = styled.img`
   width: 36px;

@@ -46,21 +46,35 @@ export default function HomeUI(props: any) {
           hasMore={true}
           useWindow={true}
         >
-          <BodyWrpper>
-            {props.data?.fetchUseditems.map((el: any, index: any) => (
-              <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-                <ProductImg>
-                  <img style={{objectFit:"cover", width:"100%", height:"100%"}} src=
-                  {el.images.filter((el: any) => el)[0]
-                    ? `https://storage.googleapis.com/${
+          {props.data && (
+            <BodyWrpper>
+              {props.data?.fetchUseditems.map((el: any, index: any) => (
+                <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+                  <ProductImg>
+                    <img
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                      src={
                         el.images.filter((el: any) => el)[0]
-                      }`
-                    : "/images/noImage.png"} />
-                </ProductImg>
-                <ProductPrice>{el.name}<br/>{el.price.toLocaleString()}원</ProductPrice>
-              </BodyBox>
-            ))}
-          </BodyWrpper>
+                          ? `https://storage.googleapis.com/${
+                              el.images.filter((el: any) => el)[0]
+                            }`
+                          : "/images/noImage.png"
+                      }
+                    />
+                  </ProductImg>
+                  <ProductPrice>
+                    {el.name}
+                    <br />
+                    {el.price.toLocaleString()}원
+                  </ProductPrice>
+                </BodyBox>
+              ))}
+            </BodyWrpper>
+          )}
         </InfiniteScroll>
       </Wrapper>
     </>

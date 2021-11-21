@@ -22,6 +22,7 @@ export const CommnetsWriteInput = styled.textarea`
 export const CommentsInputWrapper = styled.div`
   position: fixed;
   bottom: 36px;
+  
 `;
 export const CommentsWrapper = styled.div`
   width: 390px;

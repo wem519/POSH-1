@@ -8,7 +8,7 @@ const Wrpper = styled.div`
   width: 390px;
   height: 42px;
   margin-bottom: 10px;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 390px) {
     display: none;
   }
 `;

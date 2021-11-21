@@ -55,6 +55,7 @@ export default function CommentsAnswer2(props: any) {
 
   const onClickIsOpen = () => props.setIsOpenAnswer(false);
   const onChnageContents = (e: any) => setContents(e.target.value);
+
   // 대댓글 등록 함수
   const onClickSubmitAnswer = async () => {
     try {
@@ -72,7 +73,7 @@ export default function CommentsAnswer2(props: any) {
       });
       props.setIsOpenAnswer(false);
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   return (
