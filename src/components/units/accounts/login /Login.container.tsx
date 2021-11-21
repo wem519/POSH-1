@@ -17,9 +17,19 @@ export default function Login() {
 
   function onChangeEmail(event: any) {
     setEmail(event.target.value);
+    if (/^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/.test(email) === false) {
+      setEmailError("이메일 형식이 적합하지 않습니다");
+    } else {
+      setEmailError("");
+    }
   }
   function onChangePassword(event: any) {
     setPassword(event.target.value);
+    if (password.length < 3) {
+      setPasswordError("비밀번호는 최소 4자리 이상입니다.");
+    } else {
+      setPasswordError("");
+    }
   }
 
   async function onClickLogin() {
