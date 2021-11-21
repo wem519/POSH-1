@@ -88,7 +88,7 @@ export default function ProductDetail() {
       variables: {
         useditemId: router.query.poshId,
         updateUseditemInput: {
-          tags: [event.target.value],
+          tags: [event.target.value, data?.fetchUseditem.tags[1]],
         },
       },
     });
@@ -97,7 +97,7 @@ export default function ProductDetail() {
   function onClickProfile() {
     router.push(`/posh/products/${router.query.poshId}/seller`);
   }
-  
+
   return (
     <ProductDetailUI
       data={data}
@@ -114,7 +114,6 @@ export default function ProductDetail() {
       setIsOpen={setIsOpen}
       onClickClose={onClickClose}
       onClickToDelete={onClickToDelete}
-
     />
   );
 }
