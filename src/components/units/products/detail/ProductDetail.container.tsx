@@ -70,28 +70,37 @@ export default function ProductDetail() {
 
   function onClickPick() {
     setPicked((prev) => !prev);
-    toggleUseditemPick({
-      variables: { useditemId: router.query.poshId },
-      refetchQueries: [
-        {
-          query: FETCH_USEDITEM,
-          variables: {
-            useditemId: router.query.poshId,
+
+    try {
+      toggleUseditemPick({
+        variables: { useditemId: router.query.poshId },
+        refetchQueries: [
+          {
+            query: FETCH_USEDITEM,
+            variables: {
+              useditemId: router.query.poshId,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    } catch (err) {
+      alert(err.message);
+    }
   }
 
   function onChangeStatus(event: any) {
-    updateUseditem({
-      variables: {
-        useditemId: router.query.poshId,
-        updateUseditemInput: {
-          tags: [event.target.value, data?.fetchUseditem.tags[1]],
+    try {
+      updateUseditem({
+        variables: {
+          useditemId: router.query.poshId,
+          updateUseditemInput: {
+            tags: [event.target.value, data?.fetchUseditem.tags[1]],
+          },
         },
-      },
-    });
+      });
+    } catch (err) {
+      alert(err.message);
+    }
   }
 
   function onClickProfile() {

@@ -47,23 +47,27 @@ export default function ProductWrite(props: any) {
     const resultFiles = await Promise.all(uploadFiles);
     const myImages = resultFiles.map((el) => el?.data.uploadFile.url || "");
 
-    const result = await createUseditem({
-      variables: {
-        createUseditemInput: {
-          name: data.name,
-          remarks: data.remarks,
-          contents: data.contents,
-          price: data.price,
-          useditemAddress: {
-            zipcode,
-            address,
+    try {
+      const result = await createUseditem({
+        variables: {
+          createUseditemInput: {
+            name: data.name,
+            remarks: data.remarks,
+            contents: data.contents,
+            price: data.price,
+            useditemAddress: {
+              zipcode,
+              address,
+            },
+            images: [...myImages],
+            tags: ["판매중", data.category],
           },
-          images: [...myImages],
-          tags: ["판매중", data.category],
         },
-      },
-    });
-    router.push(`/posh/products/${result.data?.createUseditem._id}`);
+      });
+      router.push(`/posh/products/${result.data?.createUseditem._id}`);
+    } catch (err) {
+      alert(err.message);
+    }
   }
   // 상품수정 ///////////////////////////////////////////////////////////////////
   // 수정시에도 상품명, 가격 유효성검사를 위해 새로 입력해야하는 것 방지 -> 기존 값 setValue로 넣어주고 trigger로 알리기
@@ -108,14 +112,17 @@ export default function ProductWrite(props: any) {
     } else {
       myUpdateUseditemInput.images = nextImages;
     }
-
-    await updateUseditem({
-      variables: {
-        useditemId: router.query.poshId,
-        updateUseditemInput: myUpdateUseditemInput,
-      },
-    });
-    router.push(`/posh/products/${router.query.poshId}`);
+    try {
+      await updateUseditem({
+        variables: {
+          useditemId: router.query.poshId,
+          updateUseditemInput: myUpdateUseditemInput,
+        },
+      });
+      router.push(`/posh/products/${router.query.poshId}`);
+    } catch (err) {
+      alert(err.message);
+    }
   }
 
   function handleComplete(data: any) {
