@@ -16,7 +16,7 @@ const Body = styled.div`
   
 `;
 
-const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup"];
+const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup","/"];
 const HiddenFooter = [
   "/posh/accounts/login",
   "/posh/accounts/signup",

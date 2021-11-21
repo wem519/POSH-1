@@ -54,7 +54,7 @@ export default function CommentsWrite() {
       setContents("");
       setIsOpen(false);
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   return (

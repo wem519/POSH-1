@@ -137,11 +137,15 @@ export default function Mypage() {
   }
   const loadMore = () => {
     if (!Items) return;
+    if (!Items?.fetchUseditems.length) return;
+    const nextPage = Math.ceil(Items?.fetchUseditems.length / 10) + 1;
+
     fetchMore({
-      variables: {
-        page: Math.ceil(Items?.fetchUseditems.length / 10) + 1,
-      },
+      variables: { page: nextPage },
       updateQuery: (prev, { fetchMoreResult }) => {
+        const prevPage = Math.ceil(prev?.fetchUseditems.length / 10);
+        if (prevPage >= nextPage)
+          return { fetchUseditems: [...prev.fetchUseditems] };
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,

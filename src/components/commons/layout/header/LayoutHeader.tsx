@@ -88,9 +88,6 @@ export default function LayoutHeader() {
           <IconBox onClick={onClickMove} id="/posh/home">
             <HomeBtn />
           </IconBox>
-          <IconBox onClick={onClickMove} id="/posh/search">
-            <SearchBtn />
-          </IconBox>
           <IconBox onClick={onClickMove} id="/posh/products/write">
             <WriteBtn />
           </IconBox>

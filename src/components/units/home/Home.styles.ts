@@ -83,10 +83,10 @@ export const Category = styled.a`
     content: '';
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: 5;
     z-index: -1;
     width: 0;
-    height: 4px;
+    height: 7px;
     background: #8915A6;
     left: 50%;
   }

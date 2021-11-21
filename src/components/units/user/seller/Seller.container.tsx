@@ -19,11 +19,17 @@ export default function Seller() {
 
   const lodeMore = () => {
     if (!items) return;
+    if (!items?.fetchUseditems.length) return;
+    const nextPage = Math.ceil(items?.fetchUseditems.length / 10) + 1;
+
     fetchMore({
       variables: {
-        page: Math.ceil(items?.fetchUseditems.length / 10) + 1,
+        page: nextPage,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        const prevPage = Math.ceil(items?.fetchUseditems.length / 10);
+        if (prevPage >= nextPage)
+          return { fetchUseditems: [...prev.fetchUseditems] };
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,
