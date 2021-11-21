@@ -1,54 +1,63 @@
 import {
-  Wrapper,
-  Products,
-  ProductItem,
-  ProductImgWrapper,
   CateWrapper,
   Category,
   CateDiv,
-  ProductPrice,
+  Wrapper,
+  Products,
+  ProductItem,
   ProductImg,
-} from "./Home.styles";
+  ProductImgWrapper,
+  ProductPrice,
+} from "./Category.styles";
 import InfiniteScroll from "react-infinite-scroller";
-import { useRouter } from "next/router";
 
-export default function HomeUI(props: any) {
-  const router = useRouter();
-
-  const onClickDetail = (e: any) => {
-    router.push(`/posh/products/${e.currentTarget.id}`);
-  };
-
-  function onClickCategory(event: any) {
-    router.push(`/posh/${event.target.id}`);
-  }
-
+export default function CategoryUI(props: any) {
   return (
     <>
       <CateWrapper>
         <CateDiv>
           <li>
-            <Category onClick={onClickCategory} id="top">
+            <Category
+              onClick={props.onClickCategory}
+              id="top"
+              router={props.router}
+            >
               Top
             </Category>
           </li>
           <li>
-            <Category onClick={onClickCategory} id="bottom">
+            <Category
+              onClick={props.onClickCategory}
+              id="bottom"
+              router={props.router}
+            >
               Bottom
             </Category>
           </li>
           <li>
-            <Category onClick={onClickCategory} id="shoes">
+            <Category
+              onClick={props.onClickCategory}
+              id="shoes"
+              router={props.router}
+            >
               Shoes
             </Category>
           </li>
           <li>
-            <Category onClick={onClickCategory} id="bag">
+            <Category
+              onClick={props.onClickCategory}
+              id="bag"
+              router={props.router}
+            >
               Bag
             </Category>
           </li>
           <li>
-            <Category onClick={onClickCategory} id="acc">
+            <Category
+              onClick={props.onClickCategory}
+              id="acc"
+              router={props.router}
+            >
               Acc
             </Category>
           </li>
@@ -61,12 +70,22 @@ export default function HomeUI(props: any) {
           hasMore={true}
           useWindow={true}
         >
-          {props.data && (
-            <Products>
-              {props.data?.fetchUseditems.map((el: any, index: any) => (
-                <ProductItem key={index} id={el._id} onClick={onClickDetail}>
+          <Products>
+            {props.data?.fetchUseditems
+              .filter((el: any) => el.tags[1] === props.router.query.category)
+              .map((el: any, index: any) => (
+                <ProductItem
+                  key={index}
+                  id={el._id}
+                  onClick={props.onClickDetail}
+                >
                   <ProductImgWrapper>
                     <ProductImg
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      }}
                       src={
                         el.images.filter((el: any) => el)[0]
                           ? `https://storage.googleapis.com/${
@@ -83,8 +102,7 @@ export default function HomeUI(props: any) {
                   </ProductPrice>
                 </ProductItem>
               ))}
-            </Products>
-          )}
+          </Products>
         </InfiniteScroll>
       </Wrapper>
     </>
