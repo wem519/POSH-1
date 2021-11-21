@@ -29,7 +29,7 @@ export default function Select02(props: any) {
         <option value="bottom">bottom</option>
         <option value="shoes">shoes</option>
         <option value="bag">bag</option>
-        <option value="etc">etc</option>
+        <option value="acc">acc</option>
       </Select>
     </Wrapper>
   );
