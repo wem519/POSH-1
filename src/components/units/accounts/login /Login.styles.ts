@@ -1,10 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 390px;
-  /* height: 100vh; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   background-color: #8915a6;
+`;
+
+export const ContentsWrapper = styled.div`
+  width: 390px;
+  /* box-shadow: 1px 1px 1px 1px white; */
   font-family: "NotoSansKRregular";
   display: flex;
   flex-direction: column;
@@ -25,6 +34,10 @@ export const Title = styled.div`
   font-family: "NotoSansitalic";
   font-weight: bold;
   line-height: 87px;
+
+  @media screen and (min-width: 600px) {
+    font-size: 92px;
+  }
 `;
 export const AccountWrapper = styled.div`
   display: flex;
@@ -35,6 +48,10 @@ export const AccountWrapper = styled.div`
 `;
 export const Account = styled.div`
   margin-top: 38px;
+
+  @media screen and (min-width: 600px) {
+    margin-top: 60px;
+  }
 `;
 export const AccountInfo = styled.input`
   width: 358px;
@@ -45,15 +62,32 @@ export const AccountInfo = styled.input`
   border: 0px solid rgba(249, 249, 249, 0.8);
   font-size: 16px;
   cursor: pointer;
+
+  @media screen and (min-width: 600px) {
+    width: 489px;
+    height: 65px;
+    font-size: 20px;
+  }
 `;
+
 export const Error = styled.div`
   color: #ffffff;
   font-size: 10px;
   padding-left: 7px;
   margin-top: 8px;
+  height: 8px;
+
+  @media screen and (min-width: 600px) {
+    font-size: 14px;
+    height: 12px;
+  }
 `;
 export const ButtonWrapper = styled.div`
   margin-top: 81px;
+
+  @media screen and (min-width: 600px) {
+    margin-top: 107px;
+  }
 `;
 export const Login = styled.button`
   width: 358px;
@@ -66,5 +100,12 @@ export const Login = styled.button`
   border-radius: 4px;
   background-color: #ffffff;
   border: 0ps solid #ffffff;
+  border-style: none;
+
+  @media screen and (min-width: 600px) {
+    width: 489px;
+    height: 65px;
+    font-size: 20px;
+  }
   /* margin-bottom: 300px; */
 `;

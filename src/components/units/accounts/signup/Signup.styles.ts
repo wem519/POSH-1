@@ -2,10 +2,21 @@ import styled from "@emotion/styled";
 import DoneIcon from "@mui/icons-material/Done";
 
 export const Wrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #8915a6;
+`;
+
+export const ContentsWrapper = styled.div`
   width: 390px;
   /* height: 844px; */
   padding-bottom: 67px;
-  background-color: #8915a6;
+  box-shadow: 1px 1px 1px 1px white;
   font-family: "NotoSansKRregular";
 `;
 export const ProfileWrapper = styled.div`

@@ -1,6 +1,7 @@
 import {
   TitleWrapper,
   Wrapper,
+  ContentsWrapper,
   Title,
   AccountWrapper,
   Account,
@@ -12,8 +13,8 @@ import {
 
 export default function LoginUI(props: any) {
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      <ContentsWrapper>
         <TitleWrapper>
           <Title>POSH</Title>
         </TitleWrapper>
@@ -38,7 +39,7 @@ export default function LoginUI(props: any) {
             <Login onClick={props.onClickLogin}>로그인</Login>
           </ButtonWrapper>
         </AccountWrapper>
-      </Wrapper>
-    </>
+      </ContentsWrapper>
+    </Wrapper>
   );
 }
