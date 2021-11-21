@@ -38,17 +38,20 @@ export const Title = styled.div`
   font-family: "NotoSansitalic";
   font-weight: bold;
   line-height: 87px;
-  /* 
+
   @media screen and (min-width: 600px) {
-    font-size: 92px;
-  } */
+    font-size: 87px;
+  }
 `;
 export const AccountWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin-top: 34px; */
+
+  @media screen and (min-width: 600px) {
+    margin-top: 20px;
+  }
 `;
 export const Account = styled.div`
   margin-top: 38px;
@@ -110,6 +113,21 @@ export const Login = styled.button`
     width: 489px;
     height: 65px;
     font-size: 20px;
+  }
+  /* margin-bottom: 300px; */
+`;
+export const Signup = styled.div`
+  color: #ffffff;
+  margin-top: 5px;
+  font-family: "NotoSansKRmedium";
+  font-size: 5px;
+  text-align: center;
+  :hover {
+    color: black;
+  }
+
+  @media screen and (min-width: 600px) {
+    font-size: 12px;
   }
   /* margin-bottom: 300px; */
 `;

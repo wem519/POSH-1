@@ -9,6 +9,7 @@ import {
   Error,
   ButtonWrapper,
   Login,
+  Signup,
 } from "./Login.styles";
 
 export default function LoginUI(props: any) {
@@ -37,6 +38,7 @@ export default function LoginUI(props: any) {
           </Account>
           <ButtonWrapper>
             <Login onClick={props.onClickLogin}>로그인</Login>
+            <Signup onClick={props.onClickMoveSignup}>회원가입</Signup>
           </ButtonWrapper>
         </AccountWrapper>
       </ContentsWrapper>
