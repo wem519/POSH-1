@@ -18,24 +18,38 @@ export default function HomeUI(props: any) {
     router.push(`/posh/products/${e.currentTarget.id}`);
   };
 
+  function onClickCategory(event: any) {
+    router.push(`/posh/${event.target.id}`);
+  }
+
   return (
     <>
       <CateWrapper>
         <CateDiv>
           <li>
-            <Category>Top</Category>
+            <Category onClick={onClickCategory} id="top">
+              Top
+            </Category>
           </li>
           <li>
-            <Category>Bottom</Category>
+            <Category onClick={onClickCategory} id="bottom">
+              Bottom
+            </Category>
           </li>
           <li>
-            <Category>Shoes</Category>
+            <Category onClick={onClickCategory} id="shoes">
+              Shoes
+            </Category>
           </li>
           <li>
-            <Category>Bag</Category>
+            <Category onClick={onClickCategory} id="bag">
+              Bag
+            </Category>
           </li>
           <li>
-            <Category>ect</Category>
+            <Category onClick={onClickCategory} id="ect">
+              ect
+            </Category>
           </li>
         </CateDiv>
       </CateWrapper>

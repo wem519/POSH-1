@@ -39,20 +39,24 @@ export default function Login() {
       setPasswordError("비밀번호는 최소 4자리 이상입니다.");
     }
     if (email !== "" && password !== "") {
-      const result = await loginUser({
-        variables: {
-          email: email,
-          password: password,
-        },
-      });
+      try {
+        const result = await loginUser({
+          variables: {
+            email: email,
+            password: password,
+          },
+        });
 
-      setAccessToken(result.data?.loginUser.accessToken);
-      localStorage.setItem("refreshToken", "true");
+        setAccessToken(result.data?.loginUser.accessToken);
+        localStorage.setItem("refreshToken", "true");
 
-      router.push("../home/");
-      // console.log(result.data?.loginUser.accessToken);
+        router.push("../home/");
+        // console.log(result.data?.loginUser.accessToken);
 
-      alert("Posh Posh");
+        alert("Posh Posh");
+      } catch (err) {
+        alert(err.message);
+      }
     }
   }
 

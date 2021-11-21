@@ -31,7 +31,6 @@ export default function ProductWrite(props: any) {
     mode: "onChange",
     resolver: yupResolver(props.isEdit ? schema2 : schema),
   });
-  // props.isEdit ? console.log("수정") : console.log("등록");
   const router = useRouter();
 
   // 파일 전달받는 함수 => newFiles state에 저장
@@ -48,24 +47,27 @@ export default function ProductWrite(props: any) {
     const resultFiles = await Promise.all(uploadFiles);
     const myImages = resultFiles.map((el) => el?.data.uploadFile.url || "");
 
-    const result = await createUseditem({
-      variables: {
-        createUseditemInput: {
-          name: data.name,
-          remarks: data.remarks,
-          contents: data.contents,
-          price: data.price,
-          useditemAddress: {
-            zipcode,
-            address,
+    try {
+      const result = await createUseditem({
+        variables: {
+          createUseditemInput: {
+            name: data.name,
+            remarks: data.remarks,
+            contents: data.contents,
+            price: data.price,
+            useditemAddress: {
+              zipcode,
+              address,
+            },
+            images: [...myImages],
+            tags: ["판매중", data.category],
           },
-          images: [...myImages],
-          tags: ["판매중", data.category],
         },
-      },
-    });
-    console.log("useFome data", data);
-    router.push(`/posh/products/${result.data?.createUseditem._id}`);
+      });
+      router.push(`/posh/products/${result.data?.createUseditem._id}`);
+    } catch (err) {
+      alert(err.message);
+    }
   }
   // 상품수정 ///////////////////////////////////////////////////////////////////
   // 수정시에도 상품명, 가격 유효성검사를 위해 새로 입력해야하는 것 방지 -> 기존 값 setValue로 넣어주고 trigger로 알리기
@@ -85,7 +87,11 @@ export default function ProductWrite(props: any) {
     if (data.price) myUpdateUseditemInput.price = data.price;
     if (data.remarks) myUpdateUseditemInput.remarks = data.remarks;
     if (data.contents) myUpdateUseditemInput.contents = data.contents;
-    if (data.tags) myUpdateUseditemInput.tags = data.tags;
+    if (data.category)
+      myUpdateUseditemInput.tags = [
+        props.data?.fetchUseditem.tags[0],
+        data.category,
+      ];
     if (zipcode || address) {
       myUpdateUseditemInput.useditemAddress = {};
       if (zipcode) myUpdateUseditemInput.useditemAddress.zipcode = zipcode;
@@ -98,7 +104,6 @@ export default function ProductWrite(props: any) {
     const resultFiles = await Promise.all(uploadFiles);
     const nextImages = resultFiles.map((el) => el?.data.uploadFile.url || "");
     myUpdateUseditemInput.images = nextImages;
-    console.log("새이미지", nextImages);
 
     // 기존이미지에 추가된 사진 업데이트하기
     if (props.data?.fetchUseditem.images?.length) {
@@ -107,16 +112,17 @@ export default function ProductWrite(props: any) {
     } else {
       myUpdateUseditemInput.images = nextImages;
     }
-
-    await updateUseditem({
-      variables: {
-        useditemId: router.query.poshId,
-        updateUseditemInput: myUpdateUseditemInput,
-      },
-    });
-    // console.log("useFome updatedata", data);
-    console.log("수정인풋", myUpdateUseditemInput);
-    router.push(`/posh/products/${router.query.poshId}`);
+    try {
+      await updateUseditem({
+        variables: {
+          useditemId: router.query.poshId,
+          updateUseditemInput: myUpdateUseditemInput,
+        },
+      });
+      router.push(`/posh/products/${router.query.poshId}`);
+    } catch (err) {
+      alert(err.message);
+    }
   }
 
   function handleComplete(data: any) {
@@ -126,7 +132,6 @@ export default function ProductWrite(props: any) {
     setValue("address", data.address);
     trigger("address");
     setIsOpen(false);
-    console.log("postcode data", data);
   }
 
   function onClickZipcodeBtn() {

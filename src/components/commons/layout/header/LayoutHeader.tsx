@@ -66,7 +66,7 @@ export default function LayoutHeader() {
           <CategoryName onClick={onClickCategory} id="shoes">
             Shoes
           </CategoryName>
-          <CategoryName onClick={onClickCategory} id="bags">
+          <CategoryName onClick={onClickCategory} id="bag">
             Bag
           </CategoryName>
           <CategoryName onClick={onClickCategory} id="etc">
