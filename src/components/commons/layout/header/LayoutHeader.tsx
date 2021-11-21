@@ -10,7 +10,6 @@ import {
   Search,
   SearchBnt,
   HomeBtn,
-  SearchBtn,
   WriteBtn,
   ChatBtn,
   MyPageBtn,

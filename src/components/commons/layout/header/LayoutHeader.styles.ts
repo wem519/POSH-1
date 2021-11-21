@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import PersonIcon from "@mui/icons-material/Person";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
@@ -86,10 +85,6 @@ export const SearchBnt = styled.div`
 `;
 
 export const HomeBtn = styled(HomeIcon)`
-  font-size: 28px;
-  color: #fff;
-`;
-export const SearchBtn = styled(SearchIcon)`
   font-size: 28px;
   color: #fff;
 `;

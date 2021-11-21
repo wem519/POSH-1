@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 // map으로 불러오는 images css
-export const BodyWrpper = styled.div`
+export const Products = styled.div`
   width: 390px;
   overflow: auto;
   margin-top: 13px;
@@ -19,7 +19,7 @@ export const BodyWrpper = styled.div`
     width: 900px;
   }
 `;
-export const BodyBox = styled.div`
+export const ProductItem = styled.div`
   width: 128px;
   height: 128px;
   background-color: #eee;
@@ -35,23 +35,23 @@ export const BodyBox = styled.div`
     overflow: hidden;
   }
 `;
-export const ProductImg = styled.div`
+export const ProductImgWrapper = styled.div`
   object-fit: cover;
   width: 100%;
   height: 100%;
-    @media screen and (min-width: 600px) {
+  @media screen and (min-width: 600px) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     z-index: 1;
-    -webkit-transform: all .2s ease;
-    transition: all .2s ease;
+    -webkit-transform: all 0.2s ease;
+    transition: all 0.2s ease;
     overflow: hidden;
     bottom: 0px;
-      :hover{
-        bottom: 60px;
-      }
+    :hover {
+      bottom: 60px;
+    }
   }
 `;
 
@@ -63,7 +63,7 @@ export const CateWrapper = styled.div`
   @media screen and (max-width: 600px) {
     display: none;
   }
-`
+`;
 export const Category = styled.a`
   display: block;
   padding: 10px 10px;
@@ -71,26 +71,26 @@ export const Category = styled.a`
   font-size: 25px;
   font-family: "NotoSansitalic";
   color: #555;
-  :hover{
+  :hover {
     color: #555;
     :after {
-    width: 100%;
-    left: 0;
-    transition: all .3s;
+      width: 100%;
+      left: 0;
+      transition: all 0.3s;
     }
   }
   :after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     bottom: 5;
     z-index: -1;
     width: 0;
     height: 7px;
-    background: #8915A6;
+    background: #8915a6;
     left: 50%;
   }
-`
+`;
 export const CateDiv = styled.ul`
   list-style: none;
   width: 900px;
@@ -98,23 +98,28 @@ export const CateDiv = styled.ul`
   justify-content: space-between;
   padding: 0px 70px;
   /* border-bottom: 1px solid #b69acb; */
-`
+`;
 export const ProductPrice = styled.div`
   @media screen and (max-width: 600px) {
-  display: none;
+    display: none;
   }
   @media screen and (min-width: 600px) {
     width: 100%;
     height: 60px;
     padding: 7px 10px 10px 10px;
     color: #111;
-    background-color: #FFF;
+    background-color: #fff;
     position: absolute;
     bottom: 0px;
     font-weight: 500;
     border: solid 1px lightgray;
-    border-top:none;
+    border-top: none;
     font-style: italic;
     font-size: 15px;
-    }
-`
+  }
+`;
+export const ProductImg = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+`;
