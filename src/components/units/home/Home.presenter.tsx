@@ -1,12 +1,13 @@
 import {
   Wrapper,
-  BodyWrpper,
-  BodyBox,
-  ProductImg,
+  Products,
+  ProductItem,
+  ProductImgWrapper,
   CateWrapper,
   Category,
   CateDiv,
   ProductPrice,
+  ProductImg,
 } from "./Home.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
@@ -61,16 +62,11 @@ export default function HomeUI(props: any) {
           useWindow={true}
         >
           {props.data && (
-            <BodyWrpper>
+            <Products>
               {props.data?.fetchUseditems.map((el: any, index: any) => (
-                <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-                  <ProductImg>
-                    <img
-                      style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                      }}
+                <ProductItem key={index} id={el._id} onClick={onClickDetail}>
+                  <ProductImgWrapper>
+                    <ProductImg
                       src={
                         el.images.filter((el: any) => el)[0]
                           ? `https://storage.googleapis.com/${
@@ -79,15 +75,15 @@ export default function HomeUI(props: any) {
                           : "/images/noImage.png"
                       }
                     />
-                  </ProductImg>
+                  </ProductImgWrapper>
                   <ProductPrice>
                     {el.name}
                     <br />
                     {el.price.toLocaleString()}원
                   </ProductPrice>
-                </BodyBox>
+                </ProductItem>
               ))}
-            </BodyWrpper>
+            </Products>
           )}
         </InfiniteScroll>
       </Wrapper>
