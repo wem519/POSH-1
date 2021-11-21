@@ -40,9 +40,9 @@ export default function CommentsAnswerListUIItem(props: any) {
           },
         ],
       });
-      alert("삭제 완료");
+      alert("");
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 

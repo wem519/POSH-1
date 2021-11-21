@@ -30,11 +30,17 @@ export default function Home() {
 
   const lodeMore = () => {
     if (!data) return;
+    if (!data?.fetchUseditems.length) return;
+    const nextPage = Math.ceil(data?.fetchUseditems.length / 10) + 1;
+
     fetchMore({
       variables: {
-        page: Math.ceil(data?.fetchUseditems.length / 10) + 1,
+        page: nextPage,
       },
       updateQuery: (prev: any, { fetchMoreResult }: any) => {
+        const prevPage = Math.ceil(prev?.fetchUseditems.length / 10);
+        if (prevPage >= nextPage)
+          return { fetchUseditems: [...prev.fetchUseditems] };
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,

@@ -48,7 +48,7 @@ export default function CommentsListUIItems(props: any) {
       });
       alert("댓글이 삭제되었습니다!");
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   // 댓글 수정

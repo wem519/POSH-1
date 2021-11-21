@@ -85,7 +85,7 @@ export default function CommentsAnswer(props: any) {
       });
       props.IsOpen(false);
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   // 대댓글 수정 함수
@@ -109,7 +109,7 @@ export default function CommentsAnswer(props: any) {
       });
       props.setIsEdit(false);
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   return (
