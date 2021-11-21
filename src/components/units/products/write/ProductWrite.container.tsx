@@ -65,7 +65,7 @@ export default function ProductWrite(props: any) {
         },
       });
       router.push(`/posh/products/${result.data?.createUseditem._id}`);
-    } catch (err) {
+    } catch (err: any) {
       alert(err.message);
     }
   }
@@ -120,7 +120,7 @@ export default function ProductWrite(props: any) {
         },
       });
       router.push(`/posh/products/${router.query.poshId}`);
-    } catch (err) {
+    } catch (err: any) {
       alert(err.message);
     }
   }
