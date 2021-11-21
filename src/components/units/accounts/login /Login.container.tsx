@@ -69,12 +69,16 @@ export default function Login() {
       }
     }
   }
+  function onClickMoveSignup() {
+    router.push("./signup");
+  }
 
   return (
     <LoginUI
       onChangeEmail={onChangeEmail}
       onChangePassword={onChangePassword}
       onClickLogin={onClickLogin}
+      onClickMoveSignup={onClickMoveSignup}
       emailError={emailError}
       passwordError={passwordError}
     />
