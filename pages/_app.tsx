@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // ---------------refreshToken -------------------
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03-team.codebootcamp.co.kr/team04prod",
+    uri: "https://backend03-team.codebootcamp.co.kr/team04",
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });
