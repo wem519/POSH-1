@@ -88,6 +88,7 @@ export const Signup = styled.button`
   width: 358px;
   height: 54px;
   border-radius: 4px;
+  background-color: #ffffff;
   border: 0px solid #ffffff;
   color: #8915a6;
 `;
