@@ -65,7 +65,7 @@ export default function Login() {
 
         alert("Posh Posh");
       } catch (err: any) {
-        alert(err.message);
+        console.log(err.message);
       }
     }
   }

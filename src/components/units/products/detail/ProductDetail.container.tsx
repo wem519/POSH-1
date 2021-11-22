@@ -84,7 +84,7 @@ export default function ProductDetail() {
         ],
       });
     } catch (err: any) {
-      alert(err.message);
+      console.log(err.message);
     }
   }
 
@@ -99,7 +99,7 @@ export default function ProductDetail() {
         },
       });
     } catch (err: any) {
-      alert(err.message);
+      console.log(err.message);
     }
   }
 

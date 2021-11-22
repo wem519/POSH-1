@@ -73,7 +73,7 @@ export default function CommentsAnswer2(props: any) {
       });
       props.setIsOpenAnswer(false);
     } catch (error: any) {
-      alert(error.message);
+      console.log(error.message);
     }
   };
   return (
