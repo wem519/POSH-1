@@ -7,20 +7,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 `;
 const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 `;
 
-const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup","/"];
+const HiddenHeader = ["/posh/accounts/login", "/posh/accounts/signup", "/"];
 const HiddenFooter = [
   "/posh/accounts/login",
   "/posh/accounts/signup",
   "/posh/products/[poshId]/comment",
+  "/",
 ];
 
 export default function Layout(props: any) {
