@@ -16,11 +16,10 @@ export const WithAuth = (Component: any) => (props: any) => {
   // 이건 백엔드 잘못. 우린 이대로 간다. 로그아웃 생활화하자.
   // ==> 우려했던 상황 발생, 다시 살린다.
   useEffect(() => {
-    if (!localStorage.getItem("refreshToken")) {
-      alert("Posh에 입장해 주세요");
-      router.push("/posh/accounts/login");
-    }
-    if (!sessionStorage.getItem("isLogin")) {
+    if (
+      !localStorage.getItem("refreshToken") &&
+      !sessionStorage.getItem("isLogin")
+    ) {
       alert("Posh에 입장해 주세요");
       router.push("/posh/accounts/login");
     }
