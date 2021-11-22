@@ -46,7 +46,7 @@ export default function CommentsListUIItems(props: any) {
           },
         ],
       });
-      alert("댓글이 삭제되었습니다!");
+      alert("댓글이 삭제되었습니다❣️");
     } catch (error: any) {
       console.log(error.message);
     }
@@ -62,7 +62,7 @@ export default function CommentsListUIItems(props: any) {
   // 댓글 수정 함수
   const onClickCommentsEdit = async () => {
     if (contents === "") {
-      alert("답글을 입력해주세요");
+      alert("답글을 입력해주세요✍🏻");
       return;
     }
     try {

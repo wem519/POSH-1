@@ -2,7 +2,6 @@ import MypageUI from "./Mypage.presenter";
 import { useQuery, gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import { Modal } from "antd";
 
 const FETCH_USEDITEMS_I_PICKED = gql`
   query fetchUseditemsIPicked($search: String, $page: Int) {
@@ -122,7 +121,7 @@ export default function Mypage() {
         },
       },
     });
-    Modal.success({ content: "프로필 사진이 수정되었습니다" });
+    alert("프로필 사진이 수정되었습니다🧚🏻");
     setPreimage("");
   }
 

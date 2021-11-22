@@ -35,7 +35,7 @@ export default function CommentsWrite() {
   };
   const onClickSubmitCommnets = async () => {
     if (contents === "") {
-      alert("댓글을 입력해주세요");
+      alert("댓글을 입력해주세요✍🏻");
       return;
     }
     try {
