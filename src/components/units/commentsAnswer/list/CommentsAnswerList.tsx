@@ -55,7 +55,7 @@ export default function CommentsAnswerTest(props: any) {
   };
   return (
     <>
-      {props.data && (
+      {data && (
         <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={true}>
           {data?.fetchUseditemQuestionAnswers.map((el: any) => (
             <CommentsAnswerListUIItem
