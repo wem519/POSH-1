@@ -4,7 +4,6 @@ import { useMutation, gql } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
-import { Modal } from "antd";
 
 const CREATE_USER = gql`
   mutation createUser($createUserInput: CreateUserInput!) {
@@ -56,10 +55,10 @@ export default function Signup() {
         },
       });
 
-      alert("Welcome To Posh");
+      alert("💜 Welcome to Posh 💜");
       router.push("./login");
     } catch (error: any) {
-      Modal.error({ content: error.message });
+      alert(error.message);
     }
   }
   return (

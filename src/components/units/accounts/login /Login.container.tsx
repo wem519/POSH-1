@@ -63,7 +63,7 @@ export default function Login() {
 
         router.push("../home/");
 
-        alert("Posh Posh");
+        alert("💜 Welcome to Posh 💜");
       } catch (err: any) {
         console.log(err.message);
       }

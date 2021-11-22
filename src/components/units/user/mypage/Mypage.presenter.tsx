@@ -19,13 +19,11 @@ import {
   LogOut,
 } from "./Mypage.styles";
 import InfiniteScroll from "react-infinite-scroller";
-import { Modal } from "antd";
 import { v4 as uuidv4 } from "uuid";
 
 export default function MypageUI(props: any) {
   return (
     <Wrapper>
-      {props.IsOpen && <Modal></Modal>}
       <ProfileWrapper>
         {props.userInfo?.fetchUserLoggedIn ? (
           <ProfilePicture

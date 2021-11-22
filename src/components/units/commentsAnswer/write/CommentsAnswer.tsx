@@ -91,7 +91,7 @@ export default function CommentsAnswer(props: any) {
   // 대댓글 수정 함수
   const onClickEditAnswer = async () => {
     if (contents === "") {
-      alert("수정된 내용이 없습니다");
+      alert("수정된 내용이 없습니다❗️");
       return;
     }
     try {
