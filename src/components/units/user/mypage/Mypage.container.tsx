@@ -157,10 +157,11 @@ export default function Mypage() {
   };
   function onClickLogOut() {
     logoutUser();
-    localStorage.clear(); // 로컬 스토리지 내용 삭제
-    location.reload(); // 페이지 강제 새로고침
     router.push("/posh/home/");
-    alert("로그아웃 완료");
+    localStorage.clear(); // 로컬 스토리지 내용 삭제
+    // 페이지 강제 새로고침
+    // location.reload();
+    // alert("로그아웃 완료");
   }
 
   return (
