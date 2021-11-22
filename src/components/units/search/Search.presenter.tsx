@@ -9,6 +9,8 @@ import {
 } from "./Search.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
+
 export default function SearchUI(props: any) {
   const router = useRouter();
 
@@ -33,7 +35,7 @@ export default function SearchUI(props: any) {
       >
         <BodyWrpper>
           {props.data?.fetchUseditems.map((el: any, index: any) => (
-            <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+            <BodyBox key={uuidv4()} id={el._id} onClick={onClickDetail}>
               <ProductImg
                 src={
                   el.images.filter((el: any) => el)[0]

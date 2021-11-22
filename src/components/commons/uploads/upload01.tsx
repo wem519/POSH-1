@@ -27,7 +27,6 @@ function Upload01(props: any) {
 
   function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target?.files?.[0];
-    console.log("파일정보", file);
     if (!file) return;
 
     const fileReader = new FileReader();

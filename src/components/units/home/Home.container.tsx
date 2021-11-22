@@ -26,8 +26,6 @@ export default function Home() {
     refetch({ search: search });
   }, [search]);
 
-  console.log("lender");
-
   const lodeMore = () => {
     if (!data) return;
     if (!data?.fetchUseditems.length) return;
@@ -53,7 +51,6 @@ export default function Home() {
 
   useEffect(() => {
     if (userInfo?.fetchUserLoggedIn && !userInfo?.fetchUserLoggedIn.picture) {
-      console.log("회원", userInfo?.fetchUserLoggedIn.name);
       updateUser({
         variables: {
           updateUserInput: {

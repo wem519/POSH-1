@@ -55,13 +55,13 @@ export default function HomeUI(props: any) {
         </CateDiv>
       </CateWrapper>
       <Wrapper>
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={props.lodeMore}
-          hasMore={true}
-          useWindow={true}
-        >
-          {props.data && (
+        {props.data && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={props.lodeMore}
+            hasMore={true}
+            useWindow={true}
+          >
             <Products>
               {props.data?.fetchUseditems.map((el: any, index: any) => (
                 <ProductItem key={index} id={el._id} onClick={onClickDetail}>
@@ -84,8 +84,8 @@ export default function HomeUI(props: any) {
                 </ProductItem>
               ))}
             </Products>
-          )}
-        </InfiniteScroll>
+          </InfiniteScroll>
+        )}
       </Wrapper>
     </>
   );

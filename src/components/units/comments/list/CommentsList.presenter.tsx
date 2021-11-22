@@ -41,15 +41,21 @@ export default function CommentsListUI(props: any) {
           paddingBottom: "40px",
         }}
       >
-        <InfiniteScroll pageStart={0} loadMore={props.lodeMore} hasMore={true}>
-          {props.data?.fetchUseditemQuestions.map((el: any) => (
-            <CommentsListUIItems
-              key={el._id}
-              el={el}
-              userInfo={props.userInfo}
-            />
-          ))}
-        </InfiniteScroll>
+        {props.data && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={props.lodeMore}
+            hasMore={true}
+          >
+            {props.data?.fetchUseditemQuestions.map((el: any) => (
+              <CommentsListUIItems
+                key={el._id}
+                el={el}
+                userInfo={props.userInfo}
+              />
+            ))}
+          </InfiniteScroll>
+        )}
       </div>
     </>
   );

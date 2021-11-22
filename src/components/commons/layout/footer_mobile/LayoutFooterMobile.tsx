@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   justify-content: center;
   position: fixed;
   bottom: 0;
+  z-index: 1;
 `;
 const FooterWrapper = styled.div`
   display: flex;

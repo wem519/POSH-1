@@ -80,7 +80,7 @@ export default function CommentsListUIItems(props: any) {
       });
       setIsEdit(false);
     } catch (error: any) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
   return (

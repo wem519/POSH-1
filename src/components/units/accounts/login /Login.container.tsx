@@ -59,9 +59,9 @@ export default function Login() {
 
         setAccessToken(result.data?.loginUser.accessToken);
         localStorage.setItem("refreshToken", "true");
+        sessionStorage.setItem("isLogin", "true");
 
         router.push("../home/");
-        // console.log(result.data?.loginUser.accessToken);
 
         alert("Posh Posh");
       } catch (err: any) {

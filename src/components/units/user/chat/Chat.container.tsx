@@ -32,7 +32,7 @@ const Ready = styled.div`
   position: absolute;
   left: 0;
   width: 100vw;
-  height: 82vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

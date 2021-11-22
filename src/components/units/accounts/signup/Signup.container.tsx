@@ -56,10 +56,8 @@ export default function Signup() {
         },
       });
 
-      console.log("crateUser", data);
       alert("Welcome To Posh");
       router.push("./login");
-      console.log("data", data);
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
