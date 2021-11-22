@@ -10,6 +10,7 @@ import {
   ProductPrice,
 } from "./Category.styles";
 import InfiniteScroll from "react-infinite-scroller";
+import { v4 as uuidv4 } from "uuid";
 
 export default function CategoryUI(props: any) {
   return (
@@ -76,7 +77,7 @@ export default function CategoryUI(props: any) {
                 .filter((el: any) => el.tags[1] === props.router.query.category)
                 .map((el: any, index: any) => (
                   <ProductItem
-                    key={index}
+                    key={uuidv4()}
                     id={el._id}
                     onClick={props.onClickDetail}
                   >

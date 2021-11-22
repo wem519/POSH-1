@@ -42,6 +42,7 @@ export default function Category() {
 
   return (
     <CategoryUI
+      data={data}
       onClickDetail={onClickDetail}
       onClickCategory={onClickCategory}
       lodeMore={lodeMore}

@@ -66,7 +66,7 @@ export default function ProductWrite(props: any) {
       });
       router.push(`/posh/products/${result.data?.createUseditem._id}`);
     } catch (err: any) {
-      alert(err.message);
+      console.log(err.message);
     }
   }
   // 상품수정 ///////////////////////////////////////////////////////////////////
@@ -121,7 +121,7 @@ export default function ProductWrite(props: any) {
       });
       router.push(`/posh/products/${router.query.poshId}`);
     } catch (err: any) {
-      alert(err.message);
+      console.log(err.message);
     }
   }
 

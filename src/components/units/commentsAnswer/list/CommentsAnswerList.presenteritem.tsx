@@ -40,9 +40,8 @@ export default function CommentsAnswerListUIItem(props: any) {
           },
         ],
       });
-      alert("");
     } catch (error: any) {
-      alert(error.message);
+      console.log(error.message);
     }
   };
 

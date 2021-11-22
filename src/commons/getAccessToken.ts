@@ -28,6 +28,6 @@ export async function getAccessToken(
     setAccessToken(newAccessToken);
     return newAccessToken;
   } catch (error: any) {
-    alert(error.message);
+    console.log(error.message);
   }
 }
