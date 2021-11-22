@@ -75,38 +75,17 @@ export default function MypageUI(props: any) {
             Sold out
           </Menu3>
         </MenuWrapper>
-        <InfiniteScroll pageStart={0} loadMore={props.loadMore} hasMore={true}>
-          {props.myPick && (
-            <ProductsWrapper>
-              {props.data?.fetchUseditemsIPicked.map(
-                (el: any) =>
-                  !el.deletedAt && (
-                    <ProductsList
-                      key={uuidv4()}
-                      id={el._id}
-                      onClick={props.onClickDetail}
-                    >
-                      <ProductImg
-                        src={
-                          el.images.filter((el: any) => el)[0]
-                            ? `https://storage.googleapis.com/${
-                                el.images.filter((el: any) => el)[0]
-                              }`
-                            : "/images/noImage.png"
-                        }
-                      />
-                    </ProductsList>
-                  )
-              )}
-            </ProductsWrapper>
-          )}
-          {props.mySelling && (
-            <ProductsWrapper>
-              {props.Items?.fetchUseditems
-                .filter((el: any) => el.tags[0] === "판매중")
-                .map(
-                  (el: any) =>
-                    el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
+        {props.data && props.Items && (
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={props.loadMore}
+            hasMore={true}
+          >
+            {props.myPick && (
+              <ProductsWrapper>
+                {props.data?.fetchUseditemsIPicked.map(
+                  (el: any, index: any) =>
+                    !el.deletedAt && (
                       <ProductsList
                         key={uuidv4()}
                         id={el._id}
@@ -124,35 +103,64 @@ export default function MypageUI(props: any) {
                       </ProductsList>
                     )
                 )}
-            </ProductsWrapper>
-          )}
-          {props.mySoldOut && (
-            <ProductsWrapper>
-              {props.Items?.fetchUseditems
-                .filter((el: any) => el.tags[0] === "판매완료")
-                .map(
-                  (el: any) =>
-                    el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
-                      <ProductsList
-                        key={uuidv4()}
-                        id={el._id}
-                        onClick={props.onClickDetail}
-                      >
-                        <ProductImg
-                          src={
-                            el.images.filter((el: any) => el)[0]
-                              ? `https://storage.googleapis.com/${
-                                  el.images.filter((el: any) => el)[0]
-                                }`
-                              : "/images/noImage.png"
-                          }
-                        />
-                      </ProductsList>
-                    )
-                )}
-            </ProductsWrapper>
-          )}
-        </InfiniteScroll>
+              </ProductsWrapper>
+            )}
+            {props.mySelling && (
+              <ProductsWrapper>
+                {props.Items?.fetchUseditems
+                  .filter((el: any) => el.tags[0] === "판매중")
+                  .map(
+                    (el: any, index: any) =>
+                      el.seller._id ===
+                        props.userInfo?.fetchUserLoggedIn._id && (
+                        <ProductsList
+                          key={index}
+                          id={el._id}
+                          onClick={props.onClickDetail}
+                        >
+                          <ProductImg
+                            src={
+                              el.images.filter((el: any) => el)[0]
+                                ? `https://storage.googleapis.com/${
+                                    el.images.filter((el: any) => el)[0]
+                                  }`
+                                : "/images/noImage.png"
+                            }
+                          />
+                        </ProductsList>
+                      )
+                  )}
+              </ProductsWrapper>
+            )}
+            {props.mySoldOut && (
+              <ProductsWrapper>
+                {props.Items?.fetchUseditems
+                  .filter((el: any) => el.tags[0] === "판매완료")
+                  .map(
+                    (el: any, index: any) =>
+                      el.seller._id ===
+                        props.userInfo?.fetchUserLoggedIn._id && (
+                        <ProductsList
+                          key={index}
+                          id={el._id}
+                          onClick={props.onClickDetail}
+                        >
+                          <ProductImg
+                            src={
+                              el.images.filter((el: any) => el)[0]
+                                ? `https://storage.googleapis.com/${
+                                    el.images.filter((el: any) => el)[0]
+                                  }`
+                                : "/images/noImage.png"
+                            }
+                          />
+                        </ProductsList>
+                      )
+                  )}
+              </ProductsWrapper>
+            )}
+          </InfiniteScroll>
+        )}
       </Body>
     </Wrapper>
   );

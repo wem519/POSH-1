@@ -9,6 +9,8 @@ import {
 } from "./Search.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
+
 export default function SearchUI(props: any) {
   const router = useRouter();
 

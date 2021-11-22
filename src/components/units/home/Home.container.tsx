@@ -51,7 +51,6 @@ export default function Home() {
 
   useEffect(() => {
     if (userInfo?.fetchUserLoggedIn && !userInfo?.fetchUserLoggedIn.picture) {
-      console.log("회원", userInfo?.fetchUserLoggedIn.name);
       updateUser({
         variables: {
           updateUserInput: {

@@ -55,16 +55,18 @@ export default function CommentsAnswerTest(props: any) {
   };
   return (
     <>
-      <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={true}>
-        {data?.fetchUseditemQuestionAnswers.map((el: any) => (
-          <CommentsAnswerListUIItem
-            key={el._id}
-            el={el}
-            id={props.id}
-            userInfo={userInfo}
-          />
-        ))}
-      </InfiniteScroll>
+      {props.data && (
+        <InfiniteScroll pageStart={0} loadMore={loadMore} hasMore={true}>
+          {data?.fetchUseditemQuestionAnswers.map((el: any) => (
+            <CommentsAnswerListUIItem
+              key={el._id}
+              el={el}
+              id={props.id}
+              userInfo={userInfo}
+            />
+          ))}
+        </InfiniteScroll>
+      )}
     </>
   );
 }
