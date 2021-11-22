@@ -118,16 +118,16 @@ export const Login = styled.button`
 `;
 export const Signup = styled.div`
   color: #ffffff;
-  margin-top: 5px;
+  margin-top: 15px;
   font-family: "NotoSansKRmedium";
-  font-size: 5px;
+  font-size: 15px;
   text-align: center;
   :hover {
-    color: black;
+    cursor: pointer;
   }
 
   @media screen and (min-width: 600px) {
-    font-size: 12px;
+    font-size: 15px;
   }
   /* margin-bottom: 300px; */
 `;

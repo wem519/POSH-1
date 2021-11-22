@@ -20,6 +20,7 @@ import {
 } from "./Mypage.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { Modal } from "antd";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MypageUI(props: any) {
   return (
@@ -86,7 +87,7 @@ export default function MypageUI(props: any) {
                   (el: any, index: any) =>
                     !el.deletedAt && (
                       <ProductsList
-                        key={index}
+                        key={uuidv4()}
                         id={el._id}
                         onClick={props.onClickDetail}
                       >
