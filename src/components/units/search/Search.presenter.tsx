@@ -36,7 +36,7 @@ export default function SearchUI(props: any) {
         >
           <BodyWrpper>
             {props.data?.fetchUseditems.map((el: any, index: any) => (
-              <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+              <BodyBox key={uuidv4()} id={el._id} onClick={onClickDetail}>
                 <ProductImg
                   src={
                     el.images.filter((el: any) => el)[0]
