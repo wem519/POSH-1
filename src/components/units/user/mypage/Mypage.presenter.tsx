@@ -20,6 +20,7 @@ import {
 } from "./Mypage.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { Modal } from "antd";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MypageUI(props: any) {
   return (
@@ -78,10 +79,10 @@ export default function MypageUI(props: any) {
           {props.myPick && (
             <ProductsWrapper>
               {props.data?.fetchUseditemsIPicked.map(
-                (el: any, index: any) =>
+                (el: any) =>
                   !el.deletedAt && (
                     <ProductsList
-                      key={index}
+                      key={uuidv4()}
                       id={el._id}
                       onClick={props.onClickDetail}
                     >
@@ -104,10 +105,10 @@ export default function MypageUI(props: any) {
               {props.Items?.fetchUseditems
                 .filter((el: any) => el.tags[0] === "판매중")
                 .map(
-                  (el: any, index: any) =>
+                  (el: any) =>
                     el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
                       <ProductsList
-                        key={index}
+                        key={uuidv4()}
                         id={el._id}
                         onClick={props.onClickDetail}
                       >
@@ -130,10 +131,10 @@ export default function MypageUI(props: any) {
               {props.Items?.fetchUseditems
                 .filter((el: any) => el.tags[0] === "판매완료")
                 .map(
-                  (el: any, index: any) =>
+                  (el: any) =>
                     el.seller._id === props.userInfo?.fetchUserLoggedIn._id && (
                       <ProductsList
-                        key={index}
+                        key={uuidv4()}
                         id={el._id}
                         onClick={props.onClickDetail}
                       >

@@ -26,8 +26,6 @@ export default function Home() {
     refetch({ search: search });
   }, [search]);
 
-  console.log("lender");
-
   const lodeMore = () => {
     if (!data) return;
     if (!data?.fetchUseditems.length) return;

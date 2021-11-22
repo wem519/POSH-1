@@ -12,6 +12,7 @@ import {
 } from "./Seller.styles";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 
 export default function SellerUI(props: any) {
   const router = useRouter();
@@ -32,59 +33,65 @@ export default function SellerUI(props: any) {
           Selling
         </Menu>
         <Menu2 onClick={props.onClickIsSoldOut} isSoldOut={props.isSoldOut}>
-          Sould out
+          Sold out
         </Menu2>
       </MenuWrapper>
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={props.lodeMore}
-        hasMore={true}
-        useWindow={true}
-      >
-        {props.isSoldOut ? (
-          <BodyWrpper>
-            {props.items?.fetchUseditems
-              .filter((el: any) => el.tags[0] === "판매완료")
-              .map(
-                (el: any, index: any) =>
-                  el.seller._id === props.data?.fetchUseditem?.seller._id && (
-                    <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-                      <ProductImg
-                        src={
-                          el.images.filter((el: any) => el)[0]
-                            ? `https://storage.googleapis.com/${
-                                el.images.filter((el: any) => el)[0]
-                              }`
-                            : "/images/noImage.png"
-                        }
-                      />
-                    </BodyBox>
-                  )
-              )}
-          </BodyWrpper>
-        ) : (
-          <BodyWrpper>
-            {props.items?.fetchUseditems
-              .filter((el: any) => el.tags[0] === "판매중")
-              .map(
-                (el: any, index: any) =>
-                  el.seller._id === props.data?.fetchUseditem?.seller._id && (
-                    <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-                      <ProductImg
-                        src={
-                          el.images.filter((el: any) => el)[0]
-                            ? `https://storage.googleapis.com/${
-                                el.images.filter((el: any) => el)[0]
-                              }`
-                            : "/images/noImage.png"
-                        }
-                      />
-                    </BodyBox>
-                  )
-              )}
-          </BodyWrpper>
-        )}
-      </InfiniteScroll>
+      {props.items && (
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.lodeMore}
+          hasMore={true}
+          useWindow={true}
+        >
+          {props.isSoldOut ? (
+            <BodyWrpper>
+              {props.items?.fetchUseditems
+                .filter((el: any) => el.tags[0] === "판매완료")
+                .map(
+                  (el: any) =>
+                    el.seller._id === props.data?.fetchUseditem?.seller._id && (
+                      <BodyBox
+                        key={uuidv4()}
+                        id={el._id}
+                        onClick={onClickDetail}
+                      >
+                        <ProductImg
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
+                        />
+                      </BodyBox>
+                    )
+                )}
+            </BodyWrpper>
+          ) : (
+            <BodyWrpper>
+              {props.items?.fetchUseditems
+                .filter((el: any) => el.tags[0] === "판매중")
+                .map(
+                  (el: any, index: any) =>
+                    el.seller._id === props.data?.fetchUseditem?.seller._id && (
+                      <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+                        <ProductImg
+                          src={
+                            el.images.filter((el: any) => el)[0]
+                              ? `https://storage.googleapis.com/${
+                                  el.images.filter((el: any) => el)[0]
+                                }`
+                              : "/images/noImage.png"
+                          }
+                        />
+                      </BodyBox>
+                    )
+                )}
+            </BodyWrpper>
+          )}
+        </InfiniteScroll>
+      )}
     </Wrapper>
   );
 }

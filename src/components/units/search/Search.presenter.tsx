@@ -25,28 +25,30 @@ export default function SearchUI(props: any) {
         ></Search>
         <SearchBnt onClick={props.onClickSearch}></SearchBnt>
       </SearchWrapper>
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={props.lodeMore}
-        hasMore={true}
-        useWindow={true}
-      >
-        <BodyWrpper>
-          {props.data?.fetchUseditems.map((el: any, index: any) => (
-            <BodyBox key={index} id={el._id} onClick={onClickDetail}>
-              <ProductImg
-                src={
-                  el.images.filter((el: any) => el)[0]
-                    ? `https://storage.googleapis.com/${
-                        el.images.filter((el: any) => el)[0]
-                      }`
-                    : "/images/noImage.png"
-                }
-              />
-            </BodyBox>
-          ))}
-        </BodyWrpper>
-      </InfiniteScroll>
+      {props.data && (
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.lodeMore}
+          hasMore={true}
+          useWindow={true}
+        >
+          <BodyWrpper>
+            {props.data?.fetchUseditems.map((el: any, index: any) => (
+              <BodyBox key={index} id={el._id} onClick={onClickDetail}>
+                <ProductImg
+                  src={
+                    el.images.filter((el: any) => el)[0]
+                      ? `https://storage.googleapis.com/${
+                          el.images.filter((el: any) => el)[0]
+                        }`
+                      : "/images/noImage.png"
+                  }
+                />
+              </BodyBox>
+            ))}
+          </BodyWrpper>
+        </InfiniteScroll>
+      )}
     </Wrapper>
   );
 }
