@@ -20,7 +20,7 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 
 ### ⚽️ About Posh
 
-- 
+
 - 
 - 
 - 
@@ -48,9 +48,9 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 
 - 우의명  
   - 회원가입
-    - react-hook-form 라이브러리 사용
+    - react-hook-form 라이브러리 이용
   - 로그인
-    
+    - accsessToken/refreshToken 구현 
   - 마이페이지
     - selling/sold out/picked 상품 보여주기
     - 사용자 프로필 사진 변경
@@ -99,15 +99,15 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 
 ### PR 규칙
 
-- 본인이 작업한 Feature(기능) Branch에  내용의 최소단위 커밋으로 PR 요청합니다.
-- 팀원들 간 해당 PR의 유효성 검토 후 Develop Branch에 담당자를 통한 Merge가 이뤄집니다.
+- 본인이 작업한 Feature(기능) Branch에  내용의 최소단위 커밋으로 PR 요청
+- 팀원들 간 해당 PR의 유효성 검토 후 Develop Branch에 담당자를 통한 Merge
 
 ### 피드백 규칙
 
 - 자유로운 프로젝트 질문, 스탯 학습 공유, 의견 제출을 지향.
 
 ### 기타사항
-- Basic/Advanced/Nightmare 단계별로 완성도를 구분하여 최종 완성형 단계 구현을 목표로 진행
+- Basic/Advanced/Nightmare 단계별로 완성도를 구분하여 최종 완성형 단계 구현을 목표로 진행 ( 현재 Basic->Advanced 진행중 )
 
 ### 🏆 팀원
 <img src="https://user-images.githubusercontent.com/93869522/142384957-3699c08f-5fe4-48df-b332-adc7affbec55.jpg" width="300" height="300"> 
