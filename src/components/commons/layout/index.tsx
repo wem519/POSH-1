@@ -10,12 +10,12 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const Body = styled.div`
-  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 400px) {
     min-height: 1200px;
+    padding-top: 30px;
   }
 `;
 
@@ -41,8 +41,8 @@ export default function Layout(props: any) {
   return (
     <Wrapper>
       {!isHiddenHeader && <LayoutHeader />}
-      {!isHiddenFooter && <LayoutFooterM />}
       <Body>{props.children}</Body>
+      {!isHiddenFooter && <LayoutFooterM />}
       {!isHiddenFooterPC && <LayoutFooterPC />}
     </Wrapper>
   );

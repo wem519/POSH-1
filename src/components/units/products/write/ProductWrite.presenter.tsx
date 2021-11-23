@@ -6,7 +6,6 @@ import {
   EditBtn,
   ErrMsg,
 } from "./ProductWrite.styles";
-import LayoutFooterM from "../../../commons/layout/footer_mobile/LayoutFooterMobile";
 import Input01 from "../../../commons/inputs/input01";
 import Input02 from "../../../commons/inputs/input02";
 import Address01 from "../../../commons/address/address01";
@@ -96,7 +95,6 @@ export default function ProductWriteUI(props: any) {
           )}
         </WriteWrapper>
       </Wrapper>
-      <LayoutFooterM />
     </form>
   );
 }

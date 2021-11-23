@@ -8,7 +8,7 @@ const ChatListContents = styled.div`
   align-items: center;
   padding: 15px;
   border-bottom: 1px solid #b69acb;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 400px) {
     display: none;
   }
 `;
@@ -33,7 +33,6 @@ const Ready = styled.div`
   background-color: lightgray;
   position: absolute;
   left: 0;
-  top: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
