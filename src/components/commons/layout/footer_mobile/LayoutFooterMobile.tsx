@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import HomeIcon from "@mui/icons-material/Home";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import ForumIcon from "@mui/icons-material/Forum";
-import PersonIcon from "@mui/icons-material/Person";
-import LocalParkingIcon from "@mui/icons-material/LocalParking";
+import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import CheckroomOutlinedIcon from "@mui/icons-material/CheckroomOutlined";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ interface IProps {
   pagenow: string;
   id: string;
 }
-const HomeBtn = styled(HomeIcon)`
+const HomeBtn = styled(HomeOutlinedIcon)`
   font-size: 28px;
   color: ${(props: IProps) => (props.id === props.pagenow ? "purple" : "grey")};
 `;
@@ -38,15 +38,16 @@ const SearchBtn = styled(SearchIcon)`
   font-size: 28px;
   color: ${(props: IProps) => (props.id === props.pagenow ? "purple" : "grey")};
 `;
-const WriteBtn = styled(LocalParkingIcon)`
+const WriteBtn = styled(CheckroomOutlinedIcon)`
   font-size: 28px;
   color: ${(props: IProps) => (props.id === props.pagenow ? "purple" : "grey")};
+  margin-bottom: 2px;
 `;
-const ChatBtn = styled(ForumIcon)`
+const ChatBtn = styled(ForumOutlinedIcon)`
   font-size: 26px;
   color: ${(props: IProps) => (props.id === props.pagenow ? "purple" : "grey")};
 `;
-const MyPageBtn = styled(PersonIcon)`
+const MyPageBtn = styled(PersonOutlineOutlinedIcon)`
   font-size: 32px;
   color: ${(props: IProps) => (props.id === props.pagenow ? "purple" : "grey")};
 `;

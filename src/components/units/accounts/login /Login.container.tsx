@@ -65,7 +65,7 @@ export default function Login() {
 
         alert("💜 Welcome to Posh 💜");
       } catch (err: any) {
-        console.log(err.message);
+        alert("❗️" + err.message);
       }
     }
   }

@@ -8,7 +8,9 @@ const ChatListContents = styled.div`
   align-items: center;
   padding: 15px;
   border-bottom: 1px solid #b69acb;
-  width: 100vw;
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
 `;
 const Profile = styled.img`
   width: 50px;
@@ -31,6 +33,7 @@ const Ready = styled.div`
   background-color: lightgray;
   position: absolute;
   left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
   display: flex;

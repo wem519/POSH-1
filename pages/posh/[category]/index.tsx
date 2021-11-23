@@ -1,4 +1,4 @@
-import Category from "../../../src/components/units/catetory/Category.container";
+import Category from "../../../src/components/units/category/Category.container";
 
 export default function CategoryPage() {
   return <Category />;

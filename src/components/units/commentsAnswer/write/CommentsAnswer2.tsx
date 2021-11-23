@@ -24,6 +24,7 @@ const CommnetsWriteInput = styled.textarea`
     position: absolute;
     font-family: "NotoSansKRregular";
   }
+  outline: none;
 `;
 const CommnetsInput = styled.input`
   width: 232px;
@@ -31,6 +32,7 @@ const CommnetsInput = styled.input`
   background-color: #f3f3f3;
   border: none;
   padding-left: 12px;
+  outline: none;
 `;
 const CommentsBnt = styled.div`
   width: 79px;

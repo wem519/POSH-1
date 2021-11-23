@@ -1,5 +1,5 @@
 import {
-  Wrapper,
+  ContentsWrapper,
   Products,
   ProductItem,
   ProductImgWrapper,
@@ -27,34 +27,28 @@ export default function HomeUI(props: any) {
     <>
       <CateWrapper>
         <CateDiv>
-          <li>
-            <Category onClick={onClickCategory} id="top">
-              Top
-            </Category>
-          </li>
-          <li>
-            <Category onClick={onClickCategory} id="bottom">
-              Bottom
-            </Category>
-          </li>
-          <li>
-            <Category onClick={onClickCategory} id="shoes">
-              Shoes
-            </Category>
-          </li>
-          <li>
-            <Category onClick={onClickCategory} id="bag">
-              Bag
-            </Category>
-          </li>
-          <li>
-            <Category onClick={onClickCategory} id="acc">
-              Acc
-            </Category>
-          </li>
+          <Category onClick={onClickCategory} id="top">
+            Top
+          </Category>
+
+          <Category onClick={onClickCategory} id="bottom">
+            Bottom
+          </Category>
+
+          <Category onClick={onClickCategory} id="shoes">
+            Shoes
+          </Category>
+
+          <Category onClick={onClickCategory} id="bag">
+            Bag
+          </Category>
+
+          <Category onClick={onClickCategory} id="acc">
+            Acc
+          </Category>
         </CateDiv>
       </CateWrapper>
-      <Wrapper>
+      <ContentsWrapper>
         {props.data && (
           <InfiniteScroll
             pageStart={0}
@@ -86,7 +80,7 @@ export default function HomeUI(props: any) {
             </Products>
           </InfiniteScroll>
         )}
-      </Wrapper>
+      </ContentsWrapper>
     </>
   );
 }

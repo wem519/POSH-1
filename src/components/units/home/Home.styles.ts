@@ -1,16 +1,16 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-
 // map으로 불러오는 images css
 export const Products = styled.div`
   width: 390px;
   overflow: auto;
+  padding-top: 10px;
   margin-top: 13px;
   display: flex;
   flex-wrap: wrap;
@@ -45,19 +45,19 @@ export const ProductImgWrapper = styled.div`
     object-fit: cover;
     position: absolute;
     z-index: 1;
-    -webkit-transform: all 0.2s ease;
-    transition: all 0.2s ease;
+    /* -webkit-transform: all 0.2s ease;
+    transition: all 0.2s ease; */
     overflow: hidden;
     bottom: 0px;
     :hover {
-      bottom: 60px;
+      /* bottom: 60px; */
+      opacity: 50%;
     }
   }
 `;
-
 export const CateWrapper = styled.div`
   width: 900px;
-  margin: 20px 0px 10px 0px;
+  margin: 10px 0px 10px 0px;
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 600px) {
@@ -68,11 +68,11 @@ export const Category = styled.a`
   display: block;
   padding: 10px 10px;
   position: relative;
-  font-size: 25px;
+  font-size: 15px;
   font-family: "NotoSansitalic";
   color: #555;
   :hover {
-    color: #555;
+    color: #8915a6;
     :after {
       width: 100%;
       left: 0;
@@ -86,12 +86,12 @@ export const Category = styled.a`
     bottom: 5;
     z-index: -1;
     width: 0;
-    height: 7px;
+    height: 3px;
     background: #8915a6;
     left: 50%;
   }
 `;
-export const CateDiv = styled.ul`
+export const CateDiv = styled.div`
   list-style: none;
   width: 900px;
   display: flex;
@@ -108,7 +108,8 @@ export const ProductPrice = styled.div`
     height: 60px;
     padding: 7px 10px 10px 10px;
     color: #111;
-    background-color: #fff;
+    background-color: #eee;
+    /* opacity: 100%; */
     position: absolute;
     bottom: 0px;
     font-weight: 500;
