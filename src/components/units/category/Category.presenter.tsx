@@ -1,8 +1,9 @@
 import {
+  Wrapper,
   CateWrapper,
   Category,
   CateDiv,
-  Wrapper,
+  ContentsWrapper,
   Products,
   ProductItem,
   ProductImg,
@@ -14,57 +15,47 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function CategoryUI(props: any) {
   return (
-    <>
+    <Wrapper>
       <CateWrapper>
         <CateDiv>
-          <li>
-            <Category
-              onClick={props.onClickCategory}
-              id="top"
-              router={props.router}
-            >
-              Top
-            </Category>
-          </li>
-          <li>
-            <Category
-              onClick={props.onClickCategory}
-              id="bottom"
-              router={props.router}
-            >
-              Bottom
-            </Category>
-          </li>
-          <li>
-            <Category
-              onClick={props.onClickCategory}
-              id="shoes"
-              router={props.router}
-            >
-              Shoes
-            </Category>
-          </li>
-          <li>
-            <Category
-              onClick={props.onClickCategory}
-              id="bag"
-              router={props.router}
-            >
-              Bag
-            </Category>
-          </li>
-          <li>
-            <Category
-              onClick={props.onClickCategory}
-              id="acc"
-              router={props.router}
-            >
-              Acc
-            </Category>
-          </li>
+          <Category
+            onClick={props.onClickCategory}
+            id="top"
+            router={props.router}
+          >
+            Top
+          </Category>
+          <Category
+            onClick={props.onClickCategory}
+            id="bottom"
+            router={props.router}
+          >
+            Bottom
+          </Category>
+          <Category
+            onClick={props.onClickCategory}
+            id="shoes"
+            router={props.router}
+          >
+            Shoes
+          </Category>
+          <Category
+            onClick={props.onClickCategory}
+            id="bag"
+            router={props.router}
+          >
+            Bag
+          </Category>
+          <Category
+            onClick={props.onClickCategory}
+            id="acc"
+            router={props.router}
+          >
+            Acc
+          </Category>
         </CateDiv>
       </CateWrapper>
-      <Wrapper>
+      <ContentsWrapper>
         {props.data && (
           <InfiniteScroll
             pageStart={0}
@@ -107,7 +98,7 @@ export default function CategoryUI(props: any) {
             </Products>
           </InfiniteScroll>
         )}
-      </Wrapper>
-    </>
+      </ContentsWrapper>
+    </Wrapper>
   );
 }

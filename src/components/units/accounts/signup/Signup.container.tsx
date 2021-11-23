@@ -58,7 +58,7 @@ export default function Signup() {
       alert("💜 Welcome to Posh 💜");
       router.push("./login");
     } catch (error: any) {
-      alert(error.message);
+      alert("❗️" + error.message);
     }
   }
   return (

@@ -1,38 +1,38 @@
 import styled from "@emotion/styled";
-import HomeIcon from "@mui/icons-material/Home";
-import ForumIcon from "@mui/icons-material/Forum";
-import PersonIcon from "@mui/icons-material/Person";
-import LocalParkingIcon from "@mui/icons-material/LocalParking";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import CheckroomOutlinedIcon from "@mui/icons-material/CheckroomOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export const Wrapper = styled.div`
-  background-color: #8915a6;
+  background-color: #fff;
   width: 100vw;
-  position: fixed top;
   display: flex;
   justify-content: center;
   height: 100px;
-  @media screen and (min-width: 600px) {
-    height: 220px;
+  @media screen and (max-width: 600px) {
+    height: 100px;
+    background-color: #8915a6;
   }
 `;
-export const ContnesWrpper = styled.div`
+export const HeaderWrpper = styled.div`
   width: 900px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 0px 0px 0px;
+  padding: 10px 10px 0px 10px;
   @media screen and (max-width: 600px) {
     display: none;
   }
 `;
 export const HeaderLogo = styled.div`
-  /* padding: 44px 40px 11px 0px; */
   text-align: center;
   font-family: "NotoSansitalic";
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 500;
-  color: #fff;
+  color: #8915a6;
   cursor: pointer;
 `;
 export const HeaderLogo2 = styled.div`
@@ -56,49 +56,72 @@ export const SearchWrapper = styled.div`
     display: none;
   }
 `;
+export const SearchBar = styled.div`
+  border: 1px solid #8915a6;
+  border-radius: 30px;
+  padding: 0 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const Search = styled.input`
   width: 200px;
   height: 30px;
-  background-color: #f3f3f3;
+  background-color: #fff;
   border-radius: 4px 0px 0px 4px;
   border: none;
   font-family: "NotoSansKRregular";
   font-size: 14px;
   background-position: 320px;
   padding-left: 10px;
+  margin-left: 5px;
   ::placeholder {
     color: #8915a6;
     opacity: 30%;
     font-size: 14px;
   }
+  :focus {
+    outline: none;
+  }
 `;
-export const SearchBnt = styled.div`
-  width: 58px;
-  height: 30px;
+export const SearchBtn = styled(SearchOutlinedIcon)`
+  font-size: 23px;
   border-radius: 0px 4px 4px 0px;
-  background-color: #f3f3f3;
-  background-image: url("/images/icon-search.png");
+  background-color: #fff;
   background-repeat: no-repeat;
   background-position: 20px;
   cursor: pointer;
-  z-index: 1;
+  color: #555;
 `;
 
-export const HomeBtn = styled(HomeIcon)`
-  font-size: 28px;
-  color: #fff;
+export const HomeBtn = styled(HomeOutlinedIcon)`
+  font-size: 23px;
+  color: #555;
+  :hover {
+    color: #8915a6;
+  }
 `;
-export const WriteBtn = styled(LocalParkingIcon)`
-  font-size: 28px;
-  color: #fff;
+export const WriteBtn = styled(CheckroomOutlinedIcon)`
+  font-size: 23px;
+  color: #555;
+  :hover {
+    color: #8915a6;
+  }
 `;
-export const ChatBtn = styled(ForumIcon)`
-  font-size: 26px;
-  color: #fff;
+export const ChatBtn = styled(ForumOutlinedIcon)`
+  font-size: 23px;
+  color: #555;
+  padding-top: 2px;
+  :hover {
+    color: #8915a6;
+  }
 `;
-export const MyPageBtn = styled(PersonIcon)`
-  font-size: 32px;
-  color: #fff;
+export const MyPageBtn = styled(PersonOutlineOutlinedIcon)`
+  font-size: 25px;
+  color: #555;
+  :hover {
+    color: #8915a6;
+  }
 `;
 export const IconBox = styled.div`
   width: 32px;
@@ -106,12 +129,13 @@ export const IconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 7px;
+  margin-left: 6px;
   cursor: pointer;
 `;
 
 export const IconWrapper = styled.div`
   display: flex;
+  align-items: center;
   @media screen and (max-width: 700px) {
     display: none;
   }

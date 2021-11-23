@@ -32,7 +32,7 @@ export default function CommentsAnswerListUIItem(props: any) {
   const onClickDeleteCommnetsAnsewer = async () => {
     try {
       await deleteUseditemQuestionAnswer({
-        variables: { useditemQuestionAnswerId: String(props.id) },
+        variables: { useditemQuestionAnswerId: String(props.el._id) },
         refetchQueries: [
           {
             query: FETCH_USEDITEM_QUESTION_ANSWERS,

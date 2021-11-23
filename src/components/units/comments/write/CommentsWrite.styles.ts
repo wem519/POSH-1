@@ -18,11 +18,11 @@ export const CommnetsWriteInput = styled.textarea`
     position: absolute;
     font-family: "NotoSansKRregular";
   }
+  outline: none;
 `;
 export const CommentsInputWrapper = styled.div`
   position: fixed;
   bottom: 36px;
-  
 `;
 export const CommentsWrapper = styled.div`
   width: 390px;
@@ -38,6 +38,7 @@ export const CommnetsInput = styled.input`
   background-color: #f3f3f3;
   border: none;
   padding-left: 12px;
+  outline: none;
 `;
 export const CommentsInputWrite = styled.input`
   width: 311px;
@@ -45,6 +46,7 @@ export const CommentsInputWrite = styled.input`
   background-color: #f3f3f3;
   border: none;
   padding-left: 12px;
+  outline: none;
 `;
 export const CommentsBnt = styled.div`
   width: 79px;

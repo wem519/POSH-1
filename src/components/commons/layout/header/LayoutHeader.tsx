@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import { FETCH_USER_LOGGED_IN } from "../../../units/products/detail/ProductDetail.queries";
 import {
   Wrapper,
-  ContnesWrpper,
+  HeaderWrpper,
   HeaderLogo,
   HeaderLogo2,
   SearchWrapper,
   Search,
-  SearchBnt,
+  SearchBtn,
   HomeBtn,
   WriteBtn,
   ChatBtn,
@@ -20,9 +20,11 @@ import {
   Category,
   CategoryList,
   CategoryName,
+  SearchBar,
 } from "./LayoutHeader.styles";
 import { GlobalContext } from "../../../../../pages/_app";
 import { useContext, useState } from "react";
+// import SearchBar01 from "../../searchBars/searchBar01";
 
 export default function LayoutHeader() {
   const { setSearch }: any = useContext(GlobalContext);
@@ -77,15 +79,20 @@ export default function LayoutHeader() {
       <HeaderLogo2 onClick={onClickMove} id="/posh/home">
         POSH
       </HeaderLogo2>
-      <ContnesWrpper>
+      <HeaderWrpper>
         <HeaderLogo onClick={onClickMove} id="/posh/home">
           POSH
         </HeaderLogo>
-        <SearchWrapper>
-          <Search placeholder="검색" onChange={onChangeSearch} />
-          <SearchBnt onClick={onClickSearch}></SearchBnt>
-        </SearchWrapper>
+        <SearchWrapper></SearchWrapper>
         <IconWrapper>
+          <SearchBar>
+            <Search onChange={onChangeSearch} />
+            <SearchBtn onClick={onClickSearch}></SearchBtn>
+          </SearchBar>
+          {/* <SearchBar01
+            onChangeSearch={onChangeSearch}
+            onClickSearch={onClickSearch}
+          /> */}
           <IconBox onClick={onClickMove} id="/posh/home">
             <HomeBtn />
           </IconBox>
@@ -96,7 +103,7 @@ export default function LayoutHeader() {
             <ChatBtn />
           </IconBox>
           {data?.fetchUserLoggedIn.picture ? (
-            <IconBox>
+            <IconBox style={{ marginLeft: "10px" }}>
               <Profile
                 src={data?.fetchUserLoggedIn.picture}
                 onClick={onClickMove}
@@ -109,7 +116,7 @@ export default function LayoutHeader() {
             </IconBox>
           )}
         </IconWrapper>
-      </ContnesWrpper>
+      </HeaderWrpper>
     </Wrapper>
   );
 }
