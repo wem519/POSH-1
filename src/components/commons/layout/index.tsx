@@ -13,7 +13,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 500px) {
     min-height: 1200px;
     padding-top: 30px;
   }
