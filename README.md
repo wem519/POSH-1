@@ -21,7 +21,9 @@ React 기반의 모바일 리커머스 마켓 프로젝트 👩🏻‍💻 [Posh
 ### ⚽️ About Posh
 
 
-- https://www.notion.so/1b86f2ca63414ac3b60440e77f347ea9#6daa8207cc2f4f208606fb4daa503d2b
+- 기획의도
+  ![posh1](https://user-images.githubusercontent.com/93869522/143527214-1bd15a95-ede3-4ddc-b092-f56c09b036b5.jpg)
+
 - 
 - 
 
