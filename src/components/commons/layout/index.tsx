@@ -13,9 +13,19 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 500px) {
-    min-height: 1200px;
-    padding-top: 30px;
+  @media screen and (min-width: 400px) {
+    min-height: ${(props) =>
+      props.pathname !== "/" &&
+      props.pathname !== "/posh/accounts/login" &&
+      props.pathname !== "/posh/accounts/signup"
+        ? "1200px"
+        : ""};
+    padding-top: ${(props) =>
+      props.pathname !== "/" &&
+      props.pathname !== "/posh/accounts/login" &&
+      props.pathname !== "/posh/accounts/signup"
+        ? "30px"
+        : ""};
   }
 `;
 
@@ -30,10 +40,12 @@ const HiddeonFooterPC = [
   "/posh/user/chat",
   "/posh/accounts/login",
   "/posh/accounts/signup",
+  "/",
 ];
 
 export default function Layout(props: any) {
   const router = useRouter();
+  console.log("pathname", router.pathname);
   const isHiddenHeader = HiddenHeader.includes(router.pathname);
   const isHiddenFooter = HiddenFooter.includes(router.pathname);
   const isHiddenFooterPC = HiddeonFooterPC.includes(router.pathname);
@@ -41,7 +53,7 @@ export default function Layout(props: any) {
   return (
     <Wrapper>
       {!isHiddenHeader && <LayoutHeader />}
-      <Body>{props.children}</Body>
+      <Body pathname={router.pathname}>{props.children}</Body>
       {!isHiddenFooter && <LayoutFooterM />}
       {!isHiddenFooterPC && <LayoutFooterPC />}
     </Wrapper>

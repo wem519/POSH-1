@@ -32,7 +32,7 @@ export default function LandingPage() {
         }}
       >
         <LendingImg
-          style={{ width: "90vw" }}
+          style={{ width: "85vw" }}
           src="/images/lending.png"
           onClick={onClickMoveHome}
         />
