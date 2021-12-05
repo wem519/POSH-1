@@ -107,6 +107,10 @@ export default function ProductDetail() {
     router.push(`/posh/products/${router.query.poshId}/seller`);
   }
 
+  function onClickToChat() {
+    router.push(`/posh/products/${router.query.poshId}/chat`);
+  }
+
   return (
     <ProductDetailUI
       data={data}
@@ -123,6 +127,7 @@ export default function ProductDetail() {
       setIsOpen={setIsOpen}
       onClickClose={onClickClose}
       onClickToDelete={onClickToDelete}
+      onClickToChat={onClickToChat}
     />
   );
 }
