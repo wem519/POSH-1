@@ -18,13 +18,13 @@ import { initializeApp } from "firebase/app";
 
 // 파이어베이스 연결
 export const firebaseApp = initializeApp({
-  apiKey: "AIzaSyAfCtd8cABF4GP8_60h67r31QL2xBFK8kc",
-  authDomain: "posh-chatting.firebaseapp.com",
-  projectId: "posh-chatting",
-  storageBucket: "posh-chatting.appspot.com",
-  messagingSenderId: "229258023165",
-  appId: "1:229258023165:web:110779729820ecbc276e94",
-  measurementId: "G-EKJGLHGPYP",
+  apiKey: "AIzaSyD2U2DKuB3Zd8KfhmAhKscoTYZi4qpT48o",
+  authDomain: "chat-test-43b4a.firebaseapp.com",
+  projectId: "chat-test-43b4a",
+  storageBucket: "chat-test-43b4a.appspot.com",
+  messagingSenderId: "453567476389",
+  appId: "1:453567476389:web:9a42daa361ac10b9e3134c",
+  measurementId: "G-Z99DLE0FEL",
 });
 
 export const GlobalContext = createContext(null);
@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // ---------------refreshToken -------------------
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03-team.codebootcamp.co.kr/team04prod",
+    uri: "https://backend03-team.codebootcamp.co.kr/team04",
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });
