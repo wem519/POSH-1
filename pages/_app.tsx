@@ -14,18 +14,28 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import { Global } from "@emotion/react";
 import { createContext, useState, useEffect } from "react";
 import Layout from "../src/components/commons/layout";
-import { initializeApp } from "firebase/app";
 
-// 파이어베이스 연결
-export const firebaseApp = initializeApp({
-  apiKey: "AIzaSyD2U2DKuB3Zd8KfhmAhKscoTYZi4qpT48o",
-  authDomain: "chat-test-43b4a.firebaseapp.com",
-  projectId: "chat-test-43b4a",
-  storageBucket: "chat-test-43b4a.appspot.com",
-  messagingSenderId: "453567476389",
-  appId: "1:453567476389:web:9a42daa361ac10b9e3134c",
-  measurementId: "G-Z99DLE0FEL",
-});
+const config = {
+  /* TODO: ADD YOUR FIREBASE CONFIGURATION OBJECT HERE */
+  apiKey: "AIzaSyBiwONg7RJ91XFCfNF6h3hXQ9tCAhvx_6k",
+  authDomain: "posh-chat-test.firebaseapp.com",
+  projectId: "posh-chat-test",
+  storageBucket: "posh-chat-test.appspot.com",
+  messagingSenderId: "787562693241",
+  appId: "1:787562693241:web:1ef9a31e0e54bb26638aa8",
+};
+
+export function getFirebaseConfig() {
+  if (!config || !config.apiKey) {
+    throw new Error(
+      "No Firebase configuration object provided." +
+        "\n" +
+        "Add your web app's configuration object to firebase-config.js"
+    );
+  } else {
+    return config;
+  }
+}
 
 export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }: AppProps) {

@@ -41,6 +41,7 @@ const HiddeonFooterPC = [
   "/posh/accounts/login",
   "/posh/accounts/signup",
   "/",
+  "/posh/chat",
 ];
 
 export default function Layout(props: any) {
