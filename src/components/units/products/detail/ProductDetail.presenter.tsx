@@ -126,7 +126,7 @@ export default function ProductDetailUI(props: any) {
                 <PickBtn onClick={props.onClickPick}></PickBtn>
               )}
               {props.data?.fetchUseditem.pickedCount}
-              <SendBtn></SendBtn>
+              <SendBtn onClick={props.onClickToChat}></SendBtn>
             </ButtonsBuyer>
           )}
         </Buttons>

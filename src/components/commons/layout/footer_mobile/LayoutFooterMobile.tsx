@@ -103,9 +103,9 @@ export default function LayoutFooterM() {
           </IconWrapper>
           <ButtonLabel>등록</ButtonLabel>
         </Button>
-        <Button onClick={onClickMove} id="/posh/user/chat">
+        <Button onClick={onClickMove} id="/posh/user/chatList">
           <IconWrapper>
-            <ChatBtn id="/posh/user/chat" pagenow={pageNow} />
+            <ChatBtn id="/posh/user/chatList" pagenow={pageNow} />
           </IconWrapper>
           <ButtonLabel>채팅</ButtonLabel>
         </Button>
