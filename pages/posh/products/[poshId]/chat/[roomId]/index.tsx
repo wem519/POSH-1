@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState, useEffect, useRef } from "react";
-import { getFirebaseConfig } from "../../../../_app";
+import { getFirebaseConfig } from "../../../../../_app";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -12,8 +12,12 @@ import {
   limit,
   onSnapshot,
   serverTimestamp,
+  setDoc,
+  doc,
+  where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+import { FETCH_USEDITEM } from "../../../../../../src/components/units/products/detail/ProductDetail.queries";
 
 const FETCHUSERLOGGEDIN = gql`
   query fetchUserLoggedIn {
@@ -93,24 +97,44 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
 
   const { data }: any = useQuery(FETCHUSERLOGGEDIN);
-  // 메세지 state
+  const { data: item }: any = useQuery(FETCH_USEDITEM, {
+    variables: { useditemId: router.query.poshId },
+  });
   const onChagemessage = (e: any) => {
     setMessage(e.target.value);
   };
 
   const name = data?.fetchUserLoggedIn.name;
   const picture = data?.fetchUserLoggedIn.picture;
+  const seller = item?.fetchUseditem.seller.name;
+
   async function saveMessage() {
-    // Add a new message entry to the Firebase database.
     try {
-      await addDoc(
-        collection(getFirestore(), `${router.query.poshId}${name}`),
+      await addDoc(collection(getFirestore(), `chatDB`), {
+        roomId: `${router.query.poshId}${router.query.roomId}`,
+        productId: `${router.query.poshId}`,
+        name: name,
+        seller: seller,
+        text: message,
+        profilePicUrl: picture,
+        timestamp: serverTimestamp(),
+        id: new Date().toString().slice(0, 25),
+      });
+      await setDoc(
+        doc(
+          collection(getFirestore(), `chatRoomDB`),
+          `${router.query.poshId}${seller}${name}`
+        ),
         {
+          roomId: `${router.query.poshId}${router.query.roomId}`,
+          productId: `${router.query.poshId}`,
           name: name,
+          seller: seller,
           text: message,
           profilePicUrl: picture,
           timestamp: serverTimestamp(),
           id: new Date().toString().slice(0, 25),
+          participants: [`${seller}`, `${name}`],
         }
       );
     } catch (error) {
@@ -119,9 +143,9 @@ export default function Chat() {
   }
 
   function loadMessages() {
-    // Create the query to load the last 12 messages and listen for new ones.
     const recentMessagesQuery = query(
-      collection(getFirestore(), `${router.query.poshId}${name}`),
+      collection(getFirestore(), `chatDB`),
+      where("roomId", "==", `${router.query.poshId}${router.query.roomId}`),
       orderBy("timestamp", "asc"),
       limit(100)
     );
@@ -130,7 +154,6 @@ export default function Chat() {
       // @ts-ignore
       setMessages(snapshot.docs.map((el) => el.data()));
     });
-    // });
   }
 
   const msgRef = useRef<HTMLDivElement>();
@@ -150,20 +173,16 @@ export default function Chat() {
     scrollToBottom();
   }, [messages]);
 
-  // const date = new Date().toString().slice(0, 25);
-  // console.log(date);
-
   return (
     <>
       <ChatWrapper ref={msgRef}>
         {messages.map((el) => (
-          <GetMessageWrapper key={el.id}>
+          <GetMessageWrapper key={el.timestamp}>
             <ProfileImg src={el.profilePicUrl} />
             <div>
               <Name>{el.name}</Name>
               <GetMessageBox>{el.text}</GetMessageBox>
               <MessageDate>{el.id}</MessageDate>
-              {/* <MessageDate>{el.timestamp?.seconds}</MessageDate> */}
             </div>
           </GetMessageWrapper>
         ))}
