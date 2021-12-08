@@ -1,17 +1,28 @@
 import styled from "@emotion/styled";
+import { gql, useQuery } from "@apollo/client";
 import { useState, useEffect, useRef } from "react";
 import { getFirebaseConfig } from "../../../../../pages/_app";
 import { initializeApp, getApps, getApp } from "firebase/app";
 import {
   getFirestore,
   collection,
-  collectionGroup,
   query,
+  where,
   orderBy,
   limit,
   onSnapshot,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+
+const FETCHUSERLOGGEDIN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      picture
+      name
+    }
+  }
+`;
 
 const MessageWrapper = styled.div`
   display: flex;
@@ -59,11 +70,13 @@ getApps().length === 0 ? initializeApp(firebaseAppConfig) : getApp();
 export default function Chat() {
   const router = useRouter();
   const [messages, setMessages] = useState([]);
+  const { data }: any = useQuery(FETCHUSERLOGGEDIN);
+  const name = data?.fetchUserLoggedIn.name;
 
   function loadMessages() {
     const recentMessagesQuery = query(
-      // collection(getFirestore(), `6198ddb23095240029102447닭꼬치`),
-      collectionGroup(getFirestore(), "닭꼬치"),
+      collection(getFirestore(), `chatRoomDB`),
+      where("participants", "array-contains", `${name}`),
       orderBy("timestamp", "asc"),
       limit(100)
     );
@@ -82,13 +95,14 @@ export default function Chat() {
     }
   }
 
-  function onClickToChatRoom() {
-    router.push(`/posh/products/6198ddb23095240029102447/chat`);
+  function onClickToChatRoom(event: any) {
+    router.push(`/posh/products/${event.currentTarget.id}`);
+    console.log("확인", event.currentTarget.name);
   }
 
   useEffect(() => {
     loadMessages();
-  }, []);
+  }, [name]);
 
   useEffect(() => {
     scrollToBottom();
@@ -98,7 +112,11 @@ export default function Chat() {
     <>
       <ChatWrapper ref={msgRef}>
         {messages.map((el) => (
-          <MessageWrapper key={el.id} onClick={onClickToChatRoom}>
+          <MessageWrapper
+            key={el.id}
+            onClick={onClickToChatRoom}
+            id={`${el.productId}/chat/${el.name}`}
+          >
             <ProfileImg src={el.profilePicUrl} />
             <div>
               <NameAndTime>

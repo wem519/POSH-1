@@ -35,14 +35,14 @@ const HiddenFooter = [
   "/posh/accounts/signup",
   "/posh/products/[poshId]/comment",
   "/",
-  "/posh/products/[poshId]/chat",
+  "/posh/products/[poshId]/chat/[roomId]",
 ];
 const HiddeonFooterPC = [
   "/posh/user/chat",
   "/posh/accounts/login",
   "/posh/accounts/signup",
   "/",
-  "/posh/products/[poshId]/chat",
+  "/posh/products/[poshId]/chat/[roomId]",
 ];
 
 export default function Layout(props: any) {
