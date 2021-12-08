@@ -75,7 +75,6 @@ const MessageDate = styled.div`
 const Name = styled.div`
   font-weight: 500;
 `;
-// const ImgUrl = styled.img``;
 const ChatWrapper = styled.div`
   margin-top: 10px;
   margin-bottom: 50px;
@@ -111,7 +110,7 @@ export default function Chat() {
           text: message,
           profilePicUrl: picture,
           timestamp: serverTimestamp(),
-          id: new Date().getTime(),
+          id: new Date().toString().slice(0, 25),
         }
       );
     } catch (error) {
@@ -151,6 +150,9 @@ export default function Chat() {
     scrollToBottom();
   }, [messages]);
 
+  // const date = new Date().toString().slice(0, 25);
+  // console.log(date);
+
   return (
     <>
       <ChatWrapper ref={msgRef}>
@@ -160,7 +162,8 @@ export default function Chat() {
             <div>
               <Name>{el.name}</Name>
               <GetMessageBox>{el.text}</GetMessageBox>
-              <MessageDate></MessageDate>
+              <MessageDate>{el.id}</MessageDate>
+              {/* <MessageDate>{el.timestamp?.seconds}</MessageDate> */}
             </div>
           </GetMessageWrapper>
         ))}
