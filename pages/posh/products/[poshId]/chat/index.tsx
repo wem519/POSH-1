@@ -24,6 +24,31 @@ const FETCHUSERLOGGEDIN = gql`
     }
   }
 `;
+const FETCH_USEDITEM = gql`
+  query fetchUseditem($useditemId: ID!) {
+    fetchUseditem(useditemId: $useditemId) {
+      images
+      price
+      name
+      contents
+      remarks
+      tags
+      _id
+      seller {
+        _id
+        name
+        picture
+      }
+      createdAt
+      useditemAddress {
+        zipcode
+        address
+        addressDetail
+      }
+      pickedCount
+    }
+  }
+`;
 const ChatInputWrapper = styled.div`
   display: flex;
   position: fixed;
@@ -79,7 +104,10 @@ const ChatWrapper = styled.div`
   margin-top: 10px;
   margin-bottom: 50px;
   overflow: auto;
-  height: 730px;
+  height: 700px;
+   ::-webkit-scrollbar {
+     display:none;
+   }
 `;
 
 const firebaseAppConfig = getFirebaseConfig();
@@ -94,19 +122,24 @@ export default function Chat() {
 
   const { data }: any = useQuery(FETCHUSERLOGGEDIN);
   // 메세지 state
+  const {data: product} = useQuery(FETCH_USEDITEM, {variables:{
+    useditemId: router.query.poshId,
+  }});
   const onChagemessage = (e: any) => {
     setMessage(e.target.value);
   };
 
   const name = data?.fetchUserLoggedIn.name;
   const picture = data?.fetchUserLoggedIn.picture;
+  const seller = product?.fetchUseditem.seller.name;
   async function saveMessage() {
     // Add a new message entry to the Firebase database.
     try {
       await addDoc(
-        collection(getFirestore(), `${router.query.poshId}${name}`),
+        collection(getFirestore(),  "chat"),
         {
-          name: name,
+          buyer: name,
+          seller: seller,
           text: message,
           profilePicUrl: picture,
           timestamp: serverTimestamp(),
@@ -121,7 +154,7 @@ export default function Chat() {
   function loadMessages() {
     // Create the query to load the last 12 messages and listen for new ones.
     const recentMessagesQuery = query(
-      collection(getFirestore(), `${router.query.poshId}${name}`),
+      collection(getFirestore(), "chat"),
       orderBy("timestamp", "asc"),
       limit(100)
     );

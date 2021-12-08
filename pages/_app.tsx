@@ -17,12 +17,12 @@ import Layout from "../src/components/commons/layout";
 
 const config = {
   /* TODO: ADD YOUR FIREBASE CONFIGURATION OBJECT HERE */
-  apiKey: "AIzaSyBiwONg7RJ91XFCfNF6h3hXQ9tCAhvx_6k",
-  authDomain: "posh-chat-test.firebaseapp.com",
-  projectId: "posh-chat-test",
-  storageBucket: "posh-chat-test.appspot.com",
-  messagingSenderId: "787562693241",
-  appId: "1:787562693241:web:1ef9a31e0e54bb26638aa8",
+  apiKey: "AIzaSyD2U2DKuB3Zd8KfhmAhKscoTYZi4qpT48o",
+  authDomain: "chat-test-43b4a.firebaseapp.com",
+  projectId: "chat-test-43b4a",
+  storageBucket: "chat-test-43b4a.appspot.com",
+  messagingSenderId: "453567476389",
+  appId: "1:453567476389:web:9a42daa361ac10b9e3134c",
 };
 
 export function getFirebaseConfig() {
@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // ---------------refreshToken -------------------
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03-team.codebootcamp.co.kr/team04prod",
+    uri: "https://backend03-team.codebootcamp.co.kr/team04",
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });

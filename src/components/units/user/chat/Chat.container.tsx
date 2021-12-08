@@ -1,3 +1,4 @@
+import {gql, useQuery} from "@apollo/client"
 import styled from "@emotion/styled";
 import { useState, useEffect, useRef } from "react";
 import { getFirebaseConfig } from "../../../../../pages/_app";
@@ -10,8 +11,20 @@ import {
   orderBy,
   limit,
   onSnapshot,
+  where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+
+
+const FETCHUSERLOGGEDIN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      picture
+      name
+    }
+  }
+`;
 
 const MessageWrapper = styled.div`
   display: flex;
@@ -59,14 +72,18 @@ getApps().length === 0 ? initializeApp(firebaseAppConfig) : getApp();
 export default function Chat() {
   const router = useRouter();
   const [messages, setMessages] = useState([]);
+  const { data }: any = useQuery(FETCHUSERLOGGEDIN);
+  const name = data?.fetchUserLoggedIn.name;
+  
 
   function loadMessages() {
     const recentMessagesQuery = query(
       // collection(getFirestore(), `6198ddb23095240029102447닭꼬치`),
-      collectionGroup(getFirestore(), "닭꼬치"),
+      collectionGroup(getFirestore(), "chat"),
+      where("buyer","==","닭꼬치"),
       orderBy("timestamp", "asc"),
-      limit(100)
-    );
+      limit(100));
+    
 
     onSnapshot(recentMessagesQuery, function (snapshot) {
       // @ts-ignore
