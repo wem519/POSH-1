@@ -17,12 +17,13 @@ import Layout from "../src/components/commons/layout";
 
 const config = {
   /* TODO: ADD YOUR FIREBASE CONFIGURATION OBJECT HERE */
-  apiKey: "AIzaSyD2U2DKuB3Zd8KfhmAhKscoTYZi4qpT48o",
-  authDomain: "chat-test-43b4a.firebaseapp.com",
-  projectId: "chat-test-43b4a",
-  storageBucket: "chat-test-43b4a.appspot.com",
-  messagingSenderId: "453567476389",
-  appId: "1:453567476389:web:9a42daa361ac10b9e3134c",
+  apiKey: "AIzaSyDlVEgWxAjU4WZQc2aCKDM9M4gqcw1-dU4",
+  authDomain: "posh-chat-2c1d9.firebaseapp.com",
+  databaseURL: "https://posh-chat-2c1d9-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "posh-chat-2c1d9",
+  storageBucket: "posh-chat-2c1d9.appspot.com",
+  messagingSenderId: "74907343514",
+  appId: "1:74907343514:web:0465c78408ca107ee05d23",
 };
 
 export function getFirebaseConfig() {

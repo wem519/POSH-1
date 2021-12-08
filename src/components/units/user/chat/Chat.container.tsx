@@ -1,4 +1,3 @@
-import {gql, useQuery} from "@apollo/client"
 import styled from "@emotion/styled";
 import { gql, useQuery } from "@apollo/client";
 import { useState, useEffect, useRef } from "react";
@@ -14,9 +13,6 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
-
-
-
 
 const FETCHUSERLOGGEDIN = gql`
   query fetchUserLoggedIn {
@@ -77,7 +73,6 @@ export default function Chat() {
   const { data }: any = useQuery(FETCHUSERLOGGEDIN);
   const name = data?.fetchUserLoggedIn.name;
 
-
   function loadMessages() {
     const recentMessagesQuery = query(
       collection(getFirestore(), `chatRoomDB`),
@@ -85,7 +80,6 @@ export default function Chat() {
       orderBy("timestamp", "asc"),
       limit(100)
     );
-    
 
     onSnapshot(recentMessagesQuery, function (snapshot) {
       // @ts-ignore
@@ -103,17 +97,16 @@ export default function Chat() {
 
   function onClickToChatRoom(event: any) {
     router.push(`/posh/products/${event.currentTarget.id}`);
-    console.log("확인", event.currentTarget.name);
   }
 
   useEffect(() => {
     loadMessages();
-  }, [name]);
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
+  console.log(messages);
   return (
     <>
       <ChatWrapper ref={msgRef}>
@@ -121,12 +114,12 @@ export default function Chat() {
           <MessageWrapper
             key={el.id}
             onClick={onClickToChatRoom}
-            id={`${el.productId}/chat/${el.name}`}
+            id={`${el.productId}/chat/${el.participants[1]}`}
           >
             <ProfileImg src={el.profilePicUrl} />
             <div>
               <NameAndTime>
-                <Name>{el.name}</Name>
+                <Name>{el.writer}</Name>
                 <LastTime>{el.id.slice(4, 15)}</LastTime>
               </NameAndTime>
               <Contents>{el.text}</Contents>
