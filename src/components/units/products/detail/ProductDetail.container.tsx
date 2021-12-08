@@ -44,7 +44,7 @@ export default function ProductDetail() {
     } else if(pickData?.fetchUseditemsIPicked.filter((el: any) => el._id === router.query.poshId).length !== 0){
       setPicked(true)
     } // prettier-ignore
-  }, [pickData]);
+  }, [pickData, userInfo]);
 
   function onClickToCommentPage() {
     router.push(`/posh/products/${router.query.poshId}/comment`);
@@ -108,7 +108,9 @@ export default function ProductDetail() {
   }
 
   function onClickToChat() {
-    router.push(`/posh/products/${router.query.poshId}/chat`);
+    router.push(
+      `/posh/products/${router.query.poshId}/chat/${userInfo?.fetchUserLoggedIn.name}`
+    );
   }
 
   return (
