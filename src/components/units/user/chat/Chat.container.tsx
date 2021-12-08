@@ -11,7 +11,6 @@ import {
   orderBy,
   limit,
   onSnapshot,
-  where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 
@@ -79,10 +78,10 @@ export default function Chat() {
   function loadMessages() {
     const recentMessagesQuery = query(
       // collection(getFirestore(), `6198ddb23095240029102447닭꼬치`),
-      collectionGroup(getFirestore(), "chat"),
-      where("buyer","==","닭꼬치"),
+      collectionGroup(getFirestore(), "닭꼬치"),
       orderBy("timestamp", "asc"),
-      limit(100));
+      limit(100)
+    );
     
 
     onSnapshot(recentMessagesQuery, function (snapshot) {
